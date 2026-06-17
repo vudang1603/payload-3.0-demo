@@ -35,13 +35,14 @@ function createLexicalState(text: string) {
   return {
     root: {
       type: 'root',
-      format: '',
+      format: '' as any,
       indent: 0,
       version: 1,
+      direction: 'ltr' as any,
       children: [
         {
           type: 'paragraph',
-          format: '',
+          format: '' as any,
           indent: 0,
           version: 1,
           children: [
@@ -105,7 +106,7 @@ async function run() {
         },
         file: {
           name: fileSpec.targetName,
-          MIMEType: 'image/png',
+          mimetype: 'image/png',
           data: fileBuffer,
           size: fileSize,
         },

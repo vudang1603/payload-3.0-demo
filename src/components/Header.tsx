@@ -1,6 +1,7 @@
 import { headers as getHeaders } from 'next/headers'
 import { getPayload } from 'payload'
 import React from 'react'
+import Link from 'next/link'
 import config from '@/payload.config'
 
 interface HeaderProps {
@@ -28,27 +29,27 @@ export const Header: React.FC<HeaderProps> = async ({ activeSlug }) => {
   return (
     <header className="header">
       <div className="logo-section">
-        <a href="/" className="brand-logo" style={{ textDecoration: 'none' }}>
+        <Link href="/" className="brand-logo" style={{ textDecoration: 'none' }}>
           ACT 3.0
-        </a>
+        </Link>
         <span className="badge">Headless CMS Demo</span>
       </div>
 
       <nav className="nav-menu">
-        <a href="/" className={`nav-link ${!activeSlug ? 'active' : ''}`}>
+        <Link href="/" className={`nav-link ${!activeSlug ? 'active' : ''}`}>
           Home
-        </a>
-        <a href="/blogs" className={`nav-link ${activeSlug === 'blogs' ? 'active' : ''}`}>
+        </Link>
+        <Link href="/blogs" className={`nav-link ${activeSlug === 'blogs' ? 'active' : ''}`}>
           Blogs
-        </a>
+        </Link>
         {navPages.map((page) => (
-          <a
+          <Link
             key={page.id}
             href={`/${page.slug}`}
             className={`nav-link ${activeSlug === page.slug ? 'active' : ''}`}
           >
             {page.title}
-          </a>
+          </Link>
         ))}
       </nav>
 

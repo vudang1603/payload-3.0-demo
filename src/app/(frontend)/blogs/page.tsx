@@ -1,5 +1,6 @@
 import { getPayload } from 'payload';
 import React from 'react';
+import Link from 'next/link';
 import config from '@/payload.config';
 import { Header } from '@/components/Header';
 import '../styles.css';
@@ -57,7 +58,7 @@ export default async function BlogsPage() {
                     ? post.featuredImage.url
                     : null;
                 return (
-                  <a key={post.id} href={`/blogs/${post.slug}`} className="blog-card card">
+                  <Link key={post.id} href={`/blogs/${post.slug}`} className="blog-card card">
                     <div className="card-header">
                       {imageUrl ? (
                         <div className="card-logo">
@@ -73,7 +74,7 @@ export default async function BlogsPage() {
                       <h3>{post.title}</h3>
                       {excerpt && <div className="description">{excerpt}</div>}
                     </div>
-                  </a>
+                  </Link>
                 );
               })}
             </div>

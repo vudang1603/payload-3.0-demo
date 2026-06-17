@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 type HeroProps = {
   title: string
@@ -31,9 +32,9 @@ export const Hero: React.FC<HeroProps> = ({
         {subtitle && <p className="hero-subtitle">{subtitle}</p>}
         {ctaText && ctaLink && (
           <div className="hero-cta">
-            <a className="btn btn-primary btn-large" href={ctaLink}>
+            <Link className="btn btn-primary btn-large" href={ctaLink}>
               {ctaText}
-            </a>
+            </Link>
           </div>
         )}
       </div>
