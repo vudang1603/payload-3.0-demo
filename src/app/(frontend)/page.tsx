@@ -105,16 +105,12 @@ export default async function HomePage() {
 
                 return (
                   <div key={item.id} className="card">
+                    {logoUrl && (
+                      <div className="card-image-wrapper">
+                        <img src={logoUrl} alt={`${item.name} logo`} />
+                      </div>
+                    )}
                     <div className="card-header">
-                      {logoUrl ? (
-                        <div className="card-logo">
-                          <img src={logoUrl} alt={`${item.name} logo`} />
-                        </div>
-                      ) : (
-                        <div className="card-logo-placeholder">
-                          {item.name.charAt(0)}
-                        </div>
-                      )}
                       <span className={`tag tag-${item.sectors}`}>{sectorLabel}</span>
                     </div>
                     <div className="card-body">
@@ -165,17 +161,11 @@ export default async function HomePage() {
                 const imageUrl = getImageUrl(post.featuredImage, 'collaboration.png')
                 return (
                   <Link key={post.id} href={`/blogs/${post.slug}`} className="blog-card card">
-                    <div className="card-header">
-                      {imageUrl ? (
-                        <div className="card-logo">
-                          <img src={imageUrl} alt={`${post.title} image`} />
-                        </div>
-                      ) : (
-                        <div className="card-logo-placeholder">
-                          {post.title.charAt(0)}
-                        </div>
-                      )}
-                    </div>
+                    {imageUrl && (
+                      <div className="card-image-wrapper">
+                        <img src={imageUrl} alt={`${post.title} image`} />
+                      </div>
+                    )}
                     <div className="card-body">
                       <h3>{post.title}</h3>
                       {excerpt && <div className="description">{excerpt}</div>}
