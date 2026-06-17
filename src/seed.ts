@@ -5,27 +5,23 @@ import { getPayload } from 'payload'
 import fs from 'fs'
 import path from 'path'
 
-const brainPath = 'C:\\Users\\Admin\\.gemini\\antigravity-ide\\brain\\41470be6-0392-44d0-b73d-a3f211fd8a8c'
+const mediaDir = path.join(process.cwd(), 'media')
 
 const filesToUpload = [
   {
-    originalName: 'media__1781674198928.png',
-    targetName: 'collaboration.png',
+    fileName: 'collaboration.png',
     alt: 'ACT Collaboration and Teamwork',
   },
   {
-    originalName: 'media__1781674205436.png',
-    targetName: 'education.png',
+    fileName: 'education.png',
     alt: 'EduTech Student with Device',
   },
   {
-    originalName: 'media__1781674211345.png',
-    targetName: 'environment.png',
+    fileName: 'environment.png',
     alt: 'Hands holding growing sprouts',
   },
   {
-    originalName: 'media__1781674216238.png',
-    targetName: 'healthcare.png',
+    fileName: 'healthcare.png',
     alt: 'Patient consulting doctor via phone',
   },
 ]
@@ -94,7 +90,7 @@ async function run() {
   const mediaMap: Record<string, any> = {}
 
   for (const fileSpec of filesToUpload) {
-    const srcPath = path.join(brainPath, fileSpec.originalName)
+    const srcPath = path.join(mediaDir, fileSpec.fileName)
     if (fs.existsSync(srcPath)) {
       const fileBuffer = fs.readFileSync(srcPath)
       const fileSize = fs.statSync(srcPath).size
@@ -105,14 +101,14 @@ async function run() {
           alt: fileSpec.alt,
         },
         file: {
-          name: fileSpec.targetName,
+          name: fileSpec.fileName,
           mimetype: 'image/png',
           data: fileBuffer,
           size: fileSize,
         },
       })
-      mediaMap[fileSpec.targetName] = mediaDoc
-      console.log(`Uploaded media: ${fileSpec.targetName} (ID: ${mediaDoc.id})`)
+      mediaMap[fileSpec.fileName] = mediaDoc
+      console.log(`Uploaded media: ${fileSpec.fileName} (ID: ${mediaDoc.id})`)
     } else {
       console.warn(`File not found: ${srcPath}`)
     }

@@ -41,7 +41,7 @@ next-env.d.ts
 .env
 payload.db
 
-/media
+# /media - removed so images are available for build-time seeding
 
 # Playwright
 node_modules/
