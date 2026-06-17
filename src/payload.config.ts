@@ -31,6 +31,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    schemaName: 'payload',
   }),
   sharp,
   localization: {
