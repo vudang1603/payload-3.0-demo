@@ -3,6 +3,7 @@ import React from 'react';
 import config from '@/payload.config';
 import { getImageUrl } from '@/utils/imageUrl';
 import { Header } from '@/components/Header';
+import { RichText } from '@/components/RichText';
 import '../../styles.css';
 
 // Helper to extract plain text preview from Lexical Editor JSON state
@@ -64,12 +65,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
             </div>
           )}
           <div className="blog-content" style={{ marginTop: '1rem' }}>
-            {/* Assume rich text content is rendered as HTML; if payload provides raw JSON, you'd need a renderer */}
-            {typeof blog.content === 'string' ? (
-              <div dangerouslySetInnerHTML={{ __html: blog.content }} />
-            ) : (
-              <div>{getPreviewText(blog.content)}</div>
-            )}
+            <RichText content={blog.content} />
           </div>
         </section>
       </main>
