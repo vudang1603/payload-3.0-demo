@@ -66,6 +66,9 @@ export default async function BlogsPage() {
                       <h3>{post.title}</h3>
                       {excerpt && <div className="description">{excerpt}</div>}
                     </div>
+                    <div className="blog-card-footer">
+                      Read Article →
+                    </div>
                   </Link>
                 );
               })}
