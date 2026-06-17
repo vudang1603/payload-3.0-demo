@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import React from 'react'
 import Link from 'next/link'
+import { getImageUrl } from '@/utils/imageUrl'
 
 import config from '@/payload.config'
 import { Header } from '@/components/Header'
@@ -94,10 +95,13 @@ export default async function HomePage() {
                   : null
 
                 // Resolve logo URL
-                const logoUrl =
-                  item.logo && typeof item.logo === 'object' && 'url' in item.logo
-                    ? item.logo.url
-                    : null
+                const defaultImage = {
+                  health: 'healthcare.png',
+                  education: 'education.png',
+                  environment: 'environment.png',
+                }[item.sectors] || 'logo.png'
+
+                const logoUrl = getImageUrl(item.logo, defaultImage)
 
                 return (
                   <div key={item.id} className="card">
@@ -158,10 +162,7 @@ export default async function HomePage() {
             <div className="grid">
               {blogs.map((post) => {
                 const excerpt = post.excerpt || getPreviewText(post.content);
-                const imageUrl =
-                  post.featuredImage && typeof post.featuredImage === 'object' && 'url' in post.featuredImage
-                    ? post.featuredImage.url
-                    : null;
+                const imageUrl = getImageUrl(post.featuredImage, 'collaboration.png')
                 return (
                   <Link key={post.id} href={`/blogs/${post.slug}`} className="blog-card card">
                     <div className="card-header">

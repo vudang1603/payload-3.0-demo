@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { getImageUrl } from '@/utils/imageUrl'
 
 type HeroProps = {
   title: string
@@ -16,10 +17,7 @@ export const Hero: React.FC<HeroProps> = ({
   ctaText,
   ctaLink,
 }) => {
-  const imageUrl =
-    backgroundImage && typeof backgroundImage === 'object' && 'url' in backgroundImage
-      ? backgroundImage.url
-      : null
+  const imageUrl = getImageUrl(backgroundImage, 'collaboration.png')
 
   const sectionStyle = imageUrl
     ? { backgroundImage: `linear-gradient(rgba(9, 9, 11, 0.85), rgba(9, 9, 11, 0.98)), url(${imageUrl})` }

@@ -2,6 +2,7 @@ import { getPayload } from 'payload';
 import React from 'react';
 import Link from 'next/link';
 import config from '@/payload.config';
+import { getImageUrl } from '@/utils/imageUrl';
 import { Header } from '@/components/Header';
 import '../styles.css';
 
@@ -53,10 +54,7 @@ export default async function BlogsPage() {
             <div className="grid">
               {blogs.map((post) => {
                 const excerpt = post.excerpt || getPreviewText(post.content);
-                const imageUrl =
-                  post.featuredImage && typeof post.featuredImage === 'object' && 'url' in post.featuredImage
-                    ? post.featuredImage.url
-                    : null;
+                const imageUrl = getImageUrl(post.featuredImage, 'collaboration.png');
                 return (
                   <Link key={post.id} href={`/blogs/${post.slug}`} className="blog-card card">
                     <div className="card-header">

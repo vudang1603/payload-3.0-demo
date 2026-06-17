@@ -1,6 +1,7 @@
 import { getPayload } from 'payload';
 import React from 'react';
 import config from '@/payload.config';
+import { getImageUrl } from '@/utils/imageUrl';
 import { Header } from '@/components/Header';
 import '../../styles.css';
 
@@ -49,10 +50,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
     );
   }
 
-  const imageUrl =
-    blog.featuredImage && typeof blog.featuredImage === 'object' && 'url' in blog.featuredImage
-      ? blog.featuredImage.url
-      : null;
+  const imageUrl = getImageUrl(blog.featuredImage, 'collaboration.png');
 
   return (
     <div className="container">
