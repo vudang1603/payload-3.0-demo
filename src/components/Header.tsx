@@ -39,18 +39,18 @@ export const Header: React.FC<HeaderProps> = async ({ activeSlug }) => {
         <Link href="/" className={`nav-link ${!activeSlug ? 'active' : ''}`}>
           Home
         </Link>
-        <a href="/#about" className="nav-link">
+        <Link href="/#about" className="nav-link">
           About ACT
-        </a>
-        <a href="/#focus-areas" className="nav-link">
+        </Link>
+        <Link href="/#focus-areas" className="nav-link">
           Focus Areas
-        </a>
-        <a href="/#portfolio" className="nav-link">
+        </Link>
+        <Link href="/#portfolio" className="nav-link">
           Our Work
-        </a>
-        <a href="/#engagement-pathways" className="nav-link">
+        </Link>
+        <Link href="/#engagement-pathways" className="nav-link">
           Engagement
-        </a>
+        </Link>
         <Link href="/blogs" className={`nav-link ${activeSlug === 'blogs' ? 'active' : ''}`}>
           Insights
         </Link>
