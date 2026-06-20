@@ -37,7 +37,7 @@ export default buildConfig({
     ? postgresAdapter({
         pool: {
           connectionString: process.env.DATABASE_URI || '',
-          max: 4, // Giới hạn số lượng kết nối đồng thời tối đa cho mỗi instance
+          // max: 4, // Giới hạn số lượng kết nối đồng thời tối đa cho mỗi instance
           idleTimeoutMillis: 10000, // Đóng kết nối nhàn rỗi sau 10 giây để tránh rò rỉ kết nối
           connectionTimeoutMillis: 5000, // Tránh treo request nếu không kết nối được
         },
