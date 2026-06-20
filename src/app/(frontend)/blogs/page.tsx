@@ -1,5 +1,5 @@
 import { getPayload } from 'payload';
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import config from '@/payload.config';
 import { getImageUrl } from '@/utils/imageUrl';
@@ -28,7 +28,7 @@ const getPreviewText = (richText: any) => {
   return 'View details in CMS';
 };
 
-export default async function BlogsPage() {
+async function BlogsContent() {
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
 
@@ -40,6 +40,45 @@ export default async function BlogsPage() {
   });
   const blogs = blogData.docs;
 
+  return (
+    <section className="blog-section">
+      <div className="section-title-wrapper">
+        <h2>All Articles <span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: '1.25rem' }}>({blogs.length})</span></h2>
+        <p className="section-subtitle">Browse our latest thinking, portfolio stories, and grant announcements.</p>
+      </div>
+      {blogs.length === 0 ? (
+        <div className="empty-state">
+          <p>No blog posts found. Add posts via the <Link href="/admin" className="btn btn-primary" style={{ display: 'inline-block', marginTop: '1rem' }}>CMS Admin Panel</Link>.</p>
+        </div>
+      ) : (
+        <div className="grid">
+          {blogs.map((post) => {
+            const excerpt = post.excerpt || getPreviewText(post.content);
+            const imageUrl = getImageUrl(post.featuredImage, 'collaboration.png');
+            return (
+              <Link key={post.id} href={`/blogs/${post.slug}`} className="blog-card card">
+                {imageUrl && (
+                  <div className="card-image-wrapper">
+                    <img src={imageUrl} alt={`${post.title} image`} />
+                  </div>
+                )}
+                <div className="card-body">
+                  <h3>{post.title}</h3>
+                  {excerpt && <div className="description">{excerpt}</div>}
+                </div>
+                <div className="blog-card-footer">
+                  Read Article →
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      )}
+    </section>
+  );
+}
+
+export default async function BlogsPage() {
   return (
     <div className="container">
       <Header activeSlug="blogs" />
@@ -66,41 +105,33 @@ export default async function BlogsPage() {
           </div>
         </section>
 
-        {/* Blog Grid */}
-        <section className="blog-section">
-          <div className="section-title-wrapper">
-            <h2>All Articles <span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: '1.25rem' }}>({blogs.length})</span></h2>
-            <p className="section-subtitle">Browse our latest thinking, portfolio stories, and grant announcements.</p>
-          </div>
-          {blogs.length === 0 ? (
-            <div className="empty-state">
-              <p>No blog posts found. Add posts via the <Link href="/admin" className="btn btn-primary" style={{ display: 'inline-block', marginTop: '1rem' }}>CMS Admin Panel</Link>.</p>
+        {/* Dynamic content inside Suspense to trigger instant loading skeleton */}
+        <Suspense fallback={
+          <section className="blog-section">
+            <div className="section-title-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '2rem' }}>
+              <div className="skeleton-title skeleton-shimmer" style={{ width: '250px', height: '2rem', marginBottom: '0.75rem' }} />
+              <div className="skeleton-text skeleton-shimmer" style={{ width: '380px', height: '0.9rem' }} />
             </div>
-          ) : (
+
             <div className="grid">
-              {blogs.map((post) => {
-                const excerpt = post.excerpt || getPreviewText(post.content);
-                const imageUrl = getImageUrl(post.featuredImage, 'collaboration.png');
-                return (
-                  <Link key={post.id} href={`/blogs/${post.slug}`} className="blog-card card">
-                    {imageUrl && (
-                      <div className="card-image-wrapper">
-                        <img src={imageUrl} alt={`${post.title} image`} />
-                      </div>
-                    )}
-                    <div className="card-body">
-                      <h3>{post.title}</h3>
-                      {excerpt && <div className="description">{excerpt}</div>}
-                    </div>
-                    <div className="blog-card-footer">
-                      Read Article →
-                    </div>
-                  </Link>
-                );
-              })}
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="skeleton-card">
+                  <div className="skeleton-card-img skeleton-shimmer" />
+                  <div className="skeleton-card-body">
+                    <div className="skeleton-card-title skeleton-shimmer" />
+                    <div className="skeleton-card-desc skeleton-shimmer" />
+                    <div className="skeleton-card-desc skeleton-shimmer" style={{ width: '70%' }} />
+                  </div>
+                  <div className="skeleton-card-footer">
+                    <div className="skeleton-card-button skeleton-shimmer" />
+                  </div>
+                </div>
+              ))}
             </div>
-          )}
-        </section>
+          </section>
+        }>
+          <BlogsContent />
+        </Suspense>
 
       </main>
 

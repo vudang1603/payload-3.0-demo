@@ -111,9 +111,8 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
         ))}
       </div>
 
-      {/* Explore Portfolio CTA */}
       <div className="explore-portfolio-wrapper">
-        <a href="#portfolio-grid" className="btn btn-primary">Explore Portfolio</a>
+        <button className="btn btn-primary" data-coming-soon>Explore Portfolio</button>
       </div>
 
       {/* Dynamic Portfolios Section */}

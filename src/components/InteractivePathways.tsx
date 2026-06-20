@@ -85,6 +85,7 @@ export const InteractivePathways: React.FC = () => {
                     className="pathway-cta-arrow"
                     onClick={(e) => e.stopPropagation()}
                     aria-label={`Go to ${data.label}`}
+                    data-coming-soon
                   >
                     ↗
                   </a>
