@@ -6,6 +6,7 @@ import config from '@/payload.config'
 import { Hero } from '@/components/Hero'
 import { Banner } from '@/components/Banner'
 import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
 import '../styles.css'
 
 async function DynamicPageContent({ slug, adminRoute }: { slug: string; adminRoute: string }) {
@@ -116,9 +117,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
         </Suspense>
       </main>
 
-      <footer className="page-footer">
-        <p>Built with Next.js App Router & Payload CMS 3.x using SQLite.</p>
-      </footer>
+      <Footer />
     </div>
   )
 }

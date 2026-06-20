@@ -4,6 +4,7 @@ import Link from 'next/link';
 import config from '@/payload.config';
 import { getImageUrl } from '@/utils/imageUrl';
 import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import '../styles.css';
 
 // Helper to extract plain text preview from Lexical Editor JSON state
@@ -135,9 +136,7 @@ export default async function BlogsPage() {
 
       </main>
 
-      <footer className="page-footer">
-        <p>Built with Next.js App Router &amp; Payload CMS 3.x using SQLite.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

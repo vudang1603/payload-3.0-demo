@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import config from '@/payload.config';
 import { getImageUrl } from '@/utils/imageUrl';
 import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import { RichText } from '@/components/RichText';
 import '../../styles.css';
 
@@ -70,6 +71,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           <BlogContent slug={slug} />
         </Suspense>
       </main>
+      <Footer />
     </div>
   );
 }

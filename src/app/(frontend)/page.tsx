@@ -5,6 +5,7 @@ import { getImageUrl } from '@/utils/imageUrl';
 
 import config from '@/payload.config';
 import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import { InteractivePortfolio } from '@/components/InteractivePortfolio';
 import { InteractivePathways } from '@/components/InteractivePathways';
 import './styles.css';
@@ -385,9 +386,7 @@ export default async function HomePage() {
         <InteractivePathways />
       </main>
 
-      <footer className="page-footer">
-        <p>Built with Next.js App Router &amp; Payload CMS 3.x using SQLite.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

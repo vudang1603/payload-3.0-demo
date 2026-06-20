@@ -76,3 +76,17 @@ npm run dev
 # Seed local SQLite database with fresh mock data
 npm run seed
 ```
+
+---
+
+## 6. Build & Deployment Lessons
+
+### 1. Database Connection Limit (Supabase)
+* **Problem**: Supabase's free tier has a strict concurrent connection limit (15 sessions) in Session Mode (port `5432`). Running multiple serverless function instances on Netlify or parallel page generation threads during `npm run build` easily triggers `EMAXCONNSESSION (max clients reached)` and crashes the site with a 500 error.
+* **Resolution**: Change the connection port in the Netlify `DATABASE_URI` environment variable from `:5432` to **`:6543`** (Transaction Mode). Transaction Mode uses connection pooling on Supabase side, which safely scales up to hundreds of concurrent connections and completely resolves the error without requiring custom pool constraints or code edits.
+
+### 2. Next.js Internal Link Linter
+* **Problem**: Next.js linter rejects standard `<a>` tags for internal paths starting with `/` (e.g. `href="/#about"`), leading to build failures (`@next/next/no-html-link-for-pages`).
+* **Resolution**: Always use the Next.js `<Link>` component from `next/link` for internal page navigation and hash anchors (e.g. `<Link href="/#about">About ACT</Link>`).
+
+
