@@ -48,7 +48,7 @@ export const InteractivePathways: React.FC = () => {
   ];
 
   return (
-    <section className="engagement-pathways-section">
+    <section className="engagement-pathways-section" id="engagement-pathways">
       <div className="section-title-wrapper">
         <h2><span style={{ color: 'var(--primary)' }}>Engagement</span> pathways</h2>
         <p className="section-subtitle">

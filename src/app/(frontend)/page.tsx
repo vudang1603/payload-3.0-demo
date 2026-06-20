@@ -154,7 +154,7 @@ export default async function HomePage() {
         </section>
 
         {/* Section: What ACT does */}
-        <section className="what-act-does-section">
+        <section className="what-act-does-section" id="about">
           <div className="section-title-wrapper">
             <h2>What ACT <span style={{ color: 'var(--primary)' }}>does</span></h2>
             <p className="section-subtitle">
@@ -197,7 +197,7 @@ export default async function HomePage() {
         </section>
 
         {/* Section: Focus areas */}
-        <section className="focus-areas-section">
+        <section className="focus-areas-section" id="focus-areas">
           <div className="section-title-wrapper">
             <h2>Focus <span style={{ color: 'var(--primary)' }}>areas</span></h2>
             <p className="section-subtitle">
