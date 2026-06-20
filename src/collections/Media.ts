@@ -1,4 +1,7 @@
 import type { CollectionConfig } from 'payload'
+import path from 'path'
+
+const isProduction = process.env.NODE_ENV === 'production'
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -12,5 +15,7 @@ export const Media: CollectionConfig = {
       required: true,
     },
   ],
-  upload: true,
+  upload: {
+    staticDir: isProduction ? '/tmp/media' : path.resolve('./public/media'),
+  },
 }

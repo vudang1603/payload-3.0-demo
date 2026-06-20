@@ -89,4 +89,8 @@ npm run seed
 * **Problem**: Next.js linter rejects standard `<a>` tags for internal paths starting with `/` (e.g. `href="/#about"`), leading to build failures (`@next/next/no-html-link-for-pages`).
 * **Resolution**: Always use the Next.js `<Link>` component from `next/link` for internal page navigation and hash anchors (e.g. `<Link href="/#about">About ACT</Link>`).
 
+### 3. Serverless Media Upload & Schema Evolution (Zero-Migration)
+* **Problem**: Adding new schema fields like `externalUrl` to the `Media` collection triggers queries looking for `external_url` in PostgreSQL. If the database schema is not migrated in production, this crashes the application with a 500 error (`column "external_url" does not exist`). Running database migrations on serverless setups like Netlify is complex and carries schema desync risk.
+* **Resolution**: Revert the new field from the Payload schema so Payload no longer queries the database for it. Instead, leverage a zero-migration workaround by parsing the existing `alt` text field in `src/utils/imageUrl.ts`. If `image.alt` starts with `http://` or `https://`, return it directly as the image URL. This enables dynamic external image sourcing in production with no database migrations or schema adjustments.
+
 

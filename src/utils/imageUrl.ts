@@ -32,14 +32,24 @@ export const getImageUrl = (image: any, defaultFallback?: string): string | null
     return defaultFallback ? getLiveUrl(defaultFallback) : null;
   }
 
-  // If the image is a string (ID), we cannot resolve the filename directly,
-  // so we fallback to a default image.
+  // If the image is a string (could be an ID or direct URL)
   if (typeof image === 'string') {
+    if (image.startsWith('http://') || image.startsWith('https://')) {
+      return image;
+    }
     return defaultFallback ? getLiveUrl(defaultFallback) : null;
   }
 
   // If the image is an object
   if (typeof image === 'object') {
+    // Zero-migration workaround: use alt field as external URL container if it is a URL
+    if ('alt' in image && typeof image.alt === 'string' && (image.alt.startsWith('http://') || image.alt.startsWith('https://'))) {
+      return image.alt;
+    }
+    // Return externalUrl directly if provided (for backward compatibility)
+    if ('externalUrl' in image && image.externalUrl) {
+      return image.externalUrl;
+    }
     if ('filename' in image && image.filename) {
       return getLiveUrl(image.filename);
     }
