@@ -240,7 +240,7 @@ export default async function HomePage() {
         </section>
 
         {/* Section: Portfolio proof (Dynamic Portfolios & Community) */}
-        <InteractivePortfolio initialPortfolios={portfolios} />
+        <InteractivePortfolio initialPortfolios={portfolios as any} />
 
         {/* Section: Impact */}
         <section className="impact-section">

@@ -74,7 +74,7 @@ export default async function BlogsPage() {
           </div>
           {blogs.length === 0 ? (
             <div className="empty-state">
-              <p>No blog posts found. Add posts via the <a href="/admin" className="btn btn-primary" style={{ display: 'inline-block', marginTop: '1rem' }}>CMS Admin Panel</a>.</p>
+              <p>No blog posts found. Add posts via the <Link href="/admin" className="btn btn-primary" style={{ display: 'inline-block', marginTop: '1rem' }}>CMS Admin Panel</Link>.</p>
             </div>
           ) : (
             <div className="grid">

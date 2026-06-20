@@ -78,7 +78,7 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
       <div className="section-title-wrapper">
         <h2>Portfolio <span style={{ color: 'var(--primary)' }}>proof</span></h2>
         <p className="section-subtitle">
-          Backed by India's leading venture capitalists, startup founders, ecosystem leaders, and domain experts.
+          Backed by India&apos;s leading venture capitalists, startup founders, ecosystem leaders, and domain experts.
         </p>
       </div>
 
