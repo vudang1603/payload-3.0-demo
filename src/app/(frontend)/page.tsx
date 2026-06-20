@@ -9,17 +9,44 @@ import { InteractivePortfolio } from '@/components/InteractivePortfolio';
 import { InteractivePathways } from '@/components/InteractivePathways';
 import './styles.css';
 
+interface LexicalTextNode {
+  text?: string;
+  [key: string]: unknown;
+}
+
+interface LexicalChildNode {
+  children?: LexicalTextNode[];
+  [key: string]: unknown;
+}
+
+interface LexicalRichText {
+  root?: {
+    children?: LexicalChildNode[];
+  };
+}
+
+interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt?: string;
+  content?: unknown;
+  featuredImage?: unknown;
+}
+
 // Helper to extract plain text preview from Lexical Editor JSON state
-const getPreviewText = (richText: any) => {
+const getPreviewText = (richText: unknown): string => {
   if (!richText) return '';
   try {
     if (typeof richText === 'string') return richText;
-    const root = richText.root;
+    
+    const lexicalJson = richText as LexicalRichText;
+    const root = lexicalJson.root;
     if (root && root.children) {
       return root.children
-        .map((child: any) => {
+        .map((child) => {
           if (child.children) {
-            return child.children.map((c: any) => c.text || '').join('');
+            return child.children.map((c) => c.text || '').join('');
           }
           return '';
         })
@@ -51,14 +78,14 @@ export default async function HomePage() {
     limit: 100,
     sort: '-createdAt',
   });
-  const blogs = blogData.docs;
+  const blogs = blogData.docs as unknown as BlogPost[];
 
   return (
     <div className="container">
       <Header />
 
       <main className="main">
-              {/* Redesigned Hero Section */}
+        {/* Redesigned Hero Section */}
         <section
           className="hero-block"
           style={{
@@ -115,7 +142,7 @@ export default async function HomePage() {
               </div>
               <h3>Collectives</h3>
               <p>
-                Building collaborative groups focused on solving systemic social problems in education, healthcare, environment, and women's empowerment.
+                Building collaborative groups focused on solving systemic social problems in education, healthcare, environment, and women{"'"}s empowerment.
               </p>
             </div>
           </div>
@@ -125,7 +152,7 @@ export default async function HomePage() {
           </div>
         </section>
 
-                {/* Section: Focus areas */}
+        {/* Section: Focus areas */}
         <section className="focus-areas-section">
           <div className="section-title-wrapper">
             <h2>Focus <span style={{ color: 'var(--primary)' }}>areas</span></h2>
@@ -142,7 +169,7 @@ export default async function HomePage() {
               <div className="focus-expand-content">
                 <div className="focus-tag">01 / Education</div>
                 <h3 className="focus-expand-title">Education</h3>
-                <p className="focus-expand-desc">Accelerating learning outcomes by leveraging technology and digital tools to reach children in India's most underserved communities.</p>
+                <p className="focus-expand-desc">Accelerating learning outcomes by leveraging technology and digital tools to reach children in India{"'"}s most underserved communities.</p>
                 <div className="focus-expand-arrow">↗</div>
               </div>
             </div>
@@ -215,12 +242,12 @@ export default async function HomePage() {
         {/* Section: Portfolio proof (Dynamic Portfolios & Community) */}
         <InteractivePortfolio initialPortfolios={portfolios} />
 
-                {/* Section: Impact */}
+        {/* Section: Impact */}
         <section className="impact-section">
           <div className="impact-card">
             <div className="impact-content">
               <h2 className="impact-title-main">Impact</h2>
-              <p>Through flexible capital and deep ecosystem network support, we have scaled tech innovations across India's remote and rural districts.</p>
+              <p>Through flexible capital and deep ecosystem network support, we have scaled tech innovations across India{"'"}s remote and rural districts.</p>
               <div className="impact-stats-grid">
                 <div className="stat-item">
                   <div className="stat-num">75+</div>
@@ -243,7 +270,7 @@ export default async function HomePage() {
           </div>
         </section>
 
-                {/* Section: Stories from the field */}
+        {/* Section: Stories from the field */}
         <section className="stories-section">
           <div className="section-title-wrapper">
             <h2><span style={{ color: 'var(--primary)' }}>Stories</span> from the field</h2>
@@ -255,7 +282,7 @@ export default async function HomePage() {
               <img src="https://actgrants.in/wp-content/uploads/2023/07/ACT-For-Women-1-2.jpg" alt="Collaboration banner" />
               <div className="story-banner-overlay">
                 <span className="badge" style={{ background: 'var(--primary)', color: 'white', marginBottom: '0.5rem', display: 'inline-flex' }}>Seed funding</span>
-                <h3>Founder's story</h3>
+                <h3>Founder{"'"}s story</h3>
               </div>
               <div className="story-nav-arrow">
                 <span>→</span>
@@ -263,7 +290,7 @@ export default async function HomePage() {
             </div>
             <div className="story-body">
               <p className="story-quote">
-                "ACT has been an instrumental partner in our journey. Beyond capital, their access to corporate advisors and policy mentorship accelerated our growth and helped us deploy learning tablets to over 100,000 students in remote rural schools."
+                {`"`}ACT has been an instrumental partner in our journey. Beyond capital, their access to corporate advisors and policy mentorship accelerated our growth and helped us deploy learning tablets to over 100,000 students in remote rural schools.{`"`}
               </p>
               <div className="story-author">
                 <img src="https://actgrants.in/wp-content/uploads/2023/06/Utsav-Kheria.png" alt="Utsav Kheria" className="author-avatar" />
@@ -276,7 +303,7 @@ export default async function HomePage() {
           </div>
         </section>
 
-                {/* Section: Latest insights (Dynamic Blogs) */}
+        {/* Section: Latest insights (Dynamic Blogs) */}
         <section className="blog-section">
           <div className="section-title-wrapper">
             <h2>Latest <span style={{ color: 'var(--primary)' }}>insights</span></h2>
@@ -316,7 +343,7 @@ export default async function HomePage() {
       </main>
 
       <footer className="page-footer">
-        <p>Built with Next.js App Router & Payload CMS 3.x using PostgreSQL.</p>
+        <p>Built with Next.js App Router &amp; Payload CMS 3.x using PostgreSQL.</p>
       </footer>
     </div>
   );
