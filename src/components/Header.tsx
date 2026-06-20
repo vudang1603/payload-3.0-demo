@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = async ({ activeSlug }) => {
     <header className="header">
       <div className="logo-section">
         <Link href="/" className="brand-logo" style={{ textDecoration: 'none' }}>
-          ACT 3.0
+          <img src="https://actgrants.in/wp-content/themes/act/images/logo.png" alt="ACT logo" className="logo-image" />
         </Link>
         <span className="badge">Headless CMS Demo</span>
       </div>

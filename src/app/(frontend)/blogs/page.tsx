@@ -44,11 +44,37 @@ export default async function BlogsPage() {
     <div className="container">
       <Header activeSlug="blogs" />
       <main className="main">
+
+        {/* Page Hero Banner */}
+        <section
+          className="hero-block"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('https://actgrants.in/wp-content/uploads/2023/06/Collabration.png')`,
+            minHeight: '280px',
+            paddingTop: '3rem',
+            paddingBottom: '3rem',
+          }}
+        >
+          <div className="hero-block-content" style={{ textAlign: 'center' }}>
+            <div className="badge" style={{ margin: '0 auto 1rem auto', display: 'inline-flex' }}>
+              Insights &amp; Updates
+            </div>
+            <h1 style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>Our Blog</h1>
+            <p className="hero-subtitle" style={{ maxWidth: '580px', margin: '0 auto' }}>
+              Updates, announcements, research, and stories from the ACT Grants team and community.
+            </p>
+          </div>
+        </section>
+
+        {/* Blog Grid */}
         <section className="blog-section">
-          <h2>All Blogs ({blogs.length})</h2>
+          <div className="section-title-wrapper">
+            <h2>All Articles <span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: '1.25rem' }}>({blogs.length})</span></h2>
+            <p className="section-subtitle">Browse our latest thinking, portfolio stories, and grant announcements.</p>
+          </div>
           {blogs.length === 0 ? (
             <div className="empty-state">
-              <p>No blog posts found.</p>
+              <p>No blog posts found. Add posts via the <a href="/admin" className="btn btn-primary" style={{ display: 'inline-block', marginTop: '1rem' }}>CMS Admin Panel</a>.</p>
             </div>
           ) : (
             <div className="grid">
@@ -75,7 +101,12 @@ export default async function BlogsPage() {
             </div>
           )}
         </section>
+
       </main>
+
+      <footer className="page-footer">
+        <p>Built with Next.js App Router &amp; Payload CMS 3.x using SQLite.</p>
+      </footer>
     </div>
   );
 }

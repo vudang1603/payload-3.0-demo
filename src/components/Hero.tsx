@@ -20,7 +20,7 @@ export const Hero: React.FC<HeroProps> = ({
   const imageUrl = getImageUrl(backgroundImage, 'collaboration.png')
 
   const sectionStyle = imageUrl
-    ? { backgroundImage: `linear-gradient(rgba(9, 9, 11, 0.85), rgba(9, 9, 11, 0.98)), url(${imageUrl})` }
+    ? { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)), url(${imageUrl})` }
     : {}
 
   return (
