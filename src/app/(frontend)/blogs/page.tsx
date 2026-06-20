@@ -49,7 +49,7 @@ export default async function BlogsPage() {
         <section
           className="hero-block"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('https://actgrants.in/wp-content/uploads/2023/06/Collabration.png')`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('https://actgrants.in/wp-content/uploads/2023/09/Home.jpg')`,
             minHeight: '280px',
             paddingTop: '3rem',
             paddingBottom: '3rem',
