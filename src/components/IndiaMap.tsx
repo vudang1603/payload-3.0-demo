@@ -41,7 +41,7 @@ export const IndiaMap: React.FC = () => {
     >
       {INDIA_STATES.map((st) => {
         const isActive = active === st.id
-        const fill = isActive ? (st.id === DEFAULT_ID ? '#C2188F' : '#E0A93B') : '#D9D0F2'
+        const fill = isActive ? '#C2188F' : '#D9D0F2'
         return (
           <path
             key={st.id}
@@ -63,9 +63,7 @@ export const IndiaMap: React.FC = () => {
             }}
             onBlur={resetToDefault}
             tabIndex={0}
-          >
-            <title>{st.name}</title>
-          </path>
+          />
         )
       })}
 

@@ -12,7 +12,7 @@ type Story = {
 const MOCK_STORIES: Story[] = [
   {
     id: 1,
-    image: 'https://actgrants.in/wp-content/uploads/2023/07/ACT-For-Women-1-2.jpg',
+    image: 'https://actgrants.in/wp-content/uploads/2023/09/Home.jpg',
     tag: 'FOUNDER\'S STORY',
     quote: 'ACT has been an instrumental partner in our journey. Beyond capital, their access to corporate advisors and policy mentorship accelerated our growth and helped us deploy learning tablets to over 100,000 students in remote rural schools.'
   },
@@ -44,8 +44,8 @@ export const InteractiveStories: React.FC = () => {
   const current = MOCK_STORIES[activeIndex];
 
   return (
-    <section id="stories" className="py-16 px-4 max-w-5xl mx-auto">
-      <div className="section-title-wrapper mb-12 text-center">
+    <section id="stories" className="py-12 w-full">
+      <div className="section-title-wrapper mb-10 text-center">
         <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
           <span className="bg-gradient-to-r from-[#B30B7E] to-[#5C1081] bg-clip-text text-transparent inline-block font-black">Stories</span> from the field
         </h2>
@@ -53,7 +53,7 @@ export const InteractiveStories: React.FC = () => {
       </div>
 
       {/* Full-bleed Carousel Card */}
-      <div className="relative w-full h-[460px] max-[640px]:h-[380px] rounded-[32px] overflow-hidden border border-gray-100 shadow-md group">
+      <div className="relative w-full h-[420px] max-[640px]:h-[340px] rounded-[28px] overflow-hidden shadow-md group">
         {/* Slide Image Background */}
         <div className="absolute inset-0 z-0">
           <img
@@ -89,9 +89,9 @@ export const InteractiveStories: React.FC = () => {
           <span className="px-3 py-1 bg-white/15 border border-white/20 rounded-full text-[0.68rem] text-white font-bold tracking-widest uppercase backdrop-blur-sm">
             {current.tag}
           </span>
-          <h3 className="font-title text-2xl max-[640px]:text-lg font-bold text-white leading-relaxed tracking-wide drop-shadow-sm select-none">
+          <p className="font-body text-sm max-[640px]:text-xs font-medium text-white/95 leading-relaxed drop-shadow-sm select-none max-w-xl">
             &ldquo;{current.quote}&rdquo;
-          </h3>
+          </p>
           <button className="btn btn-primary" data-coming-soon>
             Explore
           </button>

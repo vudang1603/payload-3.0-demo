@@ -145,22 +145,26 @@ export default async function HomePage() {
     <div className="min-h-screen flex flex-col bg-white w-full">
       <Header />
 
-      <main className="main flex-grow container mx-auto px-6 py-10 flex flex-col gap-16 max-[640px]:gap-12">
+      <main
+        className="main flex-grow container mx-auto px-6 pt-0 pb-10 flex flex-col w-full"
+        style={{ paddingTop: '0' }}
+      >
         {/* Redesigned Hero Section */}
         <section
-          className="hero-block relative py-24 px-8 text-center flex items-center justify-center overflow-hidden shadow-sm"
+          className="hero-block hero-home relative px-8 text-center flex justify-center overflow-hidden shadow-sm"
           style={{
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.50)), url('/images/hero-girls.webp')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             borderRadius: '24px',
+            minHeight: '520px',
           }}
         >
-          <div className="max-w-3xl z-10 text-white flex flex-col items-center gap-6">
-            <h1 className="font-title text-4xl max-[640px]:text-3xl font-black leading-tight tracking-tight drop-shadow-sm select-none">
+          <div className="max-w-3xl z-10 text-white flex flex-col items-center gap-6 w-full">
+            <h1 className="font-title text-3xl max-[640px]:text-2xl font-black leading-tight tracking-tight drop-shadow-sm select-none">
               Backing breakthrough innovations for population-scale impact in India
             </h1>
-            <div className="flex gap-3 mt-4 max-[640px]:flex-col max-[640px]:w-full">
+            <div className="flex gap-3 mt-2 max-[640px]:flex-col max-[640px]:w-full">
               <button className="btn btn-primary max-[640px]:w-full" data-coming-soon>
                 Apply for a Grant
               </button>
@@ -172,7 +176,7 @@ export default async function HomePage() {
         </section>
 
         {/* Section: What ACT does */}
-        <section className="py-16 relative overflow-hidden" id="about">
+        <section className="py-12 relative overflow-hidden" id="about">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(139,92,246,0.07)_0%,_transparent_70%)] pointer-events-none" />
           <div className="relative z-10">
             <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto">
@@ -190,16 +194,32 @@ export default async function HomePage() {
             </div>
 
             <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-1">
-              {/* Card 1: Risk Capital — image by default, purple curve reveals on hover */}
-              <div
-                className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-cover bg-center"
-                style={{ backgroundImage: `url('/images/wmremove-transformed.webp')` }}
-              >
-                <div
-                  className="absolute inset-x-0 bottom-0 h-[62%] bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] flex items-center justify-center text-center px-7 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
-                  style={{ clipPath: 'ellipse(120% 100% at 50% 100%)' }}
-                >
-                  <p className="text-white/95 text-sm leading-relaxed font-body">
+              {/* Card 1: Risk Capital */}
+              <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100 cursor-pointer transition-all duration-500 hover:bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] hover:border-transparent hover:shadow-lg">
+                {/* Default State: Centered circle image and title */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
+                  <div className="w-[110px] h-[110px] rounded-full overflow-hidden border-2 border-[#1863DC]/10 relative flex items-center justify-center bg-gray-50">
+                    <img
+                      src="/images/wmremove-transformed.webp"
+                      alt="Risk Capital"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="font-title text-3xl font-black text-[#1863DC]">
+                    Risk Capital
+                  </h3>
+                </div>
+
+                {/* Hover State: Curved top-left image and white description text below */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-7 text-center">
+                  <div
+                    className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url('/images/wmremove-transformed.webp')`,
+                      clipPath: 'ellipse(80% 70% at 0% 0%)',
+                    }}
+                  />
+                  <p className="text-white/95 text-xs sm:text-sm leading-relaxed font-body z-10">
                     Providing hard-to-find, early-stage risk capital to take long-term bets and
                     additionally supporting portfolio founders in mobilising follow-on capital.
                   </p>
@@ -207,113 +227,55 @@ export default async function HomePage() {
               </div>
 
               {/* Card 2: Connections */}
-              <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
-                  <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                    <circle cx="45" cy="18" r="7" fill="#1863DC" opacity="0.3" />
-                    <circle
-                      cx="45"
-                      cy="18"
-                      r="7"
-                      fill="#1863DC"
-                      opacity="0.15"
-                      stroke="#1863DC"
-                      strokeWidth="1.5"
-                    />
-                    <circle cx="18" cy="55" r="7" fill="#B30B7E" opacity="0.3" />
-                    <circle
-                      cx="18"
-                      cy="55"
-                      r="7"
-                      fill="#B30B7E"
-                      opacity="0.15"
-                      stroke="#B30B7E"
-                      strokeWidth="1.5"
-                    />
-                    <circle cx="72" cy="55" r="7" fill="#1863DC" opacity="0.3" />
-                    <circle
-                      cx="72"
-                      cy="55"
-                      r="7"
-                      fill="#1863DC"
-                      opacity="0.15"
-                      stroke="#1863DC"
-                      strokeWidth="1.5"
-                    />
-                    <circle cx="30" cy="76" r="5" fill="#7C3AED" opacity="0.2" />
-                    <circle
-                      cx="30"
-                      cy="76"
-                      r="5"
-                      fill="#7C3AED"
-                      opacity="0.1"
-                      stroke="#7C3AED"
-                      strokeWidth="1"
-                    />
-                    <circle cx="60" cy="76" r="5" fill="#7C3AED" opacity="0.2" />
-                    <circle
-                      cx="60"
-                      cy="76"
-                      r="5"
-                      fill="#7C3AED"
-                      opacity="0.1"
-                      stroke="#7C3AED"
-                      strokeWidth="1"
-                    />
-                    <line
-                      x1="45"
-                      y1="25"
-                      x2="18"
-                      y2="48"
-                      stroke="#1863DC"
-                      strokeWidth="1.2"
-                      opacity="0.25"
-                    />
-                    <line
-                      x1="45"
-                      y1="25"
-                      x2="72"
-                      y2="48"
-                      stroke="#1863DC"
-                      strokeWidth="1.2"
-                      opacity="0.25"
-                    />
-                    <line
-                      x1="18"
-                      y1="55"
-                      x2="30"
-                      y2="71"
-                      stroke="#B30B7E"
-                      strokeWidth="1.2"
-                      opacity="0.25"
-                    />
-                    <line
-                      x1="72"
-                      y1="55"
-                      x2="60"
-                      y2="71"
-                      stroke="#1863DC"
-                      strokeWidth="1.2"
-                      opacity="0.25"
-                    />
-                    <line
-                      x1="18"
-                      y1="55"
-                      x2="72"
-                      y2="55"
-                      stroke="#7C3AED"
-                      strokeWidth="1"
-                      opacity="0.15"
-                      strokeDasharray="4 4"
-                    />
-                  </svg>
-                  <h3 className="font-title text-xl font-bold text-[#1863DC]">Connections</h3>
+              <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100 cursor-pointer transition-all duration-500 hover:bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] hover:border-transparent hover:shadow-lg">
+                {/* Default State: Centered circle image and title */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
+                  <div className="w-[110px] h-[110px] rounded-full flex items-center justify-center bg-[#FAF9FF] text-[#1863DC]">
+                    <svg width="60" height="60" viewBox="0 0 90 90" fill="none">
+                      <circle cx="45" cy="18" r="7" fill="currentColor" opacity="0.3" />
+                      <circle cx="45" cy="18" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="18" cy="55" r="7" fill="currentColor" opacity="0.3" />
+                      <circle cx="18" cy="55" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="72" cy="55" r="7" fill="currentColor" opacity="0.3" />
+                      <circle cx="72" cy="55" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="30" cy="76" r="5" fill="currentColor" opacity="0.2" />
+                      <circle cx="30" cy="76" r="5" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1" />
+                      <circle cx="60" cy="76" r="5" fill="currentColor" opacity="0.2" />
+                      <circle cx="60" cy="76" r="5" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1" />
+                      <line x1="45" y1="25" x2="18" y2="48" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                      <line x1="45" y1="25" x2="72" y2="48" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                      <line x1="18" y1="55" x2="30" y2="71" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                      <line x1="72" y1="55" x2="60" y2="71" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                      <line x1="18" y1="55" x2="72" y2="55" stroke="currentColor" strokeWidth="1" opacity="0.15" strokeDasharray="4 4" />
+                    </svg>
+                  </div>
+                  <h3 className="font-title text-3xl font-black text-[#1863DC]">
+                    Connections
+                  </h3>
                 </div>
-                <div
-                  className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] flex items-center justify-center text-center px-7 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
-                  style={{ clipPath: 'ellipse(120% 100% at 50% 100%)' }}
-                >
-                  <p className="text-white/95 text-sm leading-relaxed font-body">
+
+                {/* Hover State: Curved top-left image and white description text below */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-7 text-center">
+                  <div
+                    className="absolute top-[-10%] left-[-10%] w-[120%] h-[75%] bg-[#FAF9FF]/10 flex items-center justify-center"
+                    style={{
+                      clipPath: 'ellipse(85% 75% at 15% 15%)',
+                    }}
+                  >
+                    <div className="absolute top-[20%] left-[20%] text-white/20">
+                      <svg width="80" height="80" viewBox="0 0 90 90" fill="none">
+                        <circle cx="45" cy="18" r="7" fill="currentColor" opacity="0.3" />
+                        <circle cx="45" cy="18" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                        <circle cx="18" cy="55" r="7" fill="currentColor" opacity="0.3" />
+                        <circle cx="18" cy="55" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                        <circle cx="72" cy="55" r="7" fill="currentColor" opacity="0.3" />
+                        <circle cx="72" cy="55" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                        <line x1="45" y1="25" x2="18" y2="48" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                        <line x1="45" y1="25" x2="72" y2="48" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="text-white/95 text-xs sm:text-sm leading-relaxed font-body z-10">
                     Facilitating connections and partnerships across the ecosystem between
                     start-ups, corporate partners, non-profits, domain experts, and government.
                   </p>
@@ -321,131 +283,51 @@ export default async function HomePage() {
               </div>
 
               {/* Card 3: Collectives */}
-              <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
-                  <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                    <circle cx="45" cy="12" r="7" fill="#1863DC" opacity="0.3" />
-                    <circle
-                      cx="45"
-                      cy="12"
-                      r="7"
-                      fill="#1863DC"
-                      opacity="0.15"
-                      stroke="#1863DC"
-                      strokeWidth="1.5"
-                    />
-                    <circle cx="16" cy="38" r="6" fill="#1863DC" opacity="0.25" />
-                    <circle
-                      cx="16"
-                      cy="38"
-                      r="6"
-                      fill="#1863DC"
-                      opacity="0.1"
-                      stroke="#1863DC"
-                      strokeWidth="1.2"
-                    />
-                    <circle cx="74" cy="38" r="6" fill="#B30B7E" opacity="0.25" />
-                    <circle
-                      cx="74"
-                      cy="38"
-                      r="6"
-                      fill="#B30B7E"
-                      opacity="0.1"
-                      stroke="#B30B7E"
-                      strokeWidth="1.2"
-                    />
-                    <circle cx="28" cy="68" r="5" fill="#7C3AED" opacity="0.2" />
-                    <circle
-                      cx="28"
-                      cy="68"
-                      r="5"
-                      fill="#7C3AED"
-                      opacity="0.1"
-                      stroke="#7C3AED"
-                      strokeWidth="1"
-                    />
-                    <circle cx="62" cy="68" r="5" fill="#7C3AED" opacity="0.2" />
-                    <circle
-                      cx="62"
-                      cy="68"
-                      r="5"
-                      fill="#7C3AED"
-                      opacity="0.1"
-                      stroke="#7C3AED"
-                      strokeWidth="1"
-                    />
-                    <circle cx="45" cy="80" r="5" fill="#B30B7E" opacity="0.2" />
-                    <circle
-                      cx="45"
-                      cy="80"
-                      r="5"
-                      fill="#B30B7E"
-                      opacity="0.1"
-                      stroke="#B30B7E"
-                      strokeWidth="1"
-                    />
-                    <line
-                      x1="45"
-                      y1="19"
-                      x2="16"
-                      y2="32"
-                      stroke="#1863DC"
-                      strokeWidth="1.2"
-                      opacity="0.25"
-                    />
-                    <line
-                      x1="45"
-                      y1="19"
-                      x2="74"
-                      y2="32"
-                      stroke="#B30B7E"
-                      strokeWidth="1.2"
-                      opacity="0.25"
-                    />
-                    <line
-                      x1="16"
-                      y1="38"
-                      x2="28"
-                      y2="63"
-                      stroke="#1863DC"
-                      strokeWidth="1.2"
-                      opacity="0.2"
-                    />
-                    <line
-                      x1="74"
-                      y1="38"
-                      x2="62"
-                      y2="63"
-                      stroke="#B30B7E"
-                      strokeWidth="1.2"
-                      opacity="0.2"
-                    />
-                    <line
-                      x1="28"
-                      y1="68"
-                      x2="45"
-                      y2="75"
-                      stroke="#7C3AED"
-                      strokeWidth="1"
-                      opacity="0.2"
-                    />
-                    <line
-                      x1="62"
-                      y1="68"
-                      x2="45"
-                      y2="75"
-                      stroke="#7C3AED"
-                      strokeWidth="1"
-                      opacity="0.2"
-                    />
-                  </svg>
-                  <h3 className="font-title text-xl font-bold text-[#1863DC]">Collectives</h3>
+              <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100 cursor-pointer transition-all duration-500 hover:bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] hover:border-transparent hover:shadow-lg">
+                {/* Default State: Centered circle image and title */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
+                  <div className="w-[110px] h-[110px] rounded-full flex items-center justify-center bg-[#FAF9FF] text-[#1863DC]">
+                    <svg width="60" height="60" viewBox="0 0 90 90" fill="none">
+                      <circle cx="45" cy="12" r="7" fill="currentColor" opacity="0.3" />
+                      <circle cx="45" cy="12" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="16" cy="38" r="6" fill="currentColor" opacity="0.25" />
+                      <circle cx="16" cy="38" r="6" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1.2" />
+                      <circle cx="74" cy="38" r="6" fill="currentColor" opacity="0.25" />
+                      <circle cx="74" cy="38" r="6" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1.2" />
+                      <circle cx="28" cy="68" r="5" fill="currentColor" opacity="0.2" />
+                      <circle cx="28" cy="68" r="5" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1" />
+                      <circle cx="62" cy="68" r="5" fill="currentColor" opacity="0.2" />
+                      <circle cx="62" cy="68" r="5" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1" />
+                      <circle cx="45" cy="80" r="5" fill="currentColor" opacity="0.2" />
+                      <circle cx="45" cy="80" r="5" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1" />
+                      <line x1="45" y1="19" x2="16" y2="32" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                      <line x1="45" y1="19" x2="74" y2="32" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                    </svg>
+                  </div>
+                  <h3 className="font-title text-3xl font-black text-[#1863DC]">
+                    Collectives
+                  </h3>
                 </div>
-                <div
-                  className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] flex items-center justify-center text-center px-7 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
-                  style={{ clipPath: 'ellipse(120% 100% at 50% 100%)' }}
-                >
-                  <p className="text-white/95 text-sm leading-relaxed font-body">
+
+                {/* Hover State: Curved top-left image and white description text below */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-7 text-center">
+                  <div
+                    className="absolute top-[-10%] left-[-10%] w-[120%] h-[75%] bg-[#FAF9FF]/10 flex items-center justify-center"
+                    style={{
+                      clipPath: 'ellipse(85% 75% at 15% 15%)',
+                    }}
+                  >
+                    <div className="absolute top-[20%] left-[20%] text-white/20">
+                      <svg width="80" height="80" viewBox="0 0 90 90" fill="none">
+                        <circle cx="45" cy="12" r="7" fill="currentColor" opacity="0.3" />
+                        <circle cx="45" cy="12" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                        <circle cx="16" cy="38" r="6" fill="currentColor" opacity="0.25" />
+                        <circle cx="16" cy="38" r="6" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1.2" />
+                        <line x1="45" y1="19" x2="16" y2="32" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="text-white/95 text-xs sm:text-sm leading-relaxed font-body z-10">
                     Building collaborative groups focused on solving systemic social problems in
                     education, healthcare, environment, and women&apos;s empowerment.
                   </p>
@@ -465,7 +347,7 @@ export default async function HomePage() {
         </section>
 
         {/* Section: Focus areas */}
-        <section className="py-8" id="focus-areas">
+        <section className="pt-10 pb-2" id="focus-areas">
           <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto">
             <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
               Focus{' '}
@@ -625,7 +507,7 @@ export default async function HomePage() {
         {/* Section: How ACT works */}
         <section
           id="how-it-works"
-          className="relative py-16 pb-8 bg-[#F8F4FF]/50 border border-gray-100/50 rounded-[40px] max-[640px]:py-10 max-[640px]:rounded-3xl overflow-hidden"
+          className="relative pt-8 pb-4 bg-[#F8F4FF]/50 border border-gray-100/50 rounded-[40px] max-[640px]:py-10 max-[640px]:rounded-3xl overflow-hidden"
         >
           <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto px-4">
             <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -664,7 +546,7 @@ export default async function HomePage() {
         </Suspense>
 
         {/* Section: Impact */}
-        <section id="impact" className="py-8">
+        <section id="impact" className="py-10">
           <div className="w-full max-w-[1180px] mx-auto bg-gradient-to-b from-[#1A237E] via-[#4A148C] to-[#B30B7E] rounded-[48px] px-16 py-20 text-white max-[1024px]:px-8 max-[1024px]:py-14 max-[640px]:rounded-[32px] shadow-lg">
             <div className="grid grid-cols-[1.5fr_1fr] gap-10 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
               {/* Left: India map + heading */}
@@ -735,239 +617,132 @@ export default async function HomePage() {
         {/* Section: Stories from the field */}
         <InteractiveStories />
 
-        {/* Dynamic Blogs / Insights Section wrapped in Suspense */}
-        <section id="insights" className="py-8">
-          <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto">
+        {/* ── Section: Latest Insights (Reports) ── */}
+        <section id="insights" className="py-10 w-full">
+          <div className="section-title-wrapper mb-8 text-center max-w-3xl mx-auto">
             <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
               Latest{' '}
               <span className="bg-gradient-to-r from-[#B30B7E] to-[#5C1081] bg-clip-text text-transparent inline-block font-black">
                 insights
               </span>
             </h2>
-            <p className="text-gray-500 font-body mt-2 max-[640px]:text-sm">
+            <p className="text-gray-500 font-body mt-2 text-sm">
               As a non-profit tech-led venture philanthropy platform, ACT is built upon the premise
               that an entrepreneurial mindset, technology &amp; innovation and collective action
               have the power to create meaningful social impact at scale.
             </p>
           </div>
 
-          <div className="insights-grid">
-            {/* Reports */}
-            <a
-              href="#"
-              data-coming-soon
-              className="group relative bg-[#FAF9FF] border border-gray-100 rounded-[28px] p-8 min-h-[210px] flex flex-col justify-between no-underline hover:shadow-md transition-shadow duration-300"
-            >
-              <span className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1863DC] group-hover:bg-[#1863DC] group-hover:text-white transition-colors duration-200">
-                ↗
-              </span>
-              <img src="/images/insight-reports.png" alt="Reports" className="w-24 h-24 object-contain drop-shadow-md" />
-              <h3 className="font-title text-2xl font-bold text-[#1863DC]">Reports</h3>
-            </a>
-
-            {/* Blog */}
-            <Link
-              href="/blogs"
-              className="group relative bg-[#FAF9FF] border border-gray-100 rounded-[28px] p-8 min-h-[210px] flex flex-col justify-between no-underline hover:shadow-md transition-shadow duration-300"
-            >
-              <span className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1863DC] group-hover:bg-[#1863DC] group-hover:text-white transition-colors duration-200">
-                ↗
-              </span>
-              <img src="/images/insight-blog.png" alt="Blog" className="w-24 h-24 object-contain drop-shadow-md" />
-              <h3 className="font-title text-2xl font-bold text-[#1863DC]">Blog</h3>
-            </Link>
-
-            {/* Media */}
-            <a
-              href="#"
-              data-coming-soon
-              className="group relative bg-[#FAF9FF] border border-gray-100 rounded-[28px] p-8 min-h-[210px] flex flex-col justify-between no-underline hover:shadow-md transition-shadow duration-300"
-            >
-              <span className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1863DC] group-hover:bg-[#1863DC] group-hover:text-white transition-colors duration-200">
-                ↗
-              </span>
-              <img src="/images/insight-media.png" alt="Media" className="w-24 h-24 object-contain drop-shadow-md" />
-              <h3 className="font-title text-2xl font-bold text-[#1863DC]">Media</h3>
-            </a>
-
-            {/* Podcast */}
-            <a
-              href="#"
-              data-coming-soon
-              className="group relative bg-[#FAF9FF] border border-gray-100 rounded-[28px] p-8 min-h-[210px] flex flex-col justify-between no-underline hover:shadow-md transition-shadow duration-300"
-            >
-              <span className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1863DC] group-hover:bg-[#1863DC] group-hover:text-white transition-colors duration-200">
-                ↗
-              </span>
-              <img src="/images/insight-podcast.png" alt="Podcast" className="w-24 h-24 object-contain drop-shadow-md" />
-              <h3 className="font-title text-2xl font-bold text-[#1863DC]">Podcast</h3>
-            </a>
-          </div>
-
-          {/* (replaced report archive + dynamic blogs with the 4-card design) */}
-          <div className="hidden">
-            <div className="w-full bg-[#FAF9FF] border border-gray-100 rounded-[32px] p-8 max-[640px]:p-5">
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="font-title text-lg font-bold text-gray-800 tracking-tight">
-                  Reports &amp; Newsletters
-                </h3>
-                <span className="text-xs font-bold text-primary uppercase tracking-wider">
-                  Mock Archive
-                </span>
-              </div>
-              <div className="grid grid-cols-2 gap-6 max-[768px]:grid-cols-1">
-                {/* Report Card 1 */}
-                <div className="bg-white border border-gray-150/60 rounded-2xl overflow-hidden p-5 flex gap-5 items-center hover:shadow-sm transition-shadow duration-200">
-                  <div className="w-[120px] h-[80px] bg-gray-50 rounded-xl overflow-hidden shrink-0 border border-gray-100 flex items-center justify-center">
-                    <img
-                      src="/images/report-cover-2.webp"
-                      alt="Annual Report cover"
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
-                  <div className="text-left flex flex-col gap-1.5">
-                    <span className="px-2 py-0.5 bg-gray-100 rounded-full text-[0.62rem] text-gray-450 font-bold tracking-wider uppercase w-fit select-none">
-                      Annual Report
-                    </span>
-                    <h4 className="font-title text-sm font-bold text-gray-900">
-                      ACT Grants Annual Highlight 2023-24
-                    </h4>
-                    <span className="text-[0.68rem] font-bold text-[#1863DC] flex items-center gap-1 cursor-pointer">
-                      Download PDF ↗
-                    </span>
-                  </div>
-                </div>
-
-                {/* Report Card 2 */}
-                <div className="bg-white border border-gray-150/60 rounded-2xl overflow-hidden p-5 flex gap-5 items-center hover:shadow-sm transition-shadow duration-200">
-                  <div className="w-[120px] h-[80px] bg-gray-50 rounded-xl overflow-hidden shrink-0 border border-gray-100 flex items-center justify-center">
-                    <img
-                      src="/images/report-cover-3.webp"
-                      alt="impACT Newsletter cover"
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
-                  <div className="text-left flex flex-col gap-1.5">
-                    <span className="px-2 py-0.5 bg-gray-100 rounded-full text-[0.62rem] text-gray-450 font-bold tracking-wider uppercase w-fit select-none">
-                      Newsletter
-                    </span>
-                    <h4 className="font-title text-sm font-bold text-gray-900">
-                      impACT Newsletter Q1 Edition
-                    </h4>
-                    <span className="text-[0.68rem] font-bold text-[#1863DC] flex items-center gap-1 cursor-pointer">
-                      Read Online ↗
-                    </span>
-                  </div>
-                </div>
-
-                {/* Report Card 3 */}
-                <div className="bg-white border border-gray-150/60 rounded-2xl overflow-hidden p-5 flex gap-5 items-center hover:shadow-sm transition-shadow duration-200">
-                  <div className="w-[120px] h-[80px] bg-gray-50 rounded-xl overflow-hidden shrink-0 border border-gray-100 flex items-center justify-center">
-                    <img
-                      src="/images/report-cover-1.webp"
-                      alt="Education Report cover"
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
-                  <div className="text-left flex flex-col gap-1.5">
-                    <span className="px-2 py-0.5 bg-gray-100 rounded-full text-[0.62rem] text-gray-450 font-bold tracking-wider uppercase w-fit select-none">
-                      Sector Report
-                    </span>
-                    <h4 className="font-title text-sm font-bold text-gray-900">
-                      Education Technology in India Report
-                    </h4>
-                    <span className="text-[0.68rem] font-bold text-[#1863DC] flex items-center gap-1 cursor-pointer">
-                      Download PDF ↗
-                    </span>
-                  </div>
-                </div>
-
-                {/* Report Card 4 */}
-                <div className="bg-white border border-gray-150/60 rounded-2xl overflow-hidden p-5 flex gap-5 items-center hover:shadow-sm transition-shadow duration-200">
-                  <div className="w-[120px] h-[80px] bg-gray-50 rounded-xl overflow-hidden shrink-0 border border-gray-100 flex items-center justify-center">
-                    <img
-                      src="/images/report-cover-4.webp"
-                      alt="Healthcare Study cover"
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
-                  <div className="text-left flex flex-col gap-1.5">
-                    <span className="px-2 py-0.5 bg-gray-100 rounded-full text-[0.62rem] text-gray-450 font-bold tracking-wider uppercase w-fit select-none">
-                      Sector Report
-                    </span>
-                    <h4 className="font-title text-sm font-bold text-gray-900">
-                      Healthcare Access &amp; Advisory Study
-                    </h4>
-                    <span className="text-[0.68rem] font-bold text-[#1863DC] flex items-center gap-1 cursor-pointer">
-                      Download PDF ↗
-                    </span>
-                  </div>
-                </div>
-
-                {/* Report Card 5 */}
-                <div className="bg-white border border-gray-150/60 rounded-2xl overflow-hidden p-5 flex gap-5 items-center hover:shadow-sm transition-shadow duration-200">
-                  <div className="w-[120px] h-[80px] bg-gray-50 rounded-xl overflow-hidden shrink-0 border border-gray-100 flex items-center justify-center">
-                    <img
-                      src="/images/report-cover-5.webp"
-                      alt="Climate Innovation cover"
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
-                  <div className="text-left flex flex-col gap-1.5">
-                    <span className="px-2 py-0.5 bg-gray-100 rounded-full text-[0.62rem] text-gray-450 font-bold tracking-wider uppercase w-fit select-none">
-                      Sector Report
-                    </span>
-                    <h4 className="font-title text-sm font-bold text-gray-900">
-                      Clean Energy &amp; Climate Innovation
-                    </h4>
-                    <span className="text-[0.68rem] font-bold text-[#1863DC] flex items-center gap-1 cursor-pointer">
-                      Download PDF ↗
-                    </span>
-                  </div>
-                </div>
-
-                {/* Report Card 6 */}
-                <div className="bg-white border border-gray-150/60 rounded-2xl overflow-hidden p-5 flex gap-5 items-center hover:shadow-sm transition-shadow duration-200">
-                  <div className="w-[120px] h-[80px] bg-gray-50 rounded-xl overflow-hidden shrink-0 border border-gray-100 flex items-center justify-center">
-                    <img
-                      src="/images/report-cover-6.webp"
-                      alt="Women Livelihood Newsletter cover"
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
-                  <div className="text-left flex flex-col gap-1.5">
-                    <span className="px-2 py-0.5 bg-gray-100 rounded-full text-[0.62rem] text-gray-450 font-bold tracking-wider uppercase w-fit select-none">
-                      Newsletter
-                    </span>
-                    <h4 className="font-title text-sm font-bold text-gray-900">
-                      Women Empowerment Livelihood Q3
-                    </h4>
-                    <span className="text-[0.68rem] font-bold text-[#1863DC] flex items-center gap-1 cursor-pointer">
-                      Read Online ↗
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Dynamic Blog Insights posts */}
-            <div className="w-full">
-              <h3 className="font-title text-lg font-bold text-gray-800 tracking-tight mb-6 text-left">
-                Recent Articles
-              </h3>
-              <Suspense
-                fallback={
-                  <div className="grid grid-cols-3 gap-6">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="skeleton-card skeleton-shimmer h-[320px]" />
-                    ))}
-                  </div>
-                }
+          {/* Two-column layout matching design */}
+          <div className="grid grid-cols-1 lg:grid-cols-[200px,1fr] gap-8 items-start">
+            {/* LEFT: Category nav */}
+            <div className="flex lg:flex-col gap-3 flex-wrap">
+              <a
+                href="#"
+                data-coming-soon
+                className="font-title text-base font-bold text-[#1863DC] no-underline flex items-center gap-2 group"
               >
-                <DynamicBlogs />
-              </Suspense>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1863DC] shrink-0" />
+                Reports
+              </a>
+              <a href="/blogs" className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5">Blog</a>
+              <a href="#" data-coming-soon className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5">Media</a>
+              <a href="#" data-coming-soon className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5">Podcast</a>
+            </div>
+
+            {/* RIGHT: Visualization + report cards */}
+            <div className="flex flex-col gap-5">
+              {/* Feature visualization card */}
+              <div className="relative bg-gradient-to-br from-[#EEF2FF] to-[#F5F0FF] rounded-[24px] overflow-hidden flex items-center justify-between px-8 py-6" style={{ minHeight: '200px' }}>
+                <div className="flex flex-col gap-2 max-w-xs">
+                  <span className="text-xs font-bold text-[#1863DC] uppercase tracking-widest">Reports & Publications</span>
+                  <h3 className="font-title text-xl font-extrabold text-gray-900 leading-snug">
+                    Insights driving social impact at scale
+                  </h3>
+                  <a href="#" data-coming-soon className="mt-2 inline-flex items-center gap-1.5 text-sm font-bold text-[#1863DC] no-underline hover:gap-2.5 transition-all duration-200">
+                    View all reports ↗
+                  </a>
+                </div>
+                <div className="hidden sm:flex items-center justify-center shrink-0 w-[140px] h-[140px]">
+                  <img
+                    src="/images/insight-reports.png"
+                    alt="Reports visualization"
+                    className="w-full h-full object-contain drop-shadow-lg"
+                  />
+                </div>
+              </div>
+
+              {/* 2x3 compact report cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  { title: 'ACT Grants Annual Highlight 2023–24', type: 'Annual Report', img: '/images/report-cover-2.webp', cta: 'Download PDF' },
+                  { title: 'impACT Newsletter Q1 Edition', type: 'Newsletter', img: '/images/report-cover-3.webp', cta: 'Read Online' },
+                  { title: 'Education Technology in India Report', type: 'Sector Report', img: '/images/report-cover-1.webp', cta: 'Download PDF' },
+                  { title: 'Healthcare Access & Advisory Study', type: 'Sector Report', img: '/images/report-cover-4.webp', cta: 'Download PDF' },
+                  { title: 'Clean Energy & Climate Innovation', type: 'Sector Report', img: '/images/report-cover-5.webp', cta: 'Download PDF' },
+                  { title: 'Women Empowerment Livelihood Q3', type: 'Newsletter', img: '/images/report-cover-6.webp', cta: 'Read Online' },
+                ].map((card) => (
+                  <a
+                    key={card.title}
+                    href="#"
+                    data-coming-soon
+                    className="group bg-[#FAF9FF] border border-gray-100 rounded-[20px] overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-200 no-underline"
+                  >
+                    <div className="h-[120px] bg-gray-100 overflow-hidden">
+                      <img
+                        src={card.img}
+                        alt={card.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-3 flex flex-col gap-1.5 flex-1">
+                      <span className="px-2 py-0.5 bg-white border border-gray-200 rounded-full text-[0.6rem] text-gray-500 font-bold tracking-wider uppercase w-fit">
+                        {card.type}
+                      </span>
+                      <h4 className="font-title text-xs font-bold text-gray-900 leading-snug line-clamp-2">
+                        {card.title}
+                      </h4>
+                      <span className="text-xs font-bold text-[#1863DC] mt-auto flex items-center gap-1">
+                        {card.cta} ↗
+                      </span>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
+        </section>
+
+
+
+        {/* ── Section: Latest Insights (Blog articles) ── */}
+        <section id="insights-blog" className="py-10 w-full">
+          <div className="section-title-wrapper mb-8 text-center max-w-3xl mx-auto">
+            <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
+              Latest{' '}
+              <span className="bg-gradient-to-r from-[#B30B7E] to-[#5C1081] bg-clip-text text-transparent inline-block font-black">
+                insights
+              </span>
+            </h2>
+            <p className="text-gray-500 font-body mt-2 text-sm">
+              As a non-profit tech-led venture philanthropy platform, ACT is built upon the premise
+              that an entrepreneurial mindset, technology &amp; innovation and collective action
+              have the power to create meaningful social impact at scale.
+            </p>
+          </div>
+
+          {/* Blog articles 3-column grid */}
+          <Suspense
+            fallback={
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="skeleton-card skeleton-shimmer h-[280px] rounded-[20px]" />
+                ))}
+              </div>
+            }
+          >
+            <DynamicBlogs />
+          </Suspense>
         </section>
 
         {/* Section: Engagement pathways */}

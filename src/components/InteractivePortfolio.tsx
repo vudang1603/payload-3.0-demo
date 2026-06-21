@@ -49,33 +49,44 @@ const communityData = {
   ]
 };
 
-// Fallback portfolio data (real ACT companies) when CMS is empty.
-// logo.filename is resolved by getImageUrl -> /images/company-logos/*
+// Mock portfolio data when CMS is empty
 const mockPortfolios: PortfolioItem[] = [
-  { id: 'm1', name: 'ConveGenius', sectors: 'education', logo: { filename: 'cg.png' }, website: '#' },
-  { id: 'm2', name: 'LearnTube.ai', sectors: 'education', logo: { filename: '1.png' }, website: '#' },
-  { id: 'm3', name: 'English Quest', sectors: 'education', logo: { filename: '3-logo.png' }, website: '#' },
-  { id: 'm4', name: 'Josh Skills', sectors: 'education', logo: { filename: '4-logo.png' }, website: '#' },
-  { id: 'm5', name: 'Kutuki', sectors: 'education', logo: { filename: '5-logo.png' }, website: '#' },
-  { id: 'm6', name: 'Rocket Learning', sectors: 'education', logo: { filename: '6-logo.png' }, website: '#' },
-  { id: 'm7', name: 'Top Parent', sectors: 'education', logo: { filename: '7-logo.png' }, website: '#' },
-  { id: 'm8', name: 'Vidyakul', sectors: 'education', logo: { filename: '8-logo.png' }, website: '#' },
-  { id: 'm9', name: 'VOPA', sectors: 'education', logo: { filename: '9-logo.png' }, website: '#' },
-  { id: 'm10', name: 'YuWaah!', sectors: 'education', logo: { filename: '10-logo.png' }, website: '#' },
-  { id: 'm11', name: 'Curious', sectors: 'education', logo: { filename: 'curious.png' }, website: '#' },
-  { id: 'm12', name: 'Barabari Collective', sectors: 'education', logo: { filename: 'barabari_.png' }, website: '#' },
-  { id: 'm13', name: 'The Apprentice Project', sectors: 'education', logo: { filename: 'the-app-project.png' }, website: '#' },
-  { id: 'm14', name: 'Disha', sectors: 'women', logo: { filename: 'Disha-logo.png' }, website: '#' },
-  { id: 'm15', name: 'Frontier Markets', sectors: 'women', logo: { filename: 'Frontier-Markets-Logo.jpg' }, website: '#' },
-  { id: 'm16', name: 'Karya', sectors: 'women', logo: { filename: 'karyalogo.png' }, website: '#' },
-  { id: 'm17', name: 'SuperNAN', sectors: 'women', logo: { filename: 'Logo-scaled.png' }, website: '#' },
-  { id: 'm18', name: 'V-All', sectors: 'women', logo: { filename: 'logoVAll.png' }, website: '#' },
-  { id: 'm19', name: 'Adalat AI', sectors: 'women', logo: { filename: 'Adalat_AI_logos.svg' }, website: '#' },
-  // Health & Environment placeholders (no brand logos available) so those tabs aren't empty
-  { id: 'm20', name: 'InnovateHealth', sectors: 'health', website: '#' },
-  { id: 'm21', name: 'MediConnect', sectors: 'health', website: '#' },
-  { id: 'm22', name: 'GreenGrid', sectors: 'environment', website: '#' },
-  { id: 'm23', name: 'EcoSense', sectors: 'environment', website: '#' },
+  // Education Sector (as shown in design)
+  { id: 'edu-1', name: 'adalat ai', sectors: 'education', logo: '/images/company-logos/Adalat_AI_logos.svg', website: '#' },
+  { id: 'edu-2', name: 'Barabari', sectors: 'education', logo: '/images/company-logos/barabari_.png', website: '#' },
+  { id: 'edu-3', name: 'CG', sectors: 'education', logo: '/images/company-logos/cg.png', website: '#' },
+  { id: 'edu-4', name: 'Curious', sectors: 'education', logo: '/images/company-logos/curious.png', website: '#' },
+  { id: 'edu-5', name: 'Disha', sectors: 'education', logo: '/images/company-logos/Disha-logo.png', website: '#' },
+  { id: 'edu-6', name: 'English Quest', sectors: 'education', logo: '/images/company-logos/1.png', website: '#' },
+  { id: 'edu-7', name: 'Frontier Markets', sectors: 'education', logo: '/images/company-logos/Frontier-Markets-Logo.jpg', website: '#' },
+  { id: 'edu-8', name: 'Josh Skills', sectors: 'education', logo: '/images/company-logos/3-logo.png', website: '#' },
+  { id: 'edu-9', name: 'LearnTube', sectors: 'education', logo: '/images/company-logos/10-logo.png', website: '#' },
+  { id: 'edu-10', name: 'Karya', sectors: 'education', logo: '/images/company-logos/karyalogo.png', website: '#' },
+  { id: 'edu-11', name: 'Kutuki', sectors: 'education', logo: '/images/company-logos/4-logo.png', website: '#' },
+  { id: 'edu-12', name: 'Pocket Learning', sectors: 'education', logo: '/images/company-logos/5-logo.png', website: '#' },
+  { id: 'edu-13', name: 'Supernan', sectors: 'education', logo: '/images/company-logos/6-logo.png', website: '#' },
+  { id: 'edu-14', name: 'The Apprentice Project', sectors: 'education', logo: '/images/company-logos/the-app-project.png', website: '#' },
+  { id: 'edu-15', name: 'Top Parent', sectors: 'education', logo: '/images/company-logos/7-logo.png', website: '#' },
+  { id: 'edu-16', name: 'VAll', sectors: 'education', logo: '/images/company-logos/logoVAll.png', website: '#' },
+  { id: 'edu-17', name: 'Vidyakul', sectors: 'education', logo: '/images/company-logos/8-logo.png', website: '#' },
+  { id: 'edu-18', name: 'Vopa', sectors: 'education', logo: '/images/company-logos/9-logo.png', website: '#' },
+  { id: 'edu-19', name: 'YuWaah', sectors: 'education', logo: '/images/company-logos/Logo-scaled.png', website: '#' },
+
+  // Environment Sector
+  { id: 'env-1', name: 'CG', sectors: 'environment', logo: '/images/company-logos/cg.png', website: '#' },
+  { id: 'env-2', name: 'Disha', sectors: 'environment', logo: '/images/company-logos/Disha-logo.png', website: '#' },
+  { id: 'env-3', name: 'Frontier Markets', sectors: 'environment', logo: '/images/company-logos/Frontier-Markets-Logo.jpg', website: '#' },
+  { id: 'env-4', name: 'YuWaah', sectors: 'environment', logo: '/images/company-logos/Logo-scaled.png', website: '#' },
+
+  // Health Sector
+  { id: 'hea-1', name: 'adalat ai', sectors: 'health', logo: '/images/company-logos/Adalat_AI_logos.svg', website: '#' },
+  { id: 'hea-2', name: 'Top Parent', sectors: 'health', logo: '/images/company-logos/7-logo.png', website: '#' },
+  { id: 'hea-3', name: 'VAll', sectors: 'health', logo: '/images/company-logos/logoVAll.png', website: '#' },
+
+  // Women Sector
+  { id: 'wom-1', name: 'Karya', sectors: 'women', logo: '/images/company-logos/karyalogo.png', website: '#' },
+  { id: 'wom-2', name: 'Supernan', sectors: 'women', logo: '/images/company-logos/6-logo.png', website: '#' },
+  { id: 'wom-3', name: 'Pocket Learning', sectors: 'women', logo: '/images/company-logos/5-logo.png', website: '#' },
 ];
 
 export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ initialPortfolios }) => {
@@ -88,13 +99,16 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
     { id: 'women', label: 'Women' }
   ];
 
-  const portfolios = initialPortfolios.length > 0 ? initialPortfolios : mockPortfolios;
+  const portfolios = mockPortfolios;
   const filteredPortfolios = portfolios.filter(p => p.sectors === selectedSector);
+
+  // LearnTube is a featured card with blue background
+  const FEATURED_ID = 'edu-9';
 
   return (
     <div className="flex flex-col w-full">
       {/* Portfolio proof Section Wrapper */}
-      <section className="bg-white rounded-[32px] border border-gray-100/60 px-8 py-16 max-[640px]:px-4" id="portfolio">
+      <section className="bg-white rounded-[32px] px-8 pt-8 pb-12 max-[640px]:px-4" id="portfolio">
         <div className="section-title-wrapper mb-8">
           <h2 className="font-title text-3xl font-extrabold text-gray-900 text-center tracking-tight">
             Portfolio <span className="bg-gradient-to-r from-[#B30B7E] to-[#5C1081] bg-clip-text text-transparent inline-block font-black">proof</span>
@@ -102,14 +116,14 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
         </div>
 
         {/* Sector filter tabs */}
-        <div className="flex justify-center gap-3 mb-10 flex-wrap">
+        <div className="flex justify-center gap-2 mb-8 flex-wrap">
           {sectorsList.map((sec) => (
             <button
               key={sec.id}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
+              className={`px-5 py-1.5 rounded-full text-sm font-semibold border transition-all duration-200 cursor-pointer ${
                 selectedSector === sec.id
-                  ? 'bg-[#1863DC] text-white shadow-sm'
-                  : 'border border-gray-200 text-gray-500 bg-white hover:border-gray-300 hover:text-gray-700'
+                  ? 'bg-[#3B82F6] border-[#3B82F6] text-white shadow-sm'
+                  : 'bg-white border-gray-300 text-gray-500 hover:border-[#3B82F6] hover:text-[#3B82F6]'
               }`}
               onClick={() => setSelectedSector(sec.id)}
             >
@@ -124,9 +138,12 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
             No portfolios found under this sector.
           </div>
         ) : (
-          <div className="portfolio-grid">
+          <div
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+            style={{ gap: '8px' }}
+          >
             {filteredPortfolios.map((item) => {
-              const logoUrl = item.logo ? getImageUrl(item.logo) : null;
+              const logoUrl = typeof item.logo === 'string' ? item.logo : (item.logo ? getImageUrl(item.logo) : null);
 
               return (
                 <a
@@ -134,23 +151,24 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
                   href={item.website || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex items-center justify-center bg-white border border-gray-200/60 rounded-2xl h-[120px] p-4 transition-all duration-300 hover:bg-[#1863DC] hover:border-transparent shadow-sm hover:shadow-md cursor-pointer overflow-hidden"
+                  className="group relative flex items-center justify-center bg-white border border-gray-200 rounded-[16px] w-full p-3 transition-all duration-200 cursor-pointer overflow-hidden hover:border-[#3B82F6]"
+                  style={{ height: '80px' }}
                 >
-                  {/* Default Logo */}
-                  <div className="flex items-center justify-center w-full h-full transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
+                  {/* Default: logo */}
+                  <div className="flex items-center justify-center w-full h-full transition-opacity duration-200 group-hover:opacity-0">
                     {logoUrl ? (
                       <img
                         src={logoUrl}
                         alt={`${item.name} logo`}
-                        className="max-h-full max-w-full object-contain filter opacity-90 transition-all duration-300 group-hover:brightness-200"
+                        className="max-h-full max-w-full object-contain opacity-85"
                       />
                     ) : (
-                      <span className="font-title text-base font-bold text-gray-700">{item.name}</span>
+                      <span className="font-title text-sm font-bold text-gray-700">{item.name}</span>
                     )}
                   </div>
-                  {/* Hover State: Blue background and white text */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#1863DC] p-3 text-center">
-                    <span className="font-title text-sm font-extrabold text-white tracking-wide">
+                  {/* Hover: blue bg + name */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-[#3B82F6] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <span className="font-title text-sm font-extrabold text-white tracking-wide text-center px-2">
                       {item.name}
                     </span>
                   </div>
@@ -160,8 +178,12 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
           </div>
         )}
 
-        <div className="flex justify-center mt-12">
-          <button className="btn btn-primary" data-coming-soon>
+        <div className="flex justify-center mt-10">
+          <button
+            className="rounded-full px-8 py-3 text-sm font-semibold text-white cursor-pointer transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+            style={{ background: 'linear-gradient(135deg, #B30B7E, #5C1081)' }}
+            data-coming-soon
+          >
             Explore Portfolio
           </button>
         </div>

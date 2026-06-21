@@ -29,14 +29,14 @@ export const Header: React.FC<HeaderProps> = async ({ activeSlug }) => {
   return (
     <header className="w-full bg-white border-b border-[rgba(228,228,231,0.8)] sticky top-0 z-[100] transition-all duration-300">
       <div className="max-w-[1280px] mx-auto px-6 py-3.5 flex justify-between items-center max-[860px]:flex-wrap max-[860px]:gap-4 max-[860px]:py-4 overflow-visible">
-        {/* Logo container with White circle overlapping effect */}
+        {/* Logo container with White rounded rectangle overlapping effect */}
         <div className="flex items-center gap-2 shrink-0 relative">
           <div className="relative z-50 mr-1 max-[860px]:mr-0">
-            <Link href="/" className="absolute top-[-19px] left-0 bg-white rounded-full p-[3px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-gray-200/40 flex items-center justify-center transition-transform duration-200 hover:scale-[1.03] w-[66px] h-[66px]">
-              <img src="/images/logo.png" alt="ACT logo" className="h-[60px] w-[60px] object-contain rounded-full" />
+            <Link href="/" className="absolute top-[-10px] left-0 bg-white rounded-2xl p-[3px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] border border-gray-200/40 flex items-center justify-center transition-transform duration-200 hover:scale-[1.03] w-[96px] h-[96px]">
+              <img src="/images/logo.png" alt="ACT logo" className="h-[84px] w-[84px] object-contain" />
             </Link>
             {/* Dummy spacer to hold horizontal place for the overlapping absolute element */}
-            <div className="w-[66px] h-[40px]" />
+            <div className="w-[96px] h-[50px]" />
           </div>
           <span className="bg-primary-light border border-primary/10 px-[0.55rem] py-[0.15rem] rounded-full text-[0.62rem] text-primary font-bold tracking-wider uppercase max-[980px]:hidden">CMS Demo</span>
         </div>
