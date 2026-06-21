@@ -758,14 +758,16 @@ export default async function HomePage() {
         {/* Section: Impact */}
         <section id="impact">
           <div className="w-full mx-auto bg-gradient-to-r from-[#1A237E] via-[#4A148C] to-[#B30B7E] px-16 py-20 text-white max-[1024px]:px-8 max-[1024px]:py-14 shadow-lg rounded-none">
-            <div className="max-w-[1180px] mx-auto mb-12 text-center">
-              <div className="grid grid-cols-[2fr_1fr] gap-12 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
-                <div className="relative w-full flex items-center justify-center max-[900px]:flex-col">
-                  <div className="w-full h-auto pb-16 max-[900px]:pb-0">
+            <div className="max-w-[1180px] mx-auto mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-[1.15fr_1fr] gap-16 items-center">
+                
+                {/* Left Column: Map + Description */}
+                <div className="relative w-full flex flex-col items-start text-left gap-6">
+                  <div className="w-full max-w-[460px] mx-auto md:mx-0">
                     <IndiaMap />
                   </div>
 
-                  <div className="absolute bottom-0 left-0 max-w-sm max-[900px]:relative max-[900px]:bottom-auto max-[900px]:left-auto max-[900px]:mt-6 max-[900px]:text-center max-[900px]:mx-auto">
+                  <div className="w-full max-w-[460px] text-left">
                     <h2 className="font-title text-6xl max-[640px]:text-4xl font-black text-white leading-none tracking-tight">
                       Impact
                     </h2>
@@ -777,8 +779,11 @@ export default async function HomePage() {
                   </div>
                 </div>
 
+                {/* Right Column: Statistics Grid */}
                 <div className="flex flex-col gap-4 w-full">
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center gap-4 text-left">
+                  
+                  {/* Card 1: 58 */}
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center gap-6 text-left">
                     <div className="font-title text-5xl font-extrabold text-white min-w-[70px]">
                       58
                     </div>
@@ -787,7 +792,8 @@ export default async function HomePage() {
                     </div>
                   </div>
 
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center gap-4 text-left">
+                  {/* Card 2: 30 */}
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center gap-6 text-left">
                     <div className="font-title text-5xl font-extrabold text-white min-w-[70px]">
                       30
                     </div>
@@ -796,8 +802,9 @@ export default async function HomePage() {
                     </div>
                   </div>
 
+                  {/* Card 3: 4x */}
                   <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3 text-left">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-6">
                       <div className="font-title text-5xl font-extrabold text-white min-w-[70px]">
                         4x
                       </div>
@@ -805,15 +812,17 @@ export default async function HomePage() {
                         Follow-on capital
                       </div>
                     </div>
-                    <p className="text-[0.75rem] text-white/70 leading-relaxed font-body border-t border-white/10 pt-3 mt-1">
-                      39 portfolio founders raised additional external funding after their solutions
-                      began showing tangible impact.
-                    </p>
+                    <div className="w-full border-t border-white/10 pt-3 mt-1">
+                      <p className="text-[0.75rem] text-white/70 leading-relaxed font-body">
+                        39 portfolio founders raised additional external funding after their solutions
+                        began showing tangible impact.
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Thẻ 26 */}
+                  {/* Card 4: 26 */}
                   <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3 text-left">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-6">
                       <div className="font-title text-5xl font-extrabold text-white min-w-[70px]">
                         26
                       </div>
@@ -821,12 +830,15 @@ export default async function HomePage() {
                         Government partnerships
                       </div>
                     </div>
-                    <p className="text-[0.75rem] text-white/70 leading-relaxed font-body border-t border-white/10 pt-3 mt-1">
-                      Our portfolio organisations have secured government partnerships, unlocking
-                      greater scale and sustainability.
-                    </p>
+                    <div className="w-full border-t border-white/10 pt-3 mt-1">
+                      <p className="text-[0.75rem] text-white/70 leading-relaxed font-body">
+                        Our portfolio organisations have secured government partnerships, unlocking
+                        greater scale and sustainability.
+                      </p>
+                    </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>

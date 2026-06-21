@@ -6,6 +6,9 @@ import './styles.css'
 export const metadata = {
   description: 'ACT is a non-profit tech-led venture philanthropy platform. We deploy early-stage risk capital and strategic advisory to accelerate social impact.',
   title: 'ACT Grants - Venture Philanthropy Platform',
+  icons: {
+    icon: '/images/logo.png',
+  },
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
