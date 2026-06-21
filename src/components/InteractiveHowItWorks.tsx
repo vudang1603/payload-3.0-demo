@@ -1,22 +1,25 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-type TabType = 'fund' | 'platform';
+type TabType = 'fund' | 'platform'
 
 type Principle = {
-  id: string;
-  title: string;
-  desc: string;
-  iconType: 'founder' | 'catalytic' | 'impact';
-  color: string;
-  borderStyle: string;
-};
+  id: string
+  title: string
+  desc: string
+  iconType: 'founder' | 'catalytic' | 'impact'
+  color: string
+  borderStyle: string
+}
 
-const DATA: Record<TabType, {
-  centerText: string;
-  principles: Principle[];
-}> = {
+const DATA: Record<
+  TabType,
+  {
+    centerText: string
+    principles: Principle[]
+  }
+> = {
   fund: {
     centerText: 'Our philanthropic grant-giving philosophy is rooted in three core principles',
     principles: [
@@ -26,7 +29,7 @@ const DATA: Record<TabType, {
         desc: 'ACT backs individuals who are passionate about social change, outcome-oriented, and deeply committed to addressing the access and affordability gap for India’s vulnerable populations.',
         iconType: 'founder',
         color: 'text-[#B30B7E]',
-        borderStyle: 'border-[#B30B7E] text-[#B30B7E]'
+        borderStyle: 'border-[#B30B7E] text-[#B30B7E]',
       },
       {
         id: 'catalytic',
@@ -34,20 +37,21 @@ const DATA: Record<TabType, {
         desc: 'Acting as early-stage funders, ACT provides seed capital to help grantees unlock the next phase of their product journey or business model, with the goal of enabling 10x growth.',
         iconType: 'catalytic',
         color: 'text-[#5C1081]',
-        borderStyle: 'border-[#5C1081] text-[#5C1081]'
+        borderStyle: 'border-[#5C1081] text-[#5C1081]',
       },
       {
         id: 'impact',
         title: 'Impact First',
-        desc: 'Our grants are mission-centric and thus available to both for-profit and not-for-profit innovations because we believe that both will have a place in the larger social change we\'re attempting to create.',
+        desc: 'Our grants are mission-led and open to both for-profit and not-for-profit innovations, because we believe each has a role to play in the larger social change we seek to create.',
         iconType: 'impact',
         color: 'text-white',
-        borderStyle: 'border-[#B30B7E] text-[#B30B7E]'
-      }
-    ]
+        borderStyle: 'border-[#B30B7E] text-[#B30B7E]',
+      },
+    ],
   },
   platform: {
-    centerText: 'Fostering collaboration across the board to seed innovations for population-scale impact',
+    centerText:
+      'Fostering collaboration across the board to seed innovations for population-scale impact',
     principles: [
       {
         id: 'capacity',
@@ -55,7 +59,7 @@ const DATA: Record<TabType, {
         desc: 'The organization builds strong relationships with founders to provide strategic and operational guidance, facilitating 1:1 advisory relationships to strengthen organizational capacity.',
         iconType: 'founder',
         color: 'text-[#B30B7E]',
-        borderStyle: 'border-[#B30B7E] text-[#B30B7E]'
+        borderStyle: 'border-[#B30B7E] text-[#B30B7E]',
       },
       {
         id: 'incubating',
@@ -63,7 +67,7 @@ const DATA: Record<TabType, {
         desc: 'ACT designs challenge grants and pilot incubation/acceleration programs to draw attention to critical social issues and inspire entrepreneurs to develop scalable solutions.',
         iconType: 'catalytic',
         color: 'text-[#5C1081]',
-        borderStyle: 'border-[#5C1081] text-[#5C1081]'
+        borderStyle: 'border-[#5C1081] text-[#5C1081]',
       },
       {
         id: 'knowledge',
@@ -71,62 +75,89 @@ const DATA: Record<TabType, {
         desc: 'The platform leverages the collective expertise of its members—venture capitalists, tech entrepreneurs, and social impact leaders—to address complex social problems.',
         iconType: 'impact',
         color: 'text-white',
-        borderStyle: 'border-[#B30B7E] text-[#B30B7E]'
-      }
-    ]
-  }
-};
+        borderStyle: 'border-[#B30B7E] text-[#B30B7E]',
+      },
+    ],
+  },
+}
 
-const IconRenderer: React.FC<{ type: 'founder' | 'catalytic' | 'impact'; className?: string }> = ({ type, className = 'w-6 h-6' }) => {
+const IconRenderer: React.FC<{ type: 'founder' | 'catalytic' | 'impact'; className?: string }> = ({
+  type,
+  className = 'w-6 h-6',
+}) => {
   if (type === 'founder') {
     return (
-      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        className={className}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
         <circle cx="8.5" cy="7" r="4" />
         <line x1="18" y1="8" x2="22" y2="12" />
         <line x1="22" y1="8" x2="18" y2="12" />
       </svg>
-    );
+    )
   }
   if (type === 'catalytic') {
     return (
-      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        className={className}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <circle cx="12" cy="5" r="3" />
         <circle cx="5" cy="19" r="3" />
         <circle cx="19" cy="19" r="3" />
         <line x1="12" y1="8" x2="6.5" y2="16.5" />
         <line x1="12" y1="8" x2="17.5" y2="16.5" />
       </svg>
-    );
+    )
   }
   // impact / target
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <circle cx="12" cy="12" r="10" />
       <circle cx="12" cy="12" r="6" />
       <circle cx="12" cy="12" r="2" />
     </svg>
-  );
-};
+  )
+}
 
 export const InteractiveHowItWorks: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<TabType>('fund');
-  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<TabType>('fund')
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null)
 
-  const currentData = DATA[activeTab];
+  const currentData = DATA[activeTab]
 
   // Helper to place popup relative to node
   const getPopupStyles = (id: string) => {
     // left-aligned nodes, popup goes left or right
     if (id === 'founder' || id === 'capacity') {
-      return 'absolute right-[115%] top-1/2 -translate-y-1/2 w-[280px] bg-white border border-gray-100 p-4 rounded-xl shadow-lg z-50 text-left';
+      return 'absolute right-[115%] top-1/2 -translate-y-1/2 w-[280px] bg-white border border-gray-100 p-4 rounded-xl shadow-lg z-50 text-left'
     }
     if (id === 'impact' || id === 'knowledge') {
-      return 'absolute left-[115%] top-1/2 -translate-y-1/2 w-[280px] bg-white border border-gray-100 p-4 rounded-xl shadow-lg z-50 text-left';
+      return 'absolute left-[115%] top-1/2 -translate-y-1/2 w-[280px] bg-white border border-gray-100 p-4 rounded-xl shadow-lg z-50 text-left'
     }
     // catalytic / bottom node — open upward so the section's overflow-hidden doesn't clip it
-    return 'absolute left-1/2 bottom-[115%] -translate-x-1/2 w-[280px] bg-white border border-gray-100 p-4 rounded-xl shadow-lg z-50 text-center';
-  };
+    return 'absolute left-1/2 bottom-[115%] -translate-x-1/2 w-[280px] bg-white border border-gray-100 p-4 rounded-xl shadow-lg z-50 text-center'
+  }
 
   return (
     <div className="flex flex-col items-center w-full max-w-5xl mx-auto px-4">
@@ -134,8 +165,8 @@ export const InteractiveHowItWorks: React.FC = () => {
       <div className="flex justify-center gap-3 p-1.5 bg-gray-100/80 rounded-full border border-gray-200 mb-0 relative z-20 max-[640px]:flex-col max-[640px]:rounded-2xl max-[640px]:w-full">
         <button
           onClick={() => {
-            setActiveTab('fund');
-            setHoveredNode(null);
+            setActiveTab('fund')
+            setHoveredNode(null)
           }}
           className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
             activeTab === 'fund'
@@ -143,12 +174,12 @@ export const InteractiveHowItWorks: React.FC = () => {
               : 'text-[#7F93D6] border border-[#7F93D6]/40'
           }`}
         >
-          ACT As A Venture Philanthropy Fund
+          As a Venture Philanthropy Fund
         </button>
         <button
           onClick={() => {
-            setActiveTab('platform');
-            setHoveredNode(null);
+            setActiveTab('platform')
+            setHoveredNode(null)
           }}
           className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
             activeTab === 'platform'
@@ -156,7 +187,7 @@ export const InteractiveHowItWorks: React.FC = () => {
               : 'text-[#7F93D6] border border-[#7F93D6]/40'
           }`}
         >
-          ACT As A Collective Action Platform
+          As a Collective Action Platform
         </button>
       </div>
 
@@ -178,7 +209,7 @@ export const InteractiveHowItWorks: React.FC = () => {
 
         {/* Principle Nodes */}
         {currentData.principles.map((pr, index) => {
-          // Positions: 
+          // Positions:
           // 0: Left (Founder First)
           // 1: Bottom (Catalytic)
           // 2: Right (Impact First)
@@ -187,14 +218,14 @@ export const InteractiveHowItWorks: React.FC = () => {
             'left-[90px] top-1/2 -translate-x-1/2 -translate-y-1/2',
             'left-1/2 top-[470px] -translate-x-1/2 -translate-y-1/2',
             'left-[470px] top-1/2 -translate-x-1/2 -translate-y-1/2',
-          ][index];
+          ][index]
           const labelPos = [
             'absolute right-full top-1/2 -translate-y-1/2 mr-4 whitespace-nowrap',
             'absolute top-full left-1/2 -translate-x-1/2 mt-3 whitespace-nowrap',
             'absolute left-full top-1/2 -translate-y-1/2 ml-4 whitespace-nowrap',
-          ][index];
-          const isHovered = hoveredNode === pr.id;
-          const labelColor = isHovered ? 'text-[#B30B7E]' : 'text-gray-900';
+          ][index]
+          const isHovered = hoveredNode === pr.id
+          const labelColor = isHovered ? 'text-[#B30B7E]' : 'text-gray-900'
 
           return (
             <div
@@ -215,7 +246,9 @@ export const InteractiveHowItWorks: React.FC = () => {
               </div>
 
               {/* Label (floats outward from the icon, so the icon stays centered on the ring) */}
-              <span className={`${labelPos} font-title text-base font-bold ${labelColor} select-none`}>
+              <span
+                className={`${labelPos} font-title text-base font-bold ${labelColor} select-none`}
+              >
                 {pr.title}
               </span>
 
@@ -227,7 +260,7 @@ export const InteractiveHowItWorks: React.FC = () => {
                 </div>
               )}
             </div>
-          );
+          )
         })}
       </div>
 
@@ -238,7 +271,9 @@ export const InteractiveHowItWorks: React.FC = () => {
             key={pr.id}
             className="flex items-start gap-4 p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           >
-            <div className={`w-12 h-12 rounded-full border-2 bg-white flex items-center justify-center shrink-0 ${pr.borderStyle}`}>
+            <div
+              className={`w-12 h-12 rounded-full border-2 bg-white flex items-center justify-center shrink-0 ${pr.borderStyle}`}
+            >
               <IconRenderer type={pr.iconType} className="w-5 h-5" />
             </div>
             <div className="flex flex-col gap-1 text-left">
@@ -249,5 +284,5 @@ export const InteractiveHowItWorks: React.FC = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
