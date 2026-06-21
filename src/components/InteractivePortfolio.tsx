@@ -1,109 +1,393 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import { getImageUrl } from '@/utils/imageUrl';
+import React, { useState } from 'react'
+import { getImageUrl } from '@/utils/imageUrl'
 
 type PortfolioItem = {
-  id: string;
-  name: string;
-  sectors: string;
-  fundingAmount?: number;
-  logo?: any;
-  website?: string;
-  description?: any;
-};
+  id: string
+  name: string
+  sectors: string
+  fundingAmount?: number
+  logo?: any
+  website?: string
+  description?: any
+}
 
 type InteractivePortfolioProps = {
-  initialPortfolios: PortfolioItem[];
-};
+  initialPortfolios: PortfolioItem[]
+}
 
 // Mock community data matching actgrants.in team/community grid
 const communityData = {
   vcs: [
-    { name: 'Anjali Bansal', role: 'Founder', company: 'Avaana Capital', photo: 'https://actgrants.in/wp-content/themes/act/images/Venture%20Capitalist/flip-1-1.jpg' },
-    { name: 'Bejul Somaia', role: 'Partner', company: 'Lightspeed', photo: 'https://actgrants.in/wp-content/themes/act/images/Venture%20Capitalist/flip-1-2.jpg' },
-    { name: 'GV Ravishankar', role: 'Managing Director', company: 'Peak XV', photo: 'https://actgrants.in/wp-content/themes/act/images/Venture%20Capitalist/flip-1-3.jpg' },
-    { name: 'Shekhar Kirani', role: 'Partner', company: 'Accel', photo: 'https://actgrants.in/wp-content/themes/act/images/Venture%20Capitalist/flip-1-8.jpg' },
-    { name: 'Vani Kola', role: 'Managing Director', company: 'Kalaari Capital', photo: 'https://actgrants.in/wp-content/themes/act/images/Venture%20Capitalist/flip-1-10.jpg' },
+    {
+      name: 'Anjali Bansal',
+      role: 'Founder',
+      company: 'Avaana Capital',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Venture%20Capitalist/flip-1-1.jpg',
+    },
+    {
+      name: 'Bejul Somaia',
+      role: 'Partner',
+      company: 'Lightspeed',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Venture%20Capitalist/flip-1-2.jpg',
+    },
+    {
+      name: 'GV Ravishankar',
+      role: 'Managing Director',
+      company: 'Peak XV',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Venture%20Capitalist/flip-1-3.jpg',
+    },
+    {
+      name: 'Shekhar Kirani',
+      role: 'Partner',
+      company: 'Accel',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Venture%20Capitalist/flip-1-8.jpg',
+    },
+    {
+      name: 'Vani Kola',
+      role: 'Managing Director',
+      company: 'Kalaari Capital',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Venture%20Capitalist/flip-1-10.jpg',
+    },
   ],
   strategy: [
-    { name: 'Abhiraj Bhal', role: 'Co-founder & CEO', company: 'Urban Company', photo: 'https://actgrants.in/wp-content/themes/act/images/Startup/abhiraj-bhal.png' },
-    { name: 'Deepinder Goyal', role: 'Founder & CEO', company: 'Zomato', photo: 'https://actgrants.in/wp-content/themes/act/images/Startup/deepinder-goyal.png' },
-    { name: 'Divya Jain', role: 'Co-founder', company: 'Seekho', photo: 'https://actgrants.in/wp-content/themes/act/images/Startup/Divya-Jain.png' },
-    { name: 'Girish Mathrubootham', role: 'Founder & CEO', company: 'Freshworks', photo: 'https://actgrants.in/wp-content/themes/act/images/Startup/girish-mathrubootham.png' },
-    { name: 'Nithin Kamath', role: 'Founder & CEO', company: 'Zerodha', photo: 'https://actgrants.in/wp-content/themes/act/images/Startup/nithin-kamath.png' },
+    {
+      name: 'Abhiraj Bhal',
+      role: 'Co-founder & CEO',
+      company: 'Urban Company',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Startup/abhiraj-bhal.png',
+    },
+    {
+      name: 'Deepinder Goyal',
+      role: 'Founder & CEO',
+      company: 'Zomato',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Startup/deepinder-goyal.png',
+    },
+    {
+      name: 'Divya Jain',
+      role: 'Co-founder',
+      company: 'Seekho',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Startup/Divya-Jain.png',
+    },
+    {
+      name: 'Girish Mathrubootham',
+      role: 'Founder & CEO',
+      company: 'Freshworks',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Startup/girish-mathrubootham.png',
+    },
+    {
+      name: 'Nithin Kamath',
+      role: 'Founder & CEO',
+      company: 'Zerodha',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Startup/nithin-kamath.png',
+    },
   ],
   ecosystem: [
-    { name: 'Boston Consulting Group', role: 'Knowledge Partner', company: 'BCG', photo: 'https://actgrants.in/wp-content/themes/act/images/Impact%20Partners/BCG_MONOGRAM.png' },
-    { name: 'Bill & Melinda Gates Foundation', role: 'Donor Partner', company: 'BMGF', photo: 'https://actgrants.in/wp-content/themes/act/images/Impact%20Partners/Bill%20Melinda%20Gates.png' },
-    { name: 'McKinsey & Company', role: 'Knowledge Partner', company: 'McKinsey', photo: 'https://actgrants.in/wp-content/themes/act/images/Impact%20Partners/McKinsey.png' },
-    { name: 'Michael & Susan Dell Foundation', role: 'Philanthropic Partner', company: 'MSDF', photo: 'https://actgrants.in/wp-content/themes/act/images/Impact%20Partners/Michael%20and%20susan.png' },
-    { name: 'Sattva Consulting', role: 'Implementation Partner', company: 'Sattva', photo: 'https://actgrants.in/wp-content/themes/act/images/Impact%20Partners/SattvaConsulting-Logo.png' },
+    {
+      name: 'Boston Consulting Group',
+      role: 'Knowledge Partner',
+      company: 'BCG',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Impact%20Partners/BCG_MONOGRAM.png',
+    },
+    {
+      name: 'Bill & Melinda Gates Foundation',
+      role: 'Donor Partner',
+      company: 'BMGF',
+      photo:
+        'https://actgrants.in/wp-content/themes/act/images/Impact%20Partners/Bill%20Melinda%20Gates.png',
+    },
+    {
+      name: 'McKinsey & Company',
+      role: 'Knowledge Partner',
+      company: 'McKinsey',
+      photo: 'https://actgrants.in/wp-content/themes/act/images/Impact%20Partners/McKinsey.png',
+    },
+    {
+      name: 'Michael & Susan Dell Foundation',
+      role: 'Philanthropic Partner',
+      company: 'MSDF',
+      photo:
+        'https://actgrants.in/wp-content/themes/act/images/Impact%20Partners/Michael%20and%20susan.png',
+    },
+    {
+      name: 'Sattva Consulting',
+      role: 'Implementation Partner',
+      company: 'Sattva',
+      photo:
+        'https://actgrants.in/wp-content/themes/act/images/Impact%20Partners/SattvaConsulting-Logo.png',
+    },
   ],
   experts: [
-    { name: 'Ashish Dhawan', role: 'Founder', company: 'The Convergence Foundation', photo: 'https://actgrants.in/wp-content/themes/act/images/Industry%20experts/Ashish-Dhawan-(The-Convergence-Foundation).png' },
-    { name: 'Dr. Nachiket Mor', role: 'Expert', company: 'The Banyan Academy', photo: 'https://actgrants.in/wp-content/themes/act/images/Industry%20experts/Dr.-Nachiket-Mor-(The-Banyan-Academy).png' },
-    { name: 'Mekin Maheshwari', role: 'Founder', company: 'Udhyam Learning Foundation', photo: 'https://actgrants.in/wp-content/themes/act/images/Industry%20experts/Mekin-Maheshwari-(Udhyam-Learning-Foundation).png' },
-    { name: 'Mridula Ramesh', role: 'Founder', company: 'Sundaram Climate Institute', photo: 'https://actgrants.in/wp-content/themes/act/images/Industry%20experts/Mridula-Ramesh-(Sundaram-Climate-Institute).png' },
-    { name: 'Vivek Adhia', role: 'Partner', company: 'BCG', photo: 'https://actgrants.in/wp-content/themes/act/images/Industry%20experts/Vivek-Adhia-(BCG).png' },
-  ]
-};
+    {
+      name: 'Ashish Dhawan',
+      role: 'Founder',
+      company: 'The Convergence Foundation',
+      photo:
+        'https://actgrants.in/wp-content/themes/act/images/Industry%20experts/Ashish-Dhawan-(The-Convergence-Foundation).png',
+    },
+    {
+      name: 'Dr. Nachiket Mor',
+      role: 'Expert',
+      company: 'The Banyan Academy',
+      photo:
+        'https://actgrants.in/wp-content/themes/act/images/Industry%20experts/Dr.-Nachiket-Mor-(The-Banyan-Academy).png',
+    },
+    {
+      name: 'Mekin Maheshwari',
+      role: 'Founder',
+      company: 'Udhyam Learning Foundation',
+      photo:
+        'https://actgrants.in/wp-content/themes/act/images/Industry%20experts/Mekin-Maheshwari-(Udhyam-Learning-Foundation).png',
+    },
+    {
+      name: 'Mridula Ramesh',
+      role: 'Founder',
+      company: 'Sundaram Climate Institute',
+      photo:
+        'https://actgrants.in/wp-content/themes/act/images/Industry%20experts/Mridula-Ramesh-(Sundaram-Climate-Institute).png',
+    },
+    {
+      name: 'Vivek Adhia',
+      role: 'Partner',
+      company: 'BCG',
+      photo:
+        'https://actgrants.in/wp-content/themes/act/images/Industry%20experts/Vivek-Adhia-(BCG).png',
+    },
+  ],
+}
 
 // Mock portfolio data when CMS is empty
 const mockPortfolios: PortfolioItem[] = [
   // Education Sector (as shown in design)
-  { id: 'edu-1', name: 'adalat ai', sectors: 'education', logo: '/images/company-logos/Adalat_AI_logos.svg', website: '#' },
-  { id: 'edu-2', name: 'Barabari', sectors: 'education', logo: '/images/company-logos/barabari_.png', website: '#' },
-  { id: 'edu-3', name: 'CG', sectors: 'education', logo: '/images/company-logos/cg.png', website: '#' },
-  { id: 'edu-4', name: 'Curious', sectors: 'education', logo: '/images/company-logos/curious.png', website: '#' },
-  { id: 'edu-5', name: 'Disha', sectors: 'education', logo: '/images/company-logos/Disha-logo.png', website: '#' },
-  { id: 'edu-6', name: 'English Quest', sectors: 'education', logo: '/images/company-logos/1.png', website: '#' },
-  { id: 'edu-7', name: 'Frontier Markets', sectors: 'education', logo: '/images/company-logos/Frontier-Markets-Logo.jpg', website: '#' },
-  { id: 'edu-8', name: 'Josh Skills', sectors: 'education', logo: '/images/company-logos/3-logo.png', website: '#' },
-  { id: 'edu-9', name: 'LearnTube', sectors: 'education', logo: '/images/company-logos/10-logo.png', website: '#' },
-  { id: 'edu-10', name: 'Karya', sectors: 'education', logo: '/images/company-logos/karyalogo.png', website: '#' },
-  { id: 'edu-11', name: 'Kutuki', sectors: 'education', logo: '/images/company-logos/4-logo.png', website: '#' },
-  { id: 'edu-12', name: 'Pocket Learning', sectors: 'education', logo: '/images/company-logos/5-logo.png', website: '#' },
-  { id: 'edu-13', name: 'Supernan', sectors: 'education', logo: '/images/company-logos/6-logo.png', website: '#' },
-  { id: 'edu-14', name: 'The Apprentice Project', sectors: 'education', logo: '/images/company-logos/the-app-project.png', website: '#' },
-  { id: 'edu-15', name: 'Top Parent', sectors: 'education', logo: '/images/company-logos/7-logo.png', website: '#' },
-  { id: 'edu-16', name: 'VAll', sectors: 'education', logo: '/images/company-logos/logoVAll.png', website: '#' },
-  { id: 'edu-17', name: 'Vidyakul', sectors: 'education', logo: '/images/company-logos/8-logo.png', website: '#' },
-  { id: 'edu-18', name: 'Vopa', sectors: 'education', logo: '/images/company-logos/9-logo.png', website: '#' },
-  { id: 'edu-19', name: 'YuWaah', sectors: 'education', logo: '/images/company-logos/Logo-scaled.png', website: '#' },
+  {
+    id: 'edu-1',
+    name: 'adalat ai',
+    sectors: 'education',
+    logo: '/images/company-logos/Adalat_AI_logos.svg',
+    website: '#',
+  },
+  {
+    id: 'edu-2',
+    name: 'Barabari',
+    sectors: 'education',
+    logo: '/images/company-logos/barabari_.png',
+    website: '#',
+  },
+  {
+    id: 'edu-3',
+    name: 'CG',
+    sectors: 'education',
+    logo: '/images/company-logos/cg.png',
+    website: '#',
+  },
+  {
+    id: 'edu-4',
+    name: 'Curious',
+    sectors: 'education',
+    logo: '/images/company-logos/curious.png',
+    website: '#',
+  },
+  {
+    id: 'edu-5',
+    name: 'Disha',
+    sectors: 'education',
+    logo: '/images/company-logos/Disha-logo.png',
+    website: '#',
+  },
+  {
+    id: 'edu-6',
+    name: 'English Quest',
+    sectors: 'education',
+    logo: '/images/company-logos/1.png',
+    website: '#',
+  },
+  {
+    id: 'edu-7',
+    name: 'Frontier Markets',
+    sectors: 'education',
+    logo: '/images/company-logos/Frontier-Markets-Logo.jpg',
+    website: '#',
+  },
+  {
+    id: 'edu-8',
+    name: 'Josh Skills',
+    sectors: 'education',
+    logo: '/images/company-logos/3-logo.png',
+    website: '#',
+  },
+  {
+    id: 'edu-9',
+    name: 'LearnTube',
+    sectors: 'education',
+    logo: '/images/company-logos/10-logo.png',
+    website: '#',
+  },
+  {
+    id: 'edu-10',
+    name: 'Karya',
+    sectors: 'education',
+    logo: '/images/company-logos/karyalogo.png',
+    website: '#',
+  },
+  {
+    id: 'edu-11',
+    name: 'Kutuki',
+    sectors: 'education',
+    logo: '/images/company-logos/4-logo.png',
+    website: '#',
+  },
+  {
+    id: 'edu-12',
+    name: 'Pocket Learning',
+    sectors: 'education',
+    logo: '/images/company-logos/5-logo.png',
+    website: '#',
+  },
+  {
+    id: 'edu-13',
+    name: 'Supernan',
+    sectors: 'education',
+    logo: '/images/company-logos/6-logo.png',
+    website: '#',
+  },
+  {
+    id: 'edu-14',
+    name: 'The Apprentice Project',
+    sectors: 'education',
+    logo: '/images/company-logos/the-app-project.png',
+    website: '#',
+  },
+  {
+    id: 'edu-15',
+    name: 'Top Parent',
+    sectors: 'education',
+    logo: '/images/company-logos/7-logo.png',
+    website: '#',
+  },
+  {
+    id: 'edu-16',
+    name: 'VAll',
+    sectors: 'education',
+    logo: '/images/company-logos/logoVAll.png',
+    website: '#',
+  },
+  {
+    id: 'edu-17',
+    name: 'Vidyakul',
+    sectors: 'education',
+    logo: '/images/company-logos/8-logo.png',
+    website: '#',
+  },
+  {
+    id: 'edu-18',
+    name: 'Vopa',
+    sectors: 'education',
+    logo: '/images/company-logos/9-logo.png',
+    website: '#',
+  },
+  {
+    id: 'edu-19',
+    name: 'YuWaah',
+    sectors: 'education',
+    logo: '/images/company-logos/Logo-scaled.png',
+    website: '#',
+  },
 
   // Environment Sector
-  { id: 'env-1', name: 'CG', sectors: 'environment', logo: '/images/company-logos/cg.png', website: '#' },
-  { id: 'env-2', name: 'Disha', sectors: 'environment', logo: '/images/company-logos/Disha-logo.png', website: '#' },
-  { id: 'env-3', name: 'Frontier Markets', sectors: 'environment', logo: '/images/company-logos/Frontier-Markets-Logo.jpg', website: '#' },
-  { id: 'env-4', name: 'YuWaah', sectors: 'environment', logo: '/images/company-logos/Logo-scaled.png', website: '#' },
+  {
+    id: 'env-1',
+    name: 'CG',
+    sectors: 'environment',
+    logo: '/images/company-logos/cg.png',
+    website: '#',
+  },
+  {
+    id: 'env-2',
+    name: 'Disha',
+    sectors: 'environment',
+    logo: '/images/company-logos/Disha-logo.png',
+    website: '#',
+  },
+  {
+    id: 'env-3',
+    name: 'Frontier Markets',
+    sectors: 'environment',
+    logo: '/images/company-logos/Frontier-Markets-Logo.jpg',
+    website: '#',
+  },
+  {
+    id: 'env-4',
+    name: 'YuWaah',
+    sectors: 'environment',
+    logo: '/images/company-logos/Logo-scaled.png',
+    website: '#',
+  },
 
   // Health Sector
-  { id: 'hea-1', name: 'adalat ai', sectors: 'health', logo: '/images/company-logos/Adalat_AI_logos.svg', website: '#' },
-  { id: 'hea-2', name: 'Top Parent', sectors: 'health', logo: '/images/company-logos/7-logo.png', website: '#' },
-  { id: 'hea-3', name: 'VAll', sectors: 'health', logo: '/images/company-logos/logoVAll.png', website: '#' },
+  {
+    id: 'hea-1',
+    name: 'adalat ai',
+    sectors: 'health',
+    logo: '/images/company-logos/Adalat_AI_logos.svg',
+    website: '#',
+  },
+  {
+    id: 'hea-2',
+    name: 'Top Parent',
+    sectors: 'health',
+    logo: '/images/company-logos/7-logo.png',
+    website: '#',
+  },
+  {
+    id: 'hea-3',
+    name: 'VAll',
+    sectors: 'health',
+    logo: '/images/company-logos/logoVAll.png',
+    website: '#',
+  },
 
   // Women Sector
-  { id: 'wom-1', name: 'Karya', sectors: 'women', logo: '/images/company-logos/karyalogo.png', website: '#' },
-  { id: 'wom-2', name: 'Supernan', sectors: 'women', logo: '/images/company-logos/6-logo.png', website: '#' },
-  { id: 'wom-3', name: 'Pocket Learning', sectors: 'women', logo: '/images/company-logos/5-logo.png', website: '#' },
-];
+  {
+    id: 'wom-1',
+    name: 'Karya',
+    sectors: 'women',
+    logo: '/images/company-logos/karyalogo.png',
+    website: '#',
+  },
+  {
+    id: 'wom-2',
+    name: 'Supernan',
+    sectors: 'women',
+    logo: '/images/company-logos/6-logo.png',
+    website: '#',
+  },
+  {
+    id: 'wom-3',
+    name: 'Pocket Learning',
+    sectors: 'women',
+    logo: '/images/company-logos/5-logo.png',
+    website: '#',
+  },
+]
 
-export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ initialPortfolios }) => {
-  const [selectedSector, setSelectedSector] = useState<string>('education');
+export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({
+  initialPortfolios,
+}) => {
+  const [selectedSector, setSelectedSector] = useState<string>('education')
 
   const sectorsList = [
     { id: 'education', label: 'Education' },
     { id: 'environment', label: 'Environment' },
     { id: 'health', label: 'Health' },
-    { id: 'women', label: 'Women' }
-  ];
+    { id: 'women', label: 'Women' },
+  ]
 
-  const portfolios = mockPortfolios;
-  const filteredPortfolios = portfolios.filter(p => p.sectors === selectedSector);
+  const portfolios = mockPortfolios
+  const filteredPortfolios = portfolios.filter((p) => p.sectors === selectedSector)
 
   // LearnTube is a featured card with blue background
-  const FEATURED_ID = 'edu-9';
+  const FEATURED_ID = 'edu-9'
 
   return (
     <div className="flex flex-col w-full">
@@ -111,7 +395,10 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
       <section className="bg-white rounded-[32px] px-8 pt-8 pb-12 max-[640px]:px-4" id="portfolio">
         <div className="section-title-wrapper mb-8">
           <h2 className="font-title text-3xl font-extrabold text-gray-900 text-center tracking-tight">
-            Portfolio <span className="bg-gradient-to-r from-[#B30B7E] to-[#5C1081] bg-clip-text text-transparent inline-block font-black">proof</span>
+            Portfolio{' '}
+            <span className="bg-gradient-to-r from-[#B30B7E] to-[#5C1081] bg-clip-text text-transparent inline-block font-black">
+              proof
+            </span>
           </h2>
         </div>
 
@@ -143,7 +430,12 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
             style={{ gap: '8px' }}
           >
             {filteredPortfolios.map((item) => {
-              const logoUrl = typeof item.logo === 'string' ? item.logo : (item.logo ? getImageUrl(item.logo) : null);
+              const logoUrl =
+                typeof item.logo === 'string'
+                  ? item.logo
+                  : item.logo
+                    ? getImageUrl(item.logo)
+                    : null
 
               return (
                 <a
@@ -163,7 +455,9 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
                         className="max-h-full max-w-full object-contain opacity-85"
                       />
                     ) : (
-                      <span className="font-title text-sm font-bold text-gray-700">{item.name}</span>
+                      <span className="font-title text-sm font-bold text-gray-700">
+                        {item.name}
+                      </span>
                     )}
                   </div>
                   {/* Hover: blue bg + name */}
@@ -173,7 +467,7 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
                     </span>
                   </div>
                 </a>
-              );
+              )
             })}
           </div>
         )}
@@ -184,10 +478,10 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
             style={{ background: 'linear-gradient(135deg, #B30B7E, #5C1081)' }}
             data-coming-soon
           >
-            Explore Portfolio
+            Explore our portfolio
           </button>
         </div>
       </section>
     </div>
-  );
-};
+  )
+}

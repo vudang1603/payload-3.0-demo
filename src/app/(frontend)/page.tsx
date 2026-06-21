@@ -11,6 +11,7 @@ import { InteractivePathways } from '@/components/InteractivePathways'
 import { InteractiveHowItWorks } from '@/components/InteractiveHowItWorks'
 import { InteractiveStories } from '@/components/InteractiveStories'
 import { IndiaMap } from '@/components/IndiaMap'
+import { LatestInsights } from '@/components/LatestInsights'
 
 interface LexicalTextNode {
   text?: string
@@ -192,7 +193,7 @@ export default async function HomePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-1">
+            <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-1 px-8 py-4">
               {/* Card 1: Risk Capital */}
               <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100 cursor-pointer transition-all duration-500 hover:bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] hover:border-transparent hover:shadow-lg">
                 {/* Default State: Centered circle image and title */}
@@ -566,7 +567,7 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="focus-grid flex gap-1.5 h-[480px] rounded-3xl overflow-hidden max-[1024px]:flex-col max-[1024px]:h-auto">
+          <div className="focus-grid flex gap-1.5 h-[480px] overflow-hidden max-[1024px]:flex-col max-[1024px]:h-auto !rounded-none">
             {/* Card 1: Education (expanded-default) */}
             <div className="focus-card flex-1 relative overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] expanded-default max-[1024px]:h-[200px] max-[1024px]:hover:h-[360px]">
               <div
@@ -711,7 +712,7 @@ export default async function HomePage() {
         {/* Section: How ACT works */}
         <section
           id="how-it-works"
-          className="relative pt-8 pb-4 bg-[#F8F4FF]/50 border border-gray-100/50 rounded-[40px] max-[640px]:py-10 max-[640px]:rounded-3xl overflow-hidden"
+          className="relative pt-8 pb-4 bg-[#F8F4FF]/50 border border-gray-100/50 max-[640px]:py-10 overflow-hidden"
         >
           <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto px-4">
             <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -733,11 +734,16 @@ export default async function HomePage() {
         {/* Dynamic Portfolio Section wrapped in Suspense */}
         <Suspense
           fallback={
-            <section className="py-16 px-4" id="portfolio">
+            <section
+              className="relative py-16 px-4 overflow-hidden shadow-sm rounded-b-[16px] bg-gradient-to-r from-[#1A237E] via-[#4A148C] to-[#B30B7E] "
+              id="portfolio"
+            >
+              <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_10%_15%,_rgba(195,9,159,0.06)_0%,_transparent_60%)] pointer-events-none" />
+              <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_90%_85%,_rgba(195,9,159,0.12)_0%,_transparent_65%)] pointer-events-none" />
               <div className="section-title-wrapper mb-8">
                 <h2 className="font-title text-3xl font-extrabold text-gray-900 text-center tracking-tight">
                   Portfolio{' '}
-                  <span className="bg-gradient-to-r from-[#B30B7E] to-[#5C1081] bg-clip-text text-transparent inline-block font-black">
+                  <span className="bg-gradient-to-r from-[#1863DC] to-[#B30B7E] bg-clip-text text-transparent inline-block font-black">
                     proof
                   </span>
                 </h2>
@@ -750,68 +756,76 @@ export default async function HomePage() {
         </Suspense>
 
         {/* Section: Impact */}
-        <section id="impact" className="py-10">
-          <div className="w-full max-w-[1180px] mx-auto bg-gradient-to-b from-[#1A237E] via-[#4A148C] to-[#B30B7E] rounded-[48px] px-16 py-20 text-white max-[1024px]:px-8 max-[1024px]:py-14 max-[640px]:rounded-[32px] shadow-lg">
-            <div className="grid grid-cols-[1.5fr_1fr] gap-10 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
-              {/* Left: India map + heading */}
-              <div className="flex flex-col gap-8">
-                <div className="relative w-full">
-                  {/* Interactive India map — hover a state to highlight + show its name */}
-                  <IndiaMap />
-                </div>
+        <section id="impact">
+          <div className="w-full mx-auto bg-gradient-to-r from-[#1A237E] via-[#4A148C] to-[#B30B7E] px-16 py-20 text-white max-[1024px]:px-8 max-[1024px]:py-14 shadow-lg rounded-none">
+            <div className="max-w-[1180px] mx-auto mb-12 text-center">
+              <div className="grid grid-cols-[2fr_1fr] gap-12 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
+                <div className="relative w-full flex items-center justify-center max-[900px]:flex-col">
+                  <div className="w-full h-auto pb-16 max-[900px]:pb-0">
+                    <IndiaMap />
+                  </div>
 
-                <div>
-                  <h2 className="font-title text-6xl max-[640px]:text-4xl font-black text-white leading-none tracking-tight">
-                    Impact
-                  </h2>
-                  <p className="text-sm text-white/80 leading-relaxed font-body mt-4 max-w-md">
-                    As a non-profit tech-led venture philanthropy platform, ACT is built upon the
-                    premise that an entrepreneurial mindset, technology &amp; innovation and
-                    collective action have the power to create meaningful social impact at scale.
-                  </p>
-                </div>
-              </div>
-
-              {/* Right: stat cards column */}
-              <div className="flex flex-col gap-4 w-full">
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center justify-between text-left">
-                  <div className="font-title text-4xl font-extrabold text-white">58</div>
-                  <div className="text-xs text-white/80 font-semibold tracking-wide uppercase text-right leading-tight max-w-[150px]">
-                    Innovations supported
+                  <div className="absolute bottom-0 left-0 max-w-sm max-[900px]:relative max-[900px]:bottom-auto max-[900px]:left-auto max-[900px]:mt-6 max-[900px]:text-center max-[900px]:mx-auto">
+                    <h2 className="font-title text-6xl max-[640px]:text-4xl font-black text-white leading-none tracking-tight">
+                      Impact
+                    </h2>
+                    <p className="text-xs text-white/80 leading-relaxed font-body mt-4">
+                      Across India, ACT backs bold ideas at the point where support can change their
+                      trajectory. Our impact lies in helping those ideas move from possibility to
+                      lasting change.
+                    </p>
                   </div>
                 </div>
 
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center justify-between text-left">
-                  <div className="font-title text-4xl font-extrabold text-white">30</div>
-                  <div className="text-xs text-white/80 font-semibold tracking-wide uppercase text-right leading-tight max-w-[150px]">
-                    Millions life touched
-                  </div>
-                </div>
-
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-2 text-left">
-                  <div className="flex items-center justify-between">
-                    <div className="font-title text-4xl font-extrabold text-white">4x</div>
-                    <div className="text-xs text-white/80 font-semibold tracking-wide uppercase leading-tight text-right">
-                      Follow-on capitals
+                <div className="flex flex-col gap-4 w-full">
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center gap-4 text-left">
+                    <div className="font-title text-5xl font-extrabold text-white min-w-[70px]">
+                      58
+                    </div>
+                    <div className="text-sm text-white font-medium leading-snug">
+                      Innovations supported
                     </div>
                   </div>
-                  <p className="text-[0.7rem] text-white/70 leading-relaxed font-body border-t border-white/15 pt-2 mt-1">
-                    39 portfolio founders raised additional external funding after demonstrating
-                    measurable impact.
-                  </p>
-                </div>
 
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-2 text-left">
-                  <div className="flex items-center justify-between">
-                    <div className="font-title text-4xl font-extrabold text-white">26</div>
-                    <div className="text-xs text-white/80 font-semibold tracking-wide uppercase leading-tight text-right">
-                      Government partnerships
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center gap-4 text-left">
+                    <div className="font-title text-5xl font-extrabold text-white min-w-[70px]">
+                      30
+                    </div>
+                    <div className="text-sm text-white font-medium leading-snug">
+                      Millions life touched
                     </div>
                   </div>
-                  <p className="text-[0.7rem] text-white/70 leading-relaxed font-body border-t border-white/15 pt-2 mt-1">
-                    Established government partnerships to unlock greater scale and long-term
-                    sustainability.
-                  </p>
+
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3 text-left">
+                    <div className="flex items-center gap-4">
+                      <div className="font-title text-5xl font-extrabold text-white min-w-[70px]">
+                        4x
+                      </div>
+                      <div className="text-sm text-white font-medium leading-snug">
+                        Follow-on capital
+                      </div>
+                    </div>
+                    <p className="text-[0.75rem] text-white/70 leading-relaxed font-body border-t border-white/10 pt-3 mt-1">
+                      39 portfolio founders raised additional external funding after their solutions
+                      began showing tangible impact.
+                    </p>
+                  </div>
+
+                  {/* Thẻ 26 */}
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3 text-left">
+                    <div className="flex items-center gap-4">
+                      <div className="font-title text-5xl font-extrabold text-white min-w-[70px]">
+                        26
+                      </div>
+                      <div className="text-sm text-white font-medium leading-snug">
+                        Government partnerships
+                      </div>
+                    </div>
+                    <p className="text-[0.75rem] text-white/70 leading-relaxed font-body border-t border-white/10 pt-3 mt-1">
+                      Our portfolio organisations have secured government partnerships, unlocking
+                      greater scale and sustainability.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -821,190 +835,8 @@ export default async function HomePage() {
         {/* Section: Stories from the field */}
         <InteractiveStories />
 
-        {/* ── Section: Latest Insights (Reports) ── */}
-        <section id="insights" className="py-10 w-full">
-          <div className="section-title-wrapper mb-8 text-center max-w-3xl mx-auto">
-            <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
-              Latest{' '}
-              <span className="bg-gradient-to-r from-[#B30B7E] to-[#5C1081] bg-clip-text text-transparent inline-block font-black">
-                insights
-              </span>
-            </h2>
-            <p className="text-gray-500 font-body mt-2 text-sm">
-              As a non-profit tech-led venture philanthropy platform, ACT is built upon the premise
-              that an entrepreneurial mindset, technology &amp; innovation and collective action
-              have the power to create meaningful social impact at scale.
-            </p>
-          </div>
-
-          {/* Two-column layout matching design */}
-          <div className="grid grid-cols-1 lg:grid-cols-[200px,1fr] gap-8 items-start">
-            {/* LEFT: Category nav */}
-            <div className="flex lg:flex-col gap-3 flex-wrap">
-              <a
-                href="#"
-                data-coming-soon
-                className="font-title text-base font-bold text-[#1863DC] no-underline flex items-center gap-2 group"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#1863DC] shrink-0" />
-                Reports
-              </a>
-              <a
-                href="/blogs"
-                className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5"
-              >
-                Blog
-              </a>
-              <a
-                href="#"
-                data-coming-soon
-                className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5"
-              >
-                Media
-              </a>
-              <a
-                href="#"
-                data-coming-soon
-                className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5"
-              >
-                Podcast
-              </a>
-            </div>
-
-            {/* RIGHT: Visualization + report cards */}
-            <div className="flex flex-col gap-5">
-              {/* Feature visualization card */}
-              <div
-                className="relative bg-gradient-to-br from-[#EEF2FF] to-[#F5F0FF] rounded-[24px] overflow-hidden flex items-center justify-between px-8 py-6"
-                style={{ minHeight: '200px' }}
-              >
-                <div className="flex flex-col gap-2 max-w-xs">
-                  <span className="text-xs font-bold text-[#1863DC] uppercase tracking-widest">
-                    Reports & Publications
-                  </span>
-                  <h3 className="font-title text-xl font-extrabold text-gray-900 leading-snug">
-                    Insights driving social impact at scale
-                  </h3>
-                  <a
-                    href="#"
-                    data-coming-soon
-                    className="mt-2 inline-flex items-center gap-1.5 text-sm font-bold text-[#1863DC] no-underline hover:gap-2.5 transition-all duration-200"
-                  >
-                    View all reports ↗
-                  </a>
-                </div>
-                <div className="hidden sm:flex items-center justify-center shrink-0 w-[140px] h-[140px]">
-                  <img
-                    src="/images/insight-reports.png"
-                    alt="Reports visualization"
-                    className="w-full h-full object-contain drop-shadow-lg"
-                  />
-                </div>
-              </div>
-
-              {/* 2x3 compact report cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[
-                  {
-                    title: 'ACT Grants Annual Highlight 2023–24',
-                    type: 'Annual Report',
-                    img: '/images/report-cover-2.webp',
-                    cta: 'Download PDF',
-                  },
-                  {
-                    title: 'impACT Newsletter Q1 Edition',
-                    type: 'Newsletter',
-                    img: '/images/report-cover-3.webp',
-                    cta: 'Read Online',
-                  },
-                  {
-                    title: 'Education Technology in India Report',
-                    type: 'Sector Report',
-                    img: '/images/report-cover-1.webp',
-                    cta: 'Download PDF',
-                  },
-                  {
-                    title: 'Healthcare Access & Advisory Study',
-                    type: 'Sector Report',
-                    img: '/images/report-cover-4.webp',
-                    cta: 'Download PDF',
-                  },
-                  {
-                    title: 'Clean Energy & Climate Innovation',
-                    type: 'Sector Report',
-                    img: '/images/report-cover-5.webp',
-                    cta: 'Download PDF',
-                  },
-                  {
-                    title: 'Women Empowerment Livelihood Q3',
-                    type: 'Newsletter',
-                    img: '/images/report-cover-6.webp',
-                    cta: 'Read Online',
-                  },
-                ].map((card) => (
-                  <a
-                    key={card.title}
-                    href="#"
-                    data-coming-soon
-                    className="group bg-[#FAF9FF] border border-gray-100 rounded-[20px] overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-200 no-underline"
-                  >
-                    <div className="h-[120px] bg-gray-100 overflow-hidden">
-                      <img
-                        src={card.img}
-                        alt={card.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="p-3 flex flex-col gap-1.5 flex-1">
-                      <span className="px-2 py-0.5 bg-white border border-gray-200 rounded-full text-[0.6rem] text-gray-500 font-bold tracking-wider uppercase w-fit">
-                        {card.type}
-                      </span>
-                      <h4 className="font-title text-xs font-bold text-gray-900 leading-snug line-clamp-2">
-                        {card.title}
-                      </h4>
-                      <span className="text-xs font-bold text-[#1863DC] mt-auto flex items-center gap-1">
-                        {card.cta} ↗
-                      </span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Section: Latest Insights (Blog articles) ── */}
-        <section id="insights-blog" className="py-10 w-full">
-          <div className="section-title-wrapper mb-8 text-center max-w-3xl mx-auto">
-            <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
-              Latest{' '}
-              <span className="bg-gradient-to-r from-[#B30B7E] to-[#5C1081] bg-clip-text text-transparent inline-block font-black">
-                insights
-              </span>
-            </h2>
-            <p className="text-gray-500 font-body mt-2 text-sm">
-              As a non-profit tech-led venture philanthropy platform, ACT is built upon the premise
-              that an entrepreneurial mindset, technology &amp; innovation and collective action
-              have the power to create meaningful social impact at scale.
-            </p>
-          </div>
-
-          {/* Blog articles 3-column grid */}
-          <Suspense
-            fallback={
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div
-                    key={i}
-                    className="skeleton-card skeleton-shimmer h-[280px] rounded-[20px]"
-                  />
-                ))}
-              </div>
-            }
-          >
-            <DynamicBlogs />
-          </Suspense>
-        </section>
+        {/* ── Section: Latest Insights */}
+        <LatestInsights />
 
         {/* Section: Engagement pathways */}
         <InteractivePathways />
