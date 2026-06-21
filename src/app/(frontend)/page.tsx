@@ -149,9 +149,9 @@ export default async function HomePage() {
         <section
           className="hero-block relative py-24 px-8 text-center flex items-center justify-center overflow-hidden shadow-sm"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.50)), url('/images/report-cover-1.webp')`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.50)), url('/images/hero-girls.webp')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center top',
+            backgroundPosition: 'center center',
             borderRadius: '24px',
           }}
         >
@@ -159,10 +159,6 @@ export default async function HomePage() {
             <h1 className="font-title text-4xl max-[640px]:text-3xl font-black leading-tight tracking-tight drop-shadow-sm select-none">
               Backing breakthrough innovations for population-scale impact in India
             </h1>
-            <p className="text-lg max-[640px]:text-sm text-gray-150 leading-relaxed font-body drop-shadow-sm max-w-2xl">
-              As a non-profit tech-led venture philanthropy platform, we deploy early-stage risk
-              capital and strategic advisory to accelerate social impact.
-            </p>
             <div className="flex gap-3 mt-4 max-[640px]:flex-col max-[640px]:w-full">
               <button className="btn btn-primary max-[640px]:w-full" data-coming-soon>
                 Apply for a Grant
@@ -193,38 +189,25 @@ export default async function HomePage() {
             </div>
 
             <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-1">
-              {/* Card 1: Risk Capital — Image top + navy bottom */}
-              <div className="rounded-2xl overflow-hidden shadow-sm flex flex-col">
-                <div className="relative h-[220px] overflow-hidden bg-gray-100">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('/images/wmremove-transformed.webp')` }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B30B7E]/70 to-[#5C1081]/70" />
-                  <svg
-                    className="absolute bottom-0 w-full h-auto"
-                    viewBox="0 0 400 36"
-                    preserveAspectRatio="none"
-                    style={{ display: 'block' }}
-                  >
-                    <path
-                      d="M0,24 Q50,36 100,24 Q150,12 200,24 Q250,36 300,24 Q350,12 400,24 L400,36 L0,36 Z"
-                      fill="#1E1B4B"
-                    />
-                  </svg>
-                </div>
-                <div className="bg-[#1E1B4B] p-6 flex-grow flex flex-col items-start text-left gap-3">
-                  <h3 className="font-title text-xl font-bold text-white">Risk Capital</h3>
-                  <p className="text-white/80 text-sm leading-relaxed font-body">
+              {/* Card 1: Risk Capital — image by default, purple curve reveals on hover */}
+              <div
+                className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-cover bg-center"
+                style={{ backgroundImage: `url('/images/wmremove-transformed.webp')` }}
+              >
+                <div
+                  className="absolute inset-x-0 bottom-0 h-[62%] bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] flex items-center justify-center text-center px-7 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+                  style={{ clipPath: 'ellipse(120% 100% at 50% 100%)' }}
+                >
+                  <p className="text-white/95 text-sm leading-relaxed font-body">
                     Providing hard-to-find, early-stage risk capital to take long-term bets and
-                    additionally supporting portfolio founders &amp; mobilising follow-on capital.
+                    additionally supporting portfolio founders in mobilising follow-on capital.
                   </p>
                 </div>
               </div>
 
               {/* Card 2: Connections */}
-              <div className="rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white border border-gray-100">
-                <div className="h-[220px] flex items-center justify-center bg-[#FAF9FF]">
+              <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
                   <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
                     <circle cx="45" cy="18" r="7" fill="#1863DC" opacity="0.3" />
                     <circle
@@ -323,10 +306,13 @@ export default async function HomePage() {
                       strokeDasharray="4 4"
                     />
                   </svg>
+                  <h3 className="font-title text-xl font-bold text-[#1863DC]">Connections</h3>
                 </div>
-                <div className="p-6 text-center flex flex-col gap-2">
-                  <h3 className="font-title text-lg font-bold text-[#B30B7E]">Connections</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed font-body">
+                <div
+                  className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] flex items-center justify-center text-center px-7 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+                  style={{ clipPath: 'ellipse(120% 100% at 50% 100%)' }}
+                >
+                  <p className="text-white/95 text-sm leading-relaxed font-body">
                     Facilitating connections and partnerships across the ecosystem between
                     start-ups, corporate partners, non-profits, domain experts, and government.
                   </p>
@@ -334,8 +320,8 @@ export default async function HomePage() {
               </div>
 
               {/* Card 3: Collectives */}
-              <div className="rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white border border-gray-100">
-                <div className="h-[220px] flex items-center justify-center bg-[#FAF9FF]">
+              <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
                   <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
                     <circle cx="45" cy="12" r="7" fill="#1863DC" opacity="0.3" />
                     <circle
@@ -452,10 +438,13 @@ export default async function HomePage() {
                       opacity="0.2"
                     />
                   </svg>
+                  <h3 className="font-title text-xl font-bold text-[#1863DC]">Collectives</h3>
                 </div>
-                <div className="p-6 text-center flex flex-col gap-2">
-                  <h3 className="font-title text-lg font-bold text-[#B30B7E]">Collectives</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed font-body">
+                <div
+                  className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] flex items-center justify-center text-center px-7 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+                  style={{ clipPath: 'ellipse(120% 100% at 50% 100%)' }}
+                >
+                  <p className="text-white/95 text-sm leading-relaxed font-body">
                     Building collaborative groups focused on solving systemic social problems in
                     education, healthcare, environment, and women&apos;s empowerment.
                   </p>
@@ -504,7 +493,7 @@ export default async function HomePage() {
                 </div>
                 <h3 className="font-title text-2xl font-black text-white">Education</h3>
                 <p className="text-xs text-white/80 leading-relaxed max-w-sm font-body">
-                  Enabling the bottom three quarters of India&apos;s population to learn at home by
+                  Enabling the bottom three quartiles of India&apos;s population to learn at home by
                   harnessing the power of affordable, accessible and high-quality ed-tech
                   interventions.
                 </p>
@@ -571,9 +560,9 @@ export default async function HomePage() {
               <span className="focus-label-vertical">Health</span>
               <div className="focus-expand-content absolute bottom-0 inset-x-0 p-8 z-10 flex flex-col items-start gap-2 text-white/90 opacity-0 translate-y-3 transition-all duration-300">
                 <div className="font-title text-[0.68rem] font-bold tracking-wider uppercase text-white/60">
-                  ACT FOR Healthcare
+                  ACT FOR Health
                 </div>
-                <h3 className="font-title text-2xl font-black text-white">Healthcare</h3>
+                <h3 className="font-title text-2xl font-black text-white">Health</h3>
                 <p className="text-xs text-white/80 leading-relaxed max-w-sm font-body">
                   Strengthening India&apos;s healthcare system by funding tech-driven solutions that
                   improve access, quality, and affordability of primary care.
@@ -675,57 +664,94 @@ export default async function HomePage() {
 
         {/* Section: Impact */}
         <section id="impact" className="py-8">
-          <div className="w-full bg-gradient-to-b from-[#1A237E] via-[#4A148C] to-[#B30B7E] rounded-[48px] px-16 py-20 text-white text-center max-[1024px]:px-8 max-[1024px]:py-14 max-[640px]:rounded-[32px] shadow-lg flex flex-col items-center gap-12">
-            <div className="max-w-2xl">
-              <h2 className="font-title text-6xl max-[640px]:text-4xl font-black text-white leading-none tracking-tight">
-                Impact
-              </h2>
-              <p className="text-sm text-white/80 leading-relaxed font-body mt-4 max-w-xl mx-auto">
-                As a non-profit tech-led venture philanthropy platform, ACT is built upon the
-                premise that an entrepreneurial mindset, technology &amp; innovation and collective
-                action have the power to create meaningful social impact at scale.
-              </p>
-            </div>
+          <div className="w-full bg-gradient-to-b from-[#1A237E] via-[#4A148C] to-[#B30B7E] rounded-[48px] px-16 py-20 text-white max-[1024px]:px-8 max-[1024px]:py-14 max-[640px]:rounded-[32px] shadow-lg">
+            <div className="grid grid-cols-2 gap-12 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
+              {/* Left: India map + heading */}
+              <div className="flex flex-col gap-8">
+                <div className="relative flex justify-center items-center">
+                  {/* Stylized India map — Rajasthan highlighted.
+                      NOTE: placeholder outline; swap for an accurate India SVG asset for production. */}
+                  <svg
+                    viewBox="0 0 360 420"
+                    className="w-full max-w-[360px] h-auto drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
+                    fill="none"
+                  >
+                    <path
+                      d="M170,15 L150,45 L120,55 L95,75 L70,120 L55,160 L40,182 L75,200 L98,202 L110,250 L130,300 L150,352 L165,402 L185,360 L200,320 L230,262 L255,212 L276,180 L270,150 L300,140 L345,110 L320,95 L290,106 L255,86 L210,60 L190,30 Z"
+                      fill="rgba(255,255,255,0.10)"
+                      stroke="rgba(255,255,255,0.45)"
+                      strokeWidth="1.5"
+                      strokeLinejoin="round"
+                    />
+                    {/* Rajasthan */}
+                    <path
+                      d="M95,75 L130,90 L125,135 L85,140 L70,115 Z"
+                      fill="#E0218A"
+                      stroke="#ffffff"
+                      strokeWidth="1.5"
+                      strokeLinejoin="round"
+                    />
+                    <circle cx="103" cy="108" r="4" fill="#ffffff" />
+                  </svg>
+                  {/* Rajasthan label pill */}
+                  <span className="absolute left-[14%] top-[20%] bg-white text-[#B30B7E] text-[0.7rem] font-bold tracking-wide rounded-full px-3 py-1 shadow-md font-body">
+                    Rajasthan
+                  </span>
+                </div>
 
-            <div className="grid grid-cols-2 gap-4 w-full max-w-2xl max-[640px]:grid-cols-1">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center justify-between text-left">
-                <div className="font-title text-4xl font-extrabold text-white">58</div>
-                <div className="text-xs text-white/80 font-semibold tracking-wide uppercase text-right leading-tight max-w-[150px]">
-                  Innovations supported
+                <div>
+                  <h2 className="font-title text-6xl max-[640px]:text-4xl font-black text-white leading-none tracking-tight">
+                    Impact
+                  </h2>
+                  <p className="text-sm text-white/80 leading-relaxed font-body mt-4 max-w-md">
+                    As a non-profit tech-led venture philanthropy platform, ACT is built upon the
+                    premise that an entrepreneurial mindset, technology &amp; innovation and
+                    collective action have the power to create meaningful social impact at scale.
+                  </p>
                 </div>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center justify-between text-left">
-                <div className="font-title text-4xl font-extrabold text-white">30</div>
-                <div className="text-xs text-white/80 font-semibold tracking-wide uppercase text-right leading-tight max-w-[150px]">
-                  Millions life touched
-                </div>
-              </div>
-
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-2 text-left">
-                <div className="flex items-center justify-between">
-                  <div className="font-title text-4xl font-extrabold text-white">4x</div>
-                  <div className="text-xs text-white/80 font-semibold tracking-wide uppercase leading-tight text-right">
-                    Follow-on capitals
+              {/* Right: stat cards column */}
+              <div className="flex flex-col gap-4 w-full">
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center justify-between text-left">
+                  <div className="font-title text-4xl font-extrabold text-white">58</div>
+                  <div className="text-xs text-white/80 font-semibold tracking-wide uppercase text-right leading-tight max-w-[150px]">
+                    Innovations supported
                   </div>
                 </div>
-                <p className="text-[0.7rem] text-white/70 leading-relaxed font-body border-t border-white/15 pt-2 mt-1">
-                  39 portfolio founders raised additional external funding after demonstrating
-                  measurable impact.
-                </p>
-              </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-2 text-left">
-                <div className="flex items-center justify-between">
-                  <div className="font-title text-4xl font-extrabold text-white">26</div>
-                  <div className="text-xs text-white/80 font-semibold tracking-wide uppercase leading-tight text-right">
-                    Government partnerships
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center justify-between text-left">
+                  <div className="font-title text-4xl font-extrabold text-white">30</div>
+                  <div className="text-xs text-white/80 font-semibold tracking-wide uppercase text-right leading-tight max-w-[150px]">
+                    Millions life touched
                   </div>
                 </div>
-                <p className="text-[0.7rem] text-white/70 leading-relaxed font-body border-t border-white/15 pt-2 mt-1">
-                  Established government partnerships to unlock greater scale and long-term
-                  sustainability.
-                </p>
+
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-2 text-left">
+                  <div className="flex items-center justify-between">
+                    <div className="font-title text-4xl font-extrabold text-white">4x</div>
+                    <div className="text-xs text-white/80 font-semibold tracking-wide uppercase leading-tight text-right">
+                      Follow-on capitals
+                    </div>
+                  </div>
+                  <p className="text-[0.7rem] text-white/70 leading-relaxed font-body border-t border-white/15 pt-2 mt-1">
+                    39 portfolio founders raised additional external funding after demonstrating
+                    measurable impact.
+                  </p>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-2 text-left">
+                  <div className="flex items-center justify-between">
+                    <div className="font-title text-4xl font-extrabold text-white">26</div>
+                    <div className="text-xs text-white/80 font-semibold tracking-wide uppercase leading-tight text-right">
+                      Government partnerships
+                    </div>
+                  </div>
+                  <p className="text-[0.7rem] text-white/70 leading-relaxed font-body border-t border-white/15 pt-2 mt-1">
+                    Established government partnerships to unlock greater scale and long-term
+                    sustainability.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -750,8 +776,61 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-12 w-full">
-            {/* Reports sub-section (Mockup) */}
+          <div className="insights-grid">
+            {/* Reports */}
+            <a
+              href="#"
+              data-coming-soon
+              className="group relative bg-[#FAF9FF] border border-gray-100 rounded-[28px] p-8 min-h-[210px] flex flex-col justify-between no-underline hover:shadow-md transition-shadow duration-300"
+            >
+              <span className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1863DC] group-hover:bg-[#1863DC] group-hover:text-white transition-colors duration-200">
+                ↗
+              </span>
+              <img src="/images/insight-reports.png" alt="Reports" className="w-24 h-24 object-contain drop-shadow-md" />
+              <h3 className="font-title text-2xl font-bold text-[#1863DC]">Reports</h3>
+            </a>
+
+            {/* Blog */}
+            <Link
+              href="/blogs"
+              className="group relative bg-[#FAF9FF] border border-gray-100 rounded-[28px] p-8 min-h-[210px] flex flex-col justify-between no-underline hover:shadow-md transition-shadow duration-300"
+            >
+              <span className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1863DC] group-hover:bg-[#1863DC] group-hover:text-white transition-colors duration-200">
+                ↗
+              </span>
+              <img src="/images/insight-blog.png" alt="Blog" className="w-24 h-24 object-contain drop-shadow-md" />
+              <h3 className="font-title text-2xl font-bold text-[#1863DC]">Blog</h3>
+            </Link>
+
+            {/* Media */}
+            <a
+              href="#"
+              data-coming-soon
+              className="group relative bg-[#FAF9FF] border border-gray-100 rounded-[28px] p-8 min-h-[210px] flex flex-col justify-between no-underline hover:shadow-md transition-shadow duration-300"
+            >
+              <span className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1863DC] group-hover:bg-[#1863DC] group-hover:text-white transition-colors duration-200">
+                ↗
+              </span>
+              <img src="/images/insight-media.png" alt="Media" className="w-24 h-24 object-contain drop-shadow-md" />
+              <h3 className="font-title text-2xl font-bold text-[#1863DC]">Media</h3>
+            </a>
+
+            {/* Podcast */}
+            <a
+              href="#"
+              data-coming-soon
+              className="group relative bg-[#FAF9FF] border border-gray-100 rounded-[28px] p-8 min-h-[210px] flex flex-col justify-between no-underline hover:shadow-md transition-shadow duration-300"
+            >
+              <span className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1863DC] group-hover:bg-[#1863DC] group-hover:text-white transition-colors duration-200">
+                ↗
+              </span>
+              <img src="/images/insight-podcast.png" alt="Podcast" className="w-24 h-24 object-contain drop-shadow-md" />
+              <h3 className="font-title text-2xl font-bold text-[#1863DC]">Podcast</h3>
+            </a>
+          </div>
+
+          {/* (replaced report archive + dynamic blogs with the 4-card design) */}
+          <div className="hidden">
             <div className="w-full bg-[#FAF9FF] border border-gray-100 rounded-[32px] p-8 max-[640px]:p-5">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="font-title text-lg font-bold text-gray-800 tracking-tight">

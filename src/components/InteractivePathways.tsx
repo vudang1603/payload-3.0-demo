@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-type PathwayKey = 'founder' | 'philanthropist' | 'partner' | 'expert' | 'career';
+type PathwayKey = 'founder' | 'philanthropist' | 'partner' | 'expert' | 'career' | 'volunteer';
 
 const pathwaysData: Record<PathwayKey, {
   label: string;
@@ -30,9 +30,14 @@ const pathwaysData: Record<PathwayKey, {
     link: '#portfolio',
   },
   career: {
-    label: 'Career seeker',
+    label: 'A career',
     avatar: 'https://actgrants.in/wp-content/uploads/2023/06/Utsav-Kheria.png',
     link: '/blogs',
+  },
+  volunteer: {
+    label: 'Volunteer',
+    avatar: 'https://actgrants.in/wp-content/uploads/2023/06/Utsav-Kheria.png',
+    link: '#',
   },
 };
 
@@ -45,6 +50,7 @@ export const InteractivePathways: React.FC = () => {
     { key: 'partner' as PathwayKey },
     { key: 'expert' as PathwayKey },
     { key: 'career' as PathwayKey },
+    { key: 'volunteer' as PathwayKey },
   ];
 
   return (

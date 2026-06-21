@@ -152,6 +152,55 @@ body {
 }
 
 /* Hero Carousel / Block Redesign */
+/* ── Flip cards (What ACT does) ── */
+.flip-card {
+  perspective: 1400px;
+  height: 380px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ── What ACT does — card hover ── */
+.act-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background-image 0.4s ease;
+  cursor: pointer;
+}
+.act-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 44px rgba(90, 16, 129, 0.22);
+}
+/* White cards (Connections/Collectives) fill with the purple gradient on hover */
+.act-card.fill-on-hover:hover {
+  background-image: linear-gradient(140deg, #3f1e8c 0%, #7a1c9e 45%, #b30b7e 100%);
+  border-color: transparent;
+}
+.act-card.fill-on-hover:hover h3,
+.act-card.fill-on-hover:hover p {
+  color: #ffffff;
+}
+
 .hero-block {
   padding: 8rem 2rem;
   background-size: cover;
@@ -207,6 +256,23 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem;
+}
+
+/* Latest insights — 4 across when wide, 2 then 1 as it narrows */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 1024px) {
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -471,6 +537,17 @@ body {
   );
 }
 
+/* Education (default-expanded) gets the design's blue→purple brand tint */
+.focus-card.expanded-default::after,
+.focus-card.expanded-default:hover::after {
+  background: linear-gradient(
+    to top,
+    rgba(24, 99, 220, 0.6) 0%,
+    rgba(74, 20, 140, 0.3) 50%,
+    rgba(74, 20, 140, 0.05) 100%
+  );
+}
+
 /* ── Collapsed state: vertical rotated label ── */
 /* Using writing-mode for reliable cross-browser vertical text */
 .focus-label-vertical {
@@ -642,14 +719,14 @@ body {
 }
 
 .tab-btn:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: #1863dc;
+  color: #1863dc;
 }
 
 .tab-btn.active {
-  background-color: var(--primary-light);
-  border-color: var(--primary);
-  color: var(--primary);
+  background-color: #e8f0fd;
+  border-color: #1863dc;
+  color: #1863dc;
 }
 
 .people-grid {

@@ -13,6 +13,12 @@ export default {
         'primary-light': '#fbebf7',
         secondary: '#5C1081',
         'secondary-hover': '#480A66',
+        // Brand blues (from the design system swatches)
+        blue: '#1863DC',
+        'blue-sky': '#7B9BE0',
+        'blue-navy': '#1A237E',
+        // Dark maroon (3rd small-button variant in the design system)
+        maroon: '#7A1A5C',
         'text-muted': '#52525b',
         'text-dark': '#09090b',
       },
