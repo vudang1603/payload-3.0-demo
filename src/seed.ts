@@ -114,6 +114,62 @@ async function run() {
     }
   }
 
+  // 3b. Upload real company logos (from public/images/company-logos)
+  console.log('Uploading company logos...')
+  const companyLogosDir = path.join(process.cwd(), 'public', 'images', 'company-logos')
+  const mimeByExt: Record<string, string> = {
+    png: 'image/png',
+    jpg: 'image/jpeg',
+    jpeg: 'image/jpeg',
+    svg: 'image/svg+xml',
+  }
+  const companyLogos = [
+    { name: 'ConveGenius', file: 'cg.png', sectors: 'education' },
+    { name: 'LearnTube.ai', file: '1.png', sectors: 'education' },
+    { name: 'English Quest', file: '3-logo.png', sectors: 'education' },
+    { name: 'Josh Skills', file: '4-logo.png', sectors: 'education' },
+    { name: 'Kutuki', file: '5-logo.png', sectors: 'education' },
+    { name: 'Rocket Learning', file: '6-logo.png', sectors: 'education' },
+    { name: 'Top Parent', file: '7-logo.png', sectors: 'education' },
+    { name: 'Vidyakul', file: '8-logo.png', sectors: 'education' },
+    { name: 'VOPA', file: '9-logo.png', sectors: 'education' },
+    { name: 'YuWaah!', file: '10-logo.png', sectors: 'education' },
+    { name: 'Curious', file: 'curious.png', sectors: 'education' },
+    { name: 'Barabari Collective', file: 'barabari_.png', sectors: 'education' },
+    { name: 'The Apprentice Project', file: 'the-app-project.png', sectors: 'education' },
+    { name: 'Disha', file: 'Disha-logo.png', sectors: 'women' },
+    { name: 'Frontier Markets', file: 'Frontier-Markets-Logo.jpg', sectors: 'women' },
+    { name: 'Karya', file: 'karyalogo.png', sectors: 'women' },
+    { name: 'SuperNAN', file: 'Logo-scaled.png', sectors: 'women' },
+    { name: 'V-All', file: 'logoVAll.png', sectors: 'women' },
+    { name: 'Adalat AI', file: 'Adalat_AI_logos.svg', sectors: 'women' },
+  ]
+  const logoMap: Record<string, any> = {}
+  for (const c of companyLogos) {
+    const srcPath = path.join(companyLogosDir, c.file)
+    if (!fs.existsSync(srcPath)) {
+      console.warn(`Logo not found: ${srcPath}`)
+      continue
+    }
+    try {
+      const ext = c.file.split('.').pop()!.toLowerCase()
+      const logoDoc = await payload.create({
+        collection: 'media',
+        data: { alt: `${c.name} logo` },
+        file: {
+          name: c.file,
+          mimetype: mimeByExt[ext] || 'image/png',
+          data: fs.readFileSync(srcPath),
+          size: fs.statSync(srcPath).size,
+        },
+      })
+      logoMap[c.file] = logoDoc
+      console.log(`Uploaded logo: ${c.file} (ID: ${logoDoc.id})`)
+    } catch (e) {
+      console.warn(`Failed to upload logo ${c.file}:`, (e as Error).message)
+    }
+  }
+
   // 4. Create Portfolios with uploaded logos
   console.log('Creating portfolio items...')
   
@@ -158,6 +214,21 @@ async function run() {
       },
     })
     console.log(`Created Portfolio: ${item.name}`)
+  }
+
+  // 4b. Create portfolio entries for the real company logos
+  for (const c of companyLogos) {
+    const logoDoc = logoMap[c.file]
+    await payload.create({
+      collection: 'portfolios',
+      data: {
+        name: c.name,
+        sectors: c.sectors as any,
+        logo: logoDoc ? logoDoc.id : undefined,
+        website: '#',
+      },
+    })
+    console.log(`Created Portfolio: ${c.name}`)
   }
 
   // 5. Create Blog post

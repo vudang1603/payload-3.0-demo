@@ -49,23 +49,33 @@ const communityData = {
   ]
 };
 
-// Mock portfolio data when CMS is empty
+// Fallback portfolio data (real ACT companies) when CMS is empty.
+// logo.filename is resolved by getImageUrl -> /images/company-logos/*
 const mockPortfolios: PortfolioItem[] = [
-  { id: 'mock-1', name: 'LearnTube', sectors: 'education', website: '#' },
-  { id: 'mock-2', name: 'Vidyatech', sectors: 'education', website: '#' },
-  { id: 'mock-3', name: 'EduBridge', sectors: 'education', website: '#' },
-  { id: 'mock-4', name: 'GreenGrid', sectors: 'environment', website: '#' },
-  { id: 'mock-5', name: 'EcoSense', sectors: 'environment', website: '#' },
-  { id: 'mock-6', name: 'CleanAir Labs', sectors: 'environment', website: '#' },
-  { id: 'mock-7', name: 'HealthNow', sectors: 'health', website: '#' },
-  { id: 'mock-8', name: 'MediConnect', sectors: 'health', website: '#' },
-  { id: 'mock-9', name: 'PrimaryRx', sectors: 'health', website: '#' },
-  { id: 'mock-10', name: 'SheBuilds', sectors: 'women', website: '#' },
-  { id: 'mock-11', name: 'WomenRise', sectors: 'women', website: '#' },
-  { id: 'mock-12', name: 'SkillHer', sectors: 'women', website: '#' },
-  { id: 'mock-13', name: 'LearnWorld', sectors: 'education', website: '#' },
-  { id: 'mock-14', name: 'EduSpark', sectors: 'education', website: '#' },
-  { id: 'mock-15', name: 'SolarBridge', sectors: 'environment', website: '#' },
+  { id: 'm1', name: 'ConveGenius', sectors: 'education', logo: { filename: 'cg.png' }, website: '#' },
+  { id: 'm2', name: 'LearnTube.ai', sectors: 'education', logo: { filename: '1.png' }, website: '#' },
+  { id: 'm3', name: 'English Quest', sectors: 'education', logo: { filename: '3-logo.png' }, website: '#' },
+  { id: 'm4', name: 'Josh Skills', sectors: 'education', logo: { filename: '4-logo.png' }, website: '#' },
+  { id: 'm5', name: 'Kutuki', sectors: 'education', logo: { filename: '5-logo.png' }, website: '#' },
+  { id: 'm6', name: 'Rocket Learning', sectors: 'education', logo: { filename: '6-logo.png' }, website: '#' },
+  { id: 'm7', name: 'Top Parent', sectors: 'education', logo: { filename: '7-logo.png' }, website: '#' },
+  { id: 'm8', name: 'Vidyakul', sectors: 'education', logo: { filename: '8-logo.png' }, website: '#' },
+  { id: 'm9', name: 'VOPA', sectors: 'education', logo: { filename: '9-logo.png' }, website: '#' },
+  { id: 'm10', name: 'YuWaah!', sectors: 'education', logo: { filename: '10-logo.png' }, website: '#' },
+  { id: 'm11', name: 'Curious', sectors: 'education', logo: { filename: 'curious.png' }, website: '#' },
+  { id: 'm12', name: 'Barabari Collective', sectors: 'education', logo: { filename: 'barabari_.png' }, website: '#' },
+  { id: 'm13', name: 'The Apprentice Project', sectors: 'education', logo: { filename: 'the-app-project.png' }, website: '#' },
+  { id: 'm14', name: 'Disha', sectors: 'women', logo: { filename: 'Disha-logo.png' }, website: '#' },
+  { id: 'm15', name: 'Frontier Markets', sectors: 'women', logo: { filename: 'Frontier-Markets-Logo.jpg' }, website: '#' },
+  { id: 'm16', name: 'Karya', sectors: 'women', logo: { filename: 'karyalogo.png' }, website: '#' },
+  { id: 'm17', name: 'SuperNAN', sectors: 'women', logo: { filename: 'Logo-scaled.png' }, website: '#' },
+  { id: 'm18', name: 'V-All', sectors: 'women', logo: { filename: 'logoVAll.png' }, website: '#' },
+  { id: 'm19', name: 'Adalat AI', sectors: 'women', logo: { filename: 'Adalat_AI_logos.svg' }, website: '#' },
+  // Health & Environment placeholders (no brand logos available) so those tabs aren't empty
+  { id: 'm20', name: 'InnovateHealth', sectors: 'health', website: '#' },
+  { id: 'm21', name: 'MediConnect', sectors: 'health', website: '#' },
+  { id: 'm22', name: 'GreenGrid', sectors: 'environment', website: '#' },
+  { id: 'm23', name: 'EcoSense', sectors: 'environment', website: '#' },
 ];
 
 export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ initialPortfolios }) => {
@@ -114,7 +124,7 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
             No portfolios found under this sector.
           </div>
         ) : (
-          <div className="grid grid-cols-5 gap-4 max-[1024px]:grid-cols-3 max-[640px]:grid-cols-2">
+          <div className="portfolio-grid">
             {filteredPortfolios.map((item) => {
               const logoUrl = item.logo ? getImageUrl(item.logo) : null;
 
@@ -124,7 +134,7 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ init
                   href={item.website || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex items-center justify-center bg-white border border-gray-200/60 rounded-2xl h-[110px] p-6 transition-all duration-300 hover:bg-[#1863DC] hover:border-transparent shadow-sm hover:shadow-md cursor-pointer overflow-hidden"
+                  className="group relative flex items-center justify-center bg-white border border-gray-200/60 rounded-2xl h-[120px] p-4 transition-all duration-300 hover:bg-[#1863DC] hover:border-transparent shadow-sm hover:shadow-md cursor-pointer overflow-hidden"
                 >
                   {/* Default Logo */}
                   <div className="flex items-center justify-center w-full h-full transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">

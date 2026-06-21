@@ -42,7 +42,7 @@ const DATA: Record<TabType, {
         desc: 'Our grants are mission-centric and thus available to both for-profit and not-for-profit innovations because we believe that both will have a place in the larger social change we\'re attempting to create.',
         iconType: 'impact',
         color: 'text-white',
-        borderStyle: 'bg-gradient-to-r from-[#B30B7E] to-[#5C1081] text-white border-transparent'
+        borderStyle: 'border-[#B30B7E] text-[#B30B7E]'
       }
     ]
   },
@@ -71,7 +71,7 @@ const DATA: Record<TabType, {
         desc: 'The platform leverages the collective expertise of its members—venture capitalists, tech entrepreneurs, and social impact leaders—to address complex social problems.',
         iconType: 'impact',
         color: 'text-white',
-        borderStyle: 'bg-gradient-to-r from-[#B30B7E] to-[#5C1081] text-white border-transparent'
+        borderStyle: 'border-[#B30B7E] text-[#B30B7E]'
       }
     ]
   }
@@ -124,14 +124,14 @@ export const InteractiveHowItWorks: React.FC = () => {
     if (id === 'impact' || id === 'knowledge') {
       return 'absolute left-[115%] top-1/2 -translate-y-1/2 w-[280px] bg-white border border-gray-100 p-4 rounded-xl shadow-lg z-50 text-left';
     }
-    // catalytic / bottom node
-    return 'absolute left-1/2 top-[115%] -translate-x-1/2 w-[280px] bg-white border border-gray-100 p-4 rounded-xl shadow-lg z-50 text-center';
+    // catalytic / bottom node — open upward so the section's overflow-hidden doesn't clip it
+    return 'absolute left-1/2 bottom-[115%] -translate-x-1/2 w-[280px] bg-white border border-gray-100 p-4 rounded-xl shadow-lg z-50 text-center';
   };
 
   return (
     <div className="flex flex-col items-center w-full max-w-5xl mx-auto px-4">
       {/* Tabs */}
-      <div className="flex justify-center gap-3 p-1.5 bg-gray-100/80 rounded-full border border-gray-200 mb-12 max-[640px]:flex-col max-[640px]:rounded-2xl max-[640px]:w-full">
+      <div className="flex justify-center gap-3 p-1.5 bg-gray-100/80 rounded-full border border-gray-200 mb-0 relative z-20 max-[640px]:flex-col max-[640px]:rounded-2xl max-[640px]:w-full">
         <button
           onClick={() => {
             setActiveTab('fund');
@@ -139,8 +139,8 @@ export const InteractiveHowItWorks: React.FC = () => {
           }}
           className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
             activeTab === 'fund'
-              ? 'bg-[var(--primary)] text-white shadow-sm'
-              : 'text-gray-600 hover:text-gray-900'
+              ? 'bg-[#7F93D6] text-white shadow-sm'
+              : 'text-[#7F93D6] border border-[#7F93D6]/40'
           }`}
         >
           ACT As A Venture Philanthropy Fund
@@ -152,8 +152,8 @@ export const InteractiveHowItWorks: React.FC = () => {
           }}
           className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
             activeTab === 'platform'
-              ? 'bg-[var(--primary)] text-white shadow-sm'
-              : 'text-gray-600 hover:text-gray-900'
+              ? 'bg-[#7F93D6] text-white shadow-sm'
+              : 'text-[#7F93D6] border border-[#7F93D6]/40'
           }`}
         >
           ACT As A Collective Action Platform
@@ -161,15 +161,17 @@ export const InteractiveHowItWorks: React.FC = () => {
       </div>
 
       {/* Desktop Concentric Circle Diagram */}
-      <div className="relative w-[520px] h-[560px] items-center justify-center flex max-[860px]:hidden mb-24 overflow-visible">
-        {/* Concentric Ring 2 (Outer) */}
-        <div className="absolute w-[460px] h-[460px] rounded-full border border-dashed border-gray-200 pointer-events-none" />
+      <div className="relative w-[560px] h-[560px] items-center justify-center flex max-[860px]:hidden -mt-28 mb-4 overflow-visible">
+        {/* Decorative rings — darker inside, fading outward */}
+        <div className="absolute w-[1160px] h-[1160px] rounded-full border border-dashed border-gray-100 pointer-events-none" />
+        <div className="absolute w-[900px] h-[900px] rounded-full border border-dashed border-gray-200 pointer-events-none" />
+        <div className="absolute w-[640px] h-[640px] rounded-full border border-dashed border-gray-300 pointer-events-none" />
 
-        {/* Concentric Ring 1 (Inner Dotted) */}
-        <div className="absolute w-[320px] h-[320px] rounded-full border border-dotted border-gray-200 pointer-events-none" />
+        {/* Node ring — the 3 principle icons sit on this (darkest) */}
+        <div className="absolute w-[380px] h-[380px] rounded-full border border-dotted border-gray-400 pointer-events-none" />
 
         {/* Center Node */}
-        <div className="absolute w-[200px] h-[200px] rounded-full bg-gradient-to-br from-[#1863DC] via-[#5C1081] to-[#B30B7E] p-4 text-white text-center flex flex-col justify-center items-center shadow-md z-10 select-none">
+        <div className="absolute w-[190px] h-[190px] rounded-full bg-gradient-to-br from-[#1863DC] via-[#5C1081] to-[#B30B7E] p-4 text-white text-center flex flex-col justify-center items-center shadow-md z-10 select-none">
           <IconRenderer type="impact" className="w-6 h-6 mb-1 opacity-90" />
           <p className="text-[11.5px] font-medium leading-snug">{currentData.centerText}</p>
         </div>
@@ -180,49 +182,42 @@ export const InteractiveHowItWorks: React.FC = () => {
           // 0: Left (Founder First)
           // 1: Bottom (Catalytic)
           // 2: Right (Impact First)
-          const positions = [
-            'left-0 top-1/2 -translate-y-1/2 -translate-x-1/2', // Left node
-            'bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2', // Bottom node
-            'right-0 top-1/2 -translate-y-1/2 translate-x-1/2' // Right node
-          ];
-
-          const posClass = positions[index];
+          // order: 0 founder (left), 1 catalytic (bottom), 2 impact (right) — icons centered on the node ring
+          const nodePos = [
+            'left-[90px] top-1/2 -translate-x-1/2 -translate-y-1/2',
+            'left-1/2 top-[470px] -translate-x-1/2 -translate-y-1/2',
+            'left-[470px] top-1/2 -translate-x-1/2 -translate-y-1/2',
+          ][index];
+          const labelPos = [
+            'absolute right-full top-1/2 -translate-y-1/2 mr-4 whitespace-nowrap',
+            'absolute top-full left-1/2 -translate-x-1/2 mt-3 whitespace-nowrap',
+            'absolute left-full top-1/2 -translate-y-1/2 ml-4 whitespace-nowrap',
+          ][index];
           const isHovered = hoveredNode === pr.id;
+          const labelColor = isHovered ? 'text-[#B30B7E]' : 'text-gray-900';
 
           return (
             <div
               key={pr.id}
-              className={`absolute ${posClass} flex items-center gap-3 z-20`}
+              className={`absolute ${nodePos} z-20`}
               onMouseEnter={() => setHoveredNode(pr.id)}
               onMouseLeave={() => setHoveredNode(null)}
             >
-              {/* Outer Alignment layout depending on node position */}
-              {index === 0 && (
-                <span className="font-title text-base font-bold text-gray-900 select-none">
-                  {pr.title}
-                </span>
-              )}
-
-              {/* Circle Icon Container */}
+              {/* Circle Icon */}
               <div
-                className={`w-14 h-14 rounded-full border-2 bg-white flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md ${
-                  pr.borderStyle
-                } ${isHovered ? 'scale-110 shadow-lg' : ''}`}
+                className={`w-14 h-14 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md ${
+                  isHovered
+                    ? 'bg-gradient-to-br from-[#B30B7E] to-[#5C1081] text-white border-2 border-transparent scale-110 shadow-lg'
+                    : 'bg-white border-2 ' + pr.borderStyle
+                }`}
               >
                 <IconRenderer type={pr.iconType} className="w-6 h-6" />
               </div>
 
-              {index === 2 && (
-                <span className="font-title text-base font-bold text-gray-900 select-none">
-                  {pr.title}
-                </span>
-              )}
-
-              {index === 1 && (
-                <span className="absolute top-[110%] left-1/2 -translate-x-1/2 whitespace-nowrap font-title text-base font-bold text-gray-900 select-none">
-                  {pr.title}
-                </span>
-              )}
+              {/* Label (floats outward from the icon, so the icon stays centered on the ring) */}
+              <span className={`${labelPos} font-title text-base font-bold ${labelColor} select-none`}>
+                {pr.title}
+              </span>
 
               {/* Hover Popup */}
               {isHovered && (

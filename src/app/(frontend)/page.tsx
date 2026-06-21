@@ -10,6 +10,7 @@ import { InteractivePortfolio } from '@/components/InteractivePortfolio'
 import { InteractivePathways } from '@/components/InteractivePathways'
 import { InteractiveHowItWorks } from '@/components/InteractiveHowItWorks'
 import { InteractiveStories } from '@/components/InteractiveStories'
+import { IndiaMap } from '@/components/IndiaMap'
 
 interface LexicalTextNode {
   text?: string
@@ -624,7 +625,7 @@ export default async function HomePage() {
         {/* Section: How ACT works */}
         <section
           id="how-it-works"
-          className="py-16 pb-8 bg-[#F8F4FF]/50 border border-gray-100/50 rounded-[40px] max-[640px]:py-10 max-[640px]:rounded-3xl overflow-visible"
+          className="relative py-16 pb-8 bg-[#F8F4FF]/50 border border-gray-100/50 rounded-[40px] max-[640px]:py-10 max-[640px]:rounded-3xl overflow-hidden"
         >
           <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto px-4">
             <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -664,39 +665,13 @@ export default async function HomePage() {
 
         {/* Section: Impact */}
         <section id="impact" className="py-8">
-          <div className="w-full bg-gradient-to-b from-[#1A237E] via-[#4A148C] to-[#B30B7E] rounded-[48px] px-16 py-20 text-white max-[1024px]:px-8 max-[1024px]:py-14 max-[640px]:rounded-[32px] shadow-lg">
-            <div className="grid grid-cols-2 gap-12 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
+          <div className="w-full max-w-[1180px] mx-auto bg-gradient-to-b from-[#1A237E] via-[#4A148C] to-[#B30B7E] rounded-[48px] px-16 py-20 text-white max-[1024px]:px-8 max-[1024px]:py-14 max-[640px]:rounded-[32px] shadow-lg">
+            <div className="grid grid-cols-[1.5fr_1fr] gap-10 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
               {/* Left: India map + heading */}
               <div className="flex flex-col gap-8">
-                <div className="relative flex justify-center items-center">
-                  {/* Stylized India map — Rajasthan highlighted.
-                      NOTE: placeholder outline; swap for an accurate India SVG asset for production. */}
-                  <svg
-                    viewBox="0 0 360 420"
-                    className="w-full max-w-[360px] h-auto drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
-                    fill="none"
-                  >
-                    <path
-                      d="M170,15 L150,45 L120,55 L95,75 L70,120 L55,160 L40,182 L75,200 L98,202 L110,250 L130,300 L150,352 L165,402 L185,360 L200,320 L230,262 L255,212 L276,180 L270,150 L300,140 L345,110 L320,95 L290,106 L255,86 L210,60 L190,30 Z"
-                      fill="rgba(255,255,255,0.10)"
-                      stroke="rgba(255,255,255,0.45)"
-                      strokeWidth="1.5"
-                      strokeLinejoin="round"
-                    />
-                    {/* Rajasthan */}
-                    <path
-                      d="M95,75 L130,90 L125,135 L85,140 L70,115 Z"
-                      fill="#E0218A"
-                      stroke="#ffffff"
-                      strokeWidth="1.5"
-                      strokeLinejoin="round"
-                    />
-                    <circle cx="103" cy="108" r="4" fill="#ffffff" />
-                  </svg>
-                  {/* Rajasthan label pill */}
-                  <span className="absolute left-[14%] top-[20%] bg-white text-[#B30B7E] text-[0.7rem] font-bold tracking-wide rounded-full px-3 py-1 shadow-md font-body">
-                    Rajasthan
-                  </span>
+                <div className="relative w-full">
+                  {/* Interactive India map — hover a state to highlight + show its name */}
+                  <IndiaMap />
                 </div>
 
                 <div>

@@ -23,6 +23,26 @@ const getLiveUrl = (filename: string): string => {
     'heart.gif': 'https://actgrants.in/wp-content/uploads/2023/06/Heart.gif',
     'gender.gif': 'https://actgrants.in/wp-content/uploads/2023/06/Gender.gif',
     'focus-bg.png': 'https://actgrants.in/wp-content/themes/act/images/col-1-BG.png',
+    // Portfolio company logos (served from public/images/company-logos)
+    'cg.png': '/images/company-logos/cg.png',
+    '1.png': '/images/company-logos/1.png',
+    '3-logo.png': '/images/company-logos/3-logo.png',
+    '4-logo.png': '/images/company-logos/4-logo.png',
+    '5-logo.png': '/images/company-logos/5-logo.png',
+    '6-logo.png': '/images/company-logos/6-logo.png',
+    '7-logo.png': '/images/company-logos/7-logo.png',
+    '8-logo.png': '/images/company-logos/8-logo.png',
+    '9-logo.png': '/images/company-logos/9-logo.png',
+    '10-logo.png': '/images/company-logos/10-logo.png',
+    'curious.png': '/images/company-logos/curious.png',
+    'barabari_.png': '/images/company-logos/barabari_.png',
+    'the-app-project.png': '/images/company-logos/the-app-project.png',
+    'disha-logo.png': '/images/company-logos/Disha-logo.png',
+    'frontier-markets-logo.jpg': '/images/company-logos/Frontier-Markets-Logo.jpg',
+    'karyalogo.png': '/images/company-logos/karyalogo.png',
+    'logo-scaled.png': '/images/company-logos/Logo-scaled.png',
+    'logovall.png': '/images/company-logos/logoVAll.png',
+    'adalat_ai_logos.svg': '/images/company-logos/Adalat_AI_logos.svg',
   };
   return map[clean] || `/images/${clean}`;
 };

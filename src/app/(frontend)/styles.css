@@ -201,6 +201,23 @@ body {
   color: #ffffff;
 }
 
+/* Portfolio proof — 5 across, then 3, then 2 */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .hero-block {
   padding: 8rem 2rem;
   background-size: cover;
