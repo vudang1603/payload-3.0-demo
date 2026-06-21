@@ -1182,99 +1182,130 @@ body {
   color: var(--primary-hover);
 }
 
-/* Engagement Pathways Section — Design: clean vertical list */
+/* Engagement Pathways Section — Design: Grid-based responsive layout */
 .engagement-pathways-section {
-  padding: 3rem 0;
+  padding: 5rem 0;
+  background-color: #fafafa;
 }
 
-/* The list container: constrained, centered, matches design */
-.pathways-list-design {
-  max-width: 650px;
-  margin: 2.5rem auto 0 auto;
+.pathways-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 3rem auto 0 auto;
+  padding: 0 1.5rem;
 }
 
-/* "I'M A" micro-label */
-.im-a-label {
-  font-family: var(--font-title);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin-bottom: 0px;
-  padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--border);
-}
-
-/* Each row */
-.pathway-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--border);
+.pathway-grid-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.pathway-row.active {
-  padding: 0.5rem 0;
+.pathway-grid-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* Row label text: muted + small when inactive */
-.pathway-row-label {
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #b5b5c3;
-  transition: all 0.3s ease;
-  line-height: 1.2;
+.pathway-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Active row: label becomes large + bold + dark */
-.pathway-row.active .pathway-row-label {
-  font-size: 1.85rem;
-  font-weight: 700;
-  color: var(--text);
+.pathway-grid-card:hover .pathway-card-bg {
+  transform: scale(1.06);
 }
 
-/* Actions: avatar + arrow — inline, right-aligned */
-.pathway-row-actions {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-shrink: 0;
-  animation: fadeIn 0.3s ease;
+.pathway-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  transition: opacity 0.3s ease;
 }
 
-/* Circular avatar thumbnail — Large matching design */
-.pathway-avatar {
-  width: 96px;
-  height: 96px;
+.pathway-card-arrow {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-/* Arrow CTA button — Violet/gradient circle matching design */
-.pathway-cta-arrow {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1863DC, #B30B7E);
-  color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  z-index: 2;
 }
 
-.pathway-cta-arrow:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(179, 11, 126, 0.2);
+.pathway-card-arrow .arrow-icon {
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.pathway-grid-card:hover .pathway-card-arrow {
+  background: white;
+  border-color: white;
+}
+
+.pathway-grid-card:hover .pathway-card-arrow .arrow-icon {
+  color: #B30B7E;
+}
+
+.pathway-card-content {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pathway-card-tag {
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+}
+
+.pathway-card-title {
+  font-family: var(--font-title);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+  .pathways-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 /* Banner Block Custom */
@@ -1340,17 +1371,7 @@ body {
   color: var(--text);
 }
 
-/* Engagement Pathways section: "I'M A" label */
-.im-a-label {
-  text-align: center;
-  font-family: var(--font-title);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-}
+
 
 /* Explore Portfolio button wrapper */
 .explore-portfolio-wrapper {
