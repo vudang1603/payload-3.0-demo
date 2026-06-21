@@ -645,7 +645,7 @@ export default async function HomePage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#1863DC] shrink-0" />
                 Reports
               </a>
-              <a href="/blogs" className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5">Blog</a>
+              <a href="#" className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5">Blog</a>
               <a href="#" data-coming-soon className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5">Media</a>
               <a href="#" data-coming-soon className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5">Podcast</a>
             </div>
