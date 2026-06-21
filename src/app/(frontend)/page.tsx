@@ -151,12 +151,12 @@ export default async function HomePage() {
       >
         {/* Redesigned Hero Section */}
         <section
-          className="hero-block hero-home relative px-8 text-center flex justify-center overflow-hidden shadow-sm"
+          className="hero-block hero-home relative px-8 text-center flex justify-center overflow-hidden shadow-sm !rounded-none"
           style={{
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.50)), url('/images/hero-girls.webp')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
-            borderRadius: '24px',
+            // borderRadius: '24px',
             minHeight: '520px',
           }}
         >
@@ -169,21 +169,20 @@ export default async function HomePage() {
                 Apply for a Grant
               </button>
               <a href="#portfolio" className="btn btn-outline-white max-[640px]:w-full">
-                Explore Our Work
+                Explore our Work
               </a>
             </div>
           </div>
         </section>
 
         {/* Section: What ACT does */}
-        <section className="py-12 relative overflow-hidden" id="about">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(139,92,246,0.07)_0%,_transparent_70%)] pointer-events-none" />
-          <div className="relative z-10">
+        <section className="py-12 relative overflow-hidden rounded-b-[16px]" id="about">
+          <div className="relative z-10 w-full">
             <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto">
               <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
-                What ACT{' '}
+                What we{' '}
                 <span className="bg-gradient-to-r from-[#1863DC] to-[#B30B7E] bg-clip-text text-transparent inline-block font-black">
-                  does
+                  do
                 </span>
               </h2>
               <p className="text-gray-500 font-body mt-2 max-[640px]:text-sm">
@@ -205,9 +204,7 @@ export default async function HomePage() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="font-title text-3xl font-black text-[#1863DC]">
-                    Risk Capital
-                  </h3>
+                  <h3 className="font-title text-3xl font-black text-[#1863DC]">Risk Capital</h3>
                 </div>
 
                 {/* Hover State: Curved top-left image and white description text below */}
@@ -233,25 +230,104 @@ export default async function HomePage() {
                   <div className="w-[110px] h-[110px] rounded-full flex items-center justify-center bg-[#FAF9FF] text-[#1863DC]">
                     <svg width="60" height="60" viewBox="0 0 90 90" fill="none">
                       <circle cx="45" cy="18" r="7" fill="currentColor" opacity="0.3" />
-                      <circle cx="45" cy="18" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                      <circle
+                        cx="45"
+                        cy="18"
+                        r="7"
+                        fill="currentColor"
+                        opacity="0.15"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      />
                       <circle cx="18" cy="55" r="7" fill="currentColor" opacity="0.3" />
-                      <circle cx="18" cy="55" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                      <circle
+                        cx="18"
+                        cy="55"
+                        r="7"
+                        fill="currentColor"
+                        opacity="0.15"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      />
                       <circle cx="72" cy="55" r="7" fill="currentColor" opacity="0.3" />
-                      <circle cx="72" cy="55" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                      <circle
+                        cx="72"
+                        cy="55"
+                        r="7"
+                        fill="currentColor"
+                        opacity="0.15"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      />
                       <circle cx="30" cy="76" r="5" fill="currentColor" opacity="0.2" />
-                      <circle cx="30" cy="76" r="5" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1" />
+                      <circle
+                        cx="30"
+                        cy="76"
+                        r="5"
+                        fill="currentColor"
+                        opacity="0.1"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                      />
                       <circle cx="60" cy="76" r="5" fill="currentColor" opacity="0.2" />
-                      <circle cx="60" cy="76" r="5" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1" />
-                      <line x1="45" y1="25" x2="18" y2="48" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
-                      <line x1="45" y1="25" x2="72" y2="48" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
-                      <line x1="18" y1="55" x2="30" y2="71" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
-                      <line x1="72" y1="55" x2="60" y2="71" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
-                      <line x1="18" y1="55" x2="72" y2="55" stroke="currentColor" strokeWidth="1" opacity="0.15" strokeDasharray="4 4" />
+                      <circle
+                        cx="60"
+                        cy="76"
+                        r="5"
+                        fill="currentColor"
+                        opacity="0.1"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                      />
+                      <line
+                        x1="45"
+                        y1="25"
+                        x2="18"
+                        y2="48"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        opacity="0.25"
+                      />
+                      <line
+                        x1="45"
+                        y1="25"
+                        x2="72"
+                        y2="48"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        opacity="0.25"
+                      />
+                      <line
+                        x1="18"
+                        y1="55"
+                        x2="30"
+                        y2="71"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        opacity="0.25"
+                      />
+                      <line
+                        x1="72"
+                        y1="55"
+                        x2="60"
+                        y2="71"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        opacity="0.25"
+                      />
+                      <line
+                        x1="18"
+                        y1="55"
+                        x2="72"
+                        y2="55"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        opacity="0.15"
+                        strokeDasharray="4 4"
+                      />
                     </svg>
                   </div>
-                  <h3 className="font-title text-3xl font-black text-[#1863DC]">
-                    Connections
-                  </h3>
+                  <h3 className="font-title text-3xl font-black text-[#1863DC]">Connections</h3>
                 </div>
 
                 {/* Hover State: Curved top-left image and white description text below */}
@@ -265,13 +341,53 @@ export default async function HomePage() {
                     <div className="absolute top-[20%] left-[20%] text-white/20">
                       <svg width="80" height="80" viewBox="0 0 90 90" fill="none">
                         <circle cx="45" cy="18" r="7" fill="currentColor" opacity="0.3" />
-                        <circle cx="45" cy="18" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                        <circle
+                          cx="45"
+                          cy="18"
+                          r="7"
+                          fill="currentColor"
+                          opacity="0.15"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        />
                         <circle cx="18" cy="55" r="7" fill="currentColor" opacity="0.3" />
-                        <circle cx="18" cy="55" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                        <circle
+                          cx="18"
+                          cy="55"
+                          r="7"
+                          fill="currentColor"
+                          opacity="0.15"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        />
                         <circle cx="72" cy="55" r="7" fill="currentColor" opacity="0.3" />
-                        <circle cx="72" cy="55" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
-                        <line x1="45" y1="25" x2="18" y2="48" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
-                        <line x1="45" y1="25" x2="72" y2="48" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                        <circle
+                          cx="72"
+                          cy="55"
+                          r="7"
+                          fill="currentColor"
+                          opacity="0.15"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        />
+                        <line
+                          x1="45"
+                          y1="25"
+                          x2="18"
+                          y2="48"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                          opacity="0.25"
+                        />
+                        <line
+                          x1="45"
+                          y1="25"
+                          x2="72"
+                          y2="48"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                          opacity="0.25"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -289,24 +405,86 @@ export default async function HomePage() {
                   <div className="w-[110px] h-[110px] rounded-full flex items-center justify-center bg-[#FAF9FF] text-[#1863DC]">
                     <svg width="60" height="60" viewBox="0 0 90 90" fill="none">
                       <circle cx="45" cy="12" r="7" fill="currentColor" opacity="0.3" />
-                      <circle cx="45" cy="12" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                      <circle
+                        cx="45"
+                        cy="12"
+                        r="7"
+                        fill="currentColor"
+                        opacity="0.15"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      />
                       <circle cx="16" cy="38" r="6" fill="currentColor" opacity="0.25" />
-                      <circle cx="16" cy="38" r="6" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1.2" />
+                      <circle
+                        cx="16"
+                        cy="38"
+                        r="6"
+                        fill="currentColor"
+                        opacity="0.1"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                      />
                       <circle cx="74" cy="38" r="6" fill="currentColor" opacity="0.25" />
-                      <circle cx="74" cy="38" r="6" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1.2" />
+                      <circle
+                        cx="74"
+                        cy="38"
+                        r="6"
+                        fill="currentColor"
+                        opacity="0.1"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                      />
                       <circle cx="28" cy="68" r="5" fill="currentColor" opacity="0.2" />
-                      <circle cx="28" cy="68" r="5" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1" />
+                      <circle
+                        cx="28"
+                        cy="68"
+                        r="5"
+                        fill="currentColor"
+                        opacity="0.1"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                      />
                       <circle cx="62" cy="68" r="5" fill="currentColor" opacity="0.2" />
-                      <circle cx="62" cy="68" r="5" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1" />
+                      <circle
+                        cx="62"
+                        cy="68"
+                        r="5"
+                        fill="currentColor"
+                        opacity="0.1"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                      />
                       <circle cx="45" cy="80" r="5" fill="currentColor" opacity="0.2" />
-                      <circle cx="45" cy="80" r="5" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1" />
-                      <line x1="45" y1="19" x2="16" y2="32" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
-                      <line x1="45" y1="19" x2="74" y2="32" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                      <circle
+                        cx="45"
+                        cy="80"
+                        r="5"
+                        fill="currentColor"
+                        opacity="0.1"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                      />
+                      <line
+                        x1="45"
+                        y1="19"
+                        x2="16"
+                        y2="32"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        opacity="0.25"
+                      />
+                      <line
+                        x1="45"
+                        y1="19"
+                        x2="74"
+                        y2="32"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        opacity="0.25"
+                      />
                     </svg>
                   </div>
-                  <h3 className="font-title text-3xl font-black text-[#1863DC]">
-                    Collectives
-                  </h3>
+                  <h3 className="font-title text-3xl font-black text-[#1863DC]">Collectives</h3>
                 </div>
 
                 {/* Hover State: Curved top-left image and white description text below */}
@@ -320,10 +498,34 @@ export default async function HomePage() {
                     <div className="absolute top-[20%] left-[20%] text-white/20">
                       <svg width="80" height="80" viewBox="0 0 90 90" fill="none">
                         <circle cx="45" cy="12" r="7" fill="currentColor" opacity="0.3" />
-                        <circle cx="45" cy="12" r="7" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1.5" />
+                        <circle
+                          cx="45"
+                          cy="12"
+                          r="7"
+                          fill="currentColor"
+                          opacity="0.15"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        />
                         <circle cx="16" cy="38" r="6" fill="currentColor" opacity="0.25" />
-                        <circle cx="16" cy="38" r="6" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1.2" />
-                        <line x1="45" y1="19" x2="16" y2="32" stroke="currentColor" strokeWidth="1.2" opacity="0.25" />
+                        <circle
+                          cx="16"
+                          cy="38"
+                          r="6"
+                          fill="currentColor"
+                          opacity="0.1"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                        />
+                        <line
+                          x1="45"
+                          y1="19"
+                          x2="16"
+                          y2="32"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                          opacity="0.25"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -340,10 +542,13 @@ export default async function HomePage() {
                 href="#portfolio"
                 className="btn btn-primary rounded-full bg-gradient-to-r from-[#B30B7E] to-[#5C1081] border-0"
               >
-                Know more
+                Find out more
               </a>
             </div>
           </div>
+
+          <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_90%_10%,_rgba(195,9,159,0.15)_0%,_transparent_65%)] pointer-events-none" />
+          <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_10%_90%,_rgba(112,150,209,0.12)_0%,_transparent_60%)] pointer-events-none" />
         </section>
 
         {/* Section: Focus areas */}
@@ -356,9 +561,8 @@ export default async function HomePage() {
               </span>
             </h2>
             <p className="text-gray-500 font-body mt-2 max-[640px]:text-sm">
-              As a non-profit tech-led venture philanthropy platform, ACT is built upon the premise
-              that an entrepreneurial mindset, technology &amp; innovation and collective action
-              have the power to create meaningful social impact at scale.
+              We channel the power of collective action into four critical focus areas, seeding
+              innovations that can create sustainable social impact across India.
             </p>
           </div>
 
@@ -511,15 +715,15 @@ export default async function HomePage() {
         >
           <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto px-4">
             <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
-              How ACT{' '}
+              How we{' '}
               <span className="bg-gradient-to-r from-[#1863DC] to-[#B30B7E] bg-clip-text text-transparent inline-block font-black">
                 works
               </span>
             </h2>
             <p className="text-gray-500 font-body mt-2 max-[640px]:text-sm">
-              As a non-profit tech-led venture philanthropy platform, ACT is built upon the premise
-              that an entrepreneurial mindset, technology &amp; innovation and collective action
-              have the power to create meaningful social impact at scale.
+              Our efforts are guided by a data-driven approach that allows us to take calculated
+              risks, stay focused on intended outcomes, and remain fully accountable for every rupee
+              entrusted to our vision.
             </p>
           </div>
 
@@ -645,21 +849,47 @@ export default async function HomePage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#1863DC] shrink-0" />
                 Reports
               </a>
-              <a href="#" className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5">Blog</a>
-              <a href="#" data-coming-soon className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5">Media</a>
-              <a href="#" data-coming-soon className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5">Podcast</a>
+              <a
+                href="/blogs"
+                className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5"
+              >
+                Blog
+              </a>
+              <a
+                href="#"
+                data-coming-soon
+                className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5"
+              >
+                Media
+              </a>
+              <a
+                href="#"
+                data-coming-soon
+                className="font-title text-sm font-semibold text-gray-400 no-underline hover:text-gray-600 transition-colors lg:pl-3.5"
+              >
+                Podcast
+              </a>
             </div>
 
             {/* RIGHT: Visualization + report cards */}
             <div className="flex flex-col gap-5">
               {/* Feature visualization card */}
-              <div className="relative bg-gradient-to-br from-[#EEF2FF] to-[#F5F0FF] rounded-[24px] overflow-hidden flex items-center justify-between px-8 py-6" style={{ minHeight: '200px' }}>
+              <div
+                className="relative bg-gradient-to-br from-[#EEF2FF] to-[#F5F0FF] rounded-[24px] overflow-hidden flex items-center justify-between px-8 py-6"
+                style={{ minHeight: '200px' }}
+              >
                 <div className="flex flex-col gap-2 max-w-xs">
-                  <span className="text-xs font-bold text-[#1863DC] uppercase tracking-widest">Reports & Publications</span>
+                  <span className="text-xs font-bold text-[#1863DC] uppercase tracking-widest">
+                    Reports & Publications
+                  </span>
                   <h3 className="font-title text-xl font-extrabold text-gray-900 leading-snug">
                     Insights driving social impact at scale
                   </h3>
-                  <a href="#" data-coming-soon className="mt-2 inline-flex items-center gap-1.5 text-sm font-bold text-[#1863DC] no-underline hover:gap-2.5 transition-all duration-200">
+                  <a
+                    href="#"
+                    data-coming-soon
+                    className="mt-2 inline-flex items-center gap-1.5 text-sm font-bold text-[#1863DC] no-underline hover:gap-2.5 transition-all duration-200"
+                  >
                     View all reports ↗
                   </a>
                 </div>
@@ -675,12 +905,42 @@ export default async function HomePage() {
               {/* 2x3 compact report cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  { title: 'ACT Grants Annual Highlight 2023–24', type: 'Annual Report', img: '/images/report-cover-2.webp', cta: 'Download PDF' },
-                  { title: 'impACT Newsletter Q1 Edition', type: 'Newsletter', img: '/images/report-cover-3.webp', cta: 'Read Online' },
-                  { title: 'Education Technology in India Report', type: 'Sector Report', img: '/images/report-cover-1.webp', cta: 'Download PDF' },
-                  { title: 'Healthcare Access & Advisory Study', type: 'Sector Report', img: '/images/report-cover-4.webp', cta: 'Download PDF' },
-                  { title: 'Clean Energy & Climate Innovation', type: 'Sector Report', img: '/images/report-cover-5.webp', cta: 'Download PDF' },
-                  { title: 'Women Empowerment Livelihood Q3', type: 'Newsletter', img: '/images/report-cover-6.webp', cta: 'Read Online' },
+                  {
+                    title: 'ACT Grants Annual Highlight 2023–24',
+                    type: 'Annual Report',
+                    img: '/images/report-cover-2.webp',
+                    cta: 'Download PDF',
+                  },
+                  {
+                    title: 'impACT Newsletter Q1 Edition',
+                    type: 'Newsletter',
+                    img: '/images/report-cover-3.webp',
+                    cta: 'Read Online',
+                  },
+                  {
+                    title: 'Education Technology in India Report',
+                    type: 'Sector Report',
+                    img: '/images/report-cover-1.webp',
+                    cta: 'Download PDF',
+                  },
+                  {
+                    title: 'Healthcare Access & Advisory Study',
+                    type: 'Sector Report',
+                    img: '/images/report-cover-4.webp',
+                    cta: 'Download PDF',
+                  },
+                  {
+                    title: 'Clean Energy & Climate Innovation',
+                    type: 'Sector Report',
+                    img: '/images/report-cover-5.webp',
+                    cta: 'Download PDF',
+                  },
+                  {
+                    title: 'Women Empowerment Livelihood Q3',
+                    type: 'Newsletter',
+                    img: '/images/report-cover-6.webp',
+                    cta: 'Read Online',
+                  },
                 ].map((card) => (
                   <a
                     key={card.title}
@@ -713,8 +973,6 @@ export default async function HomePage() {
           </div>
         </section>
 
-
-
         {/* ── Section: Latest Insights (Blog articles) ── */}
         <section id="insights-blog" className="py-10 w-full">
           <div className="section-title-wrapper mb-8 text-center max-w-3xl mx-auto">
@@ -736,7 +994,10 @@ export default async function HomePage() {
             fallback={
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="skeleton-card skeleton-shimmer h-[280px] rounded-[20px]" />
+                  <div
+                    key={i}
+                    className="skeleton-card skeleton-shimmer h-[280px] rounded-[20px]"
+                  />
                 ))}
               </div>
             }
