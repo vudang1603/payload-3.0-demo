@@ -5,7 +5,6 @@ import { getImageUrl } from '@/utils/imageUrl';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { RichText } from '@/components/RichText';
-import '../../styles.css';
 
 async function BlogContent({ slug }: { slug: string }) {
   const payloadConfig = await config;
@@ -45,9 +44,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   const { slug } = await params;
 
   return (
-    <div className="container">
+    <div className="min-h-screen flex flex-col bg-white w-full">
       <Header activeSlug="blogs" />
-      <main className="main">
+      <main className="main flex-grow container mx-auto px-6 py-10">
         <Suspense fallback={
           <section className="blog-detail-section">
             {/* Title Placeholder */}

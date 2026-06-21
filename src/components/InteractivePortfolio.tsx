@@ -49,171 +49,113 @@ const communityData = {
   ]
 };
 
-export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ initialPortfolios }) => {
-  const [activeTab, setActiveTab] = useState<'vcs' | 'strategy' | 'ecosystem' | 'experts'>('vcs');
-  const [selectedSector, setSelectedSector] = useState<string>('all');
+// Mock portfolio data when CMS is empty
+const mockPortfolios: PortfolioItem[] = [
+  { id: 'mock-1', name: 'LearnTube', sectors: 'education', website: '#' },
+  { id: 'mock-2', name: 'Vidyatech', sectors: 'education', website: '#' },
+  { id: 'mock-3', name: 'EduBridge', sectors: 'education', website: '#' },
+  { id: 'mock-4', name: 'GreenGrid', sectors: 'environment', website: '#' },
+  { id: 'mock-5', name: 'EcoSense', sectors: 'environment', website: '#' },
+  { id: 'mock-6', name: 'CleanAir Labs', sectors: 'environment', website: '#' },
+  { id: 'mock-7', name: 'HealthNow', sectors: 'health', website: '#' },
+  { id: 'mock-8', name: 'MediConnect', sectors: 'health', website: '#' },
+  { id: 'mock-9', name: 'PrimaryRx', sectors: 'health', website: '#' },
+  { id: 'mock-10', name: 'SheBuilds', sectors: 'women', website: '#' },
+  { id: 'mock-11', name: 'WomenRise', sectors: 'women', website: '#' },
+  { id: 'mock-12', name: 'SkillHer', sectors: 'women', website: '#' },
+  { id: 'mock-13', name: 'LearnWorld', sectors: 'education', website: '#' },
+  { id: 'mock-14', name: 'EduSpark', sectors: 'education', website: '#' },
+  { id: 'mock-15', name: 'SolarBridge', sectors: 'environment', website: '#' },
+];
 
-  const tabs = [
-    { id: 'vcs', label: 'Venture Capitalists' },
-    { id: 'strategy', label: 'Startups & Strategy' },
-    { id: 'ecosystem', label: 'Ecosystem Supporters' },
-    { id: 'experts', label: 'Industry Experts' }
-  ] as const;
+export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({ initialPortfolios }) => {
+  const [selectedSector, setSelectedSector] = useState<string>('education');
 
   const sectorsList = [
-    { id: 'all', label: 'All Sectors' },
-    { id: 'health', label: 'Health' },
     { id: 'education', label: 'Education' },
-    { id: 'environment', label: 'Environment' }
+    { id: 'environment', label: 'Environment' },
+    { id: 'health', label: 'Health' },
+    { id: 'women', label: 'Women' }
   ];
 
-  const filteredPortfolios = selectedSector === 'all'
-    ? initialPortfolios
-    : initialPortfolios.filter(p => p.sectors === selectedSector);
-
-  const activePeople = communityData[activeTab];
+  const portfolios = initialPortfolios.length > 0 ? initialPortfolios : mockPortfolios;
+  const filteredPortfolios = portfolios.filter(p => p.sectors === selectedSector);
 
   return (
-    <section className="portfolio-proof-section" id="portfolio">
-      <div className="section-title-wrapper">
-        <h2>Portfolio <span style={{ color: 'var(--primary)' }}>proof</span></h2>
-        <p className="section-subtitle">
-          Backed by India&apos;s leading venture capitalists, startup founders, ecosystem leaders, and domain experts.
-        </p>
-      </div>
+    <div className="flex flex-col w-full">
+      {/* Portfolio proof Section Wrapper */}
+      <section className="bg-white rounded-[32px] border border-gray-100/60 px-8 py-16 max-[640px]:px-4" id="portfolio">
+        <div className="section-title-wrapper mb-8">
+          <h2 className="font-title text-3xl font-extrabold text-gray-900 text-center tracking-tight">
+            Portfolio <span className="bg-gradient-to-r from-[#B30B7E] to-[#5C1081] bg-clip-text text-transparent inline-block font-black">proof</span>
+          </h2>
+        </div>
 
-      {/* Tabs for People Grid */}
-      <div className="tabs-container">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
-            onClick={() => setActiveTab(tab.id)}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+        {/* Sector filter tabs */}
+        <div className="flex justify-center gap-3 mb-10 flex-wrap">
+          {sectorsList.map((sec) => (
+            <button
+              key={sec.id}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                selectedSector === sec.id
+                  ? 'bg-[#1863DC] text-white shadow-sm'
+                  : 'border border-gray-200 text-gray-500 bg-white hover:border-gray-300 hover:text-gray-700'
+              }`}
+              onClick={() => setSelectedSector(sec.id)}
+            >
+              {sec.label}
+            </button>
+          ))}
+        </div>
 
-            {/* People Grid */}
-      <div className="people-grid">
-        {activePeople.map((person, idx) => (
-          <div key={idx} className="people-card">
-            <div className="people-img-wrapper">
-              <img src={person.photo} alt={person.name} loading="lazy" />
-            </div>
-            <div className="people-info">
-              <h4>{person.name}</h4>
-              <span className="people-role">{person.role}</span>
-              <p className="people-company">{person.company}</p>
-            </div>
+        {/* Portfolios Logo Grid */}
+        {filteredPortfolios.length === 0 ? (
+          <div className="bg-white/50 border border-dashed border-gray-200 rounded-2xl py-12 text-center text-gray-500 font-body">
+            No portfolios found under this sector.
           </div>
-        ))}
-      </div>
+        ) : (
+          <div className="grid grid-cols-5 gap-4 max-[1024px]:grid-cols-3 max-[640px]:grid-cols-2">
+            {filteredPortfolios.map((item) => {
+              const logoUrl = item.logo ? getImageUrl(item.logo) : null;
 
-      <div className="explore-portfolio-wrapper">
-        <button className="btn btn-primary" data-coming-soon>Explore Portfolio</button>
-      </div>
+              return (
+                <a
+                  key={item.id}
+                  href={item.website || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center bg-white border border-gray-200/60 rounded-2xl h-[110px] p-6 transition-all duration-300 hover:bg-[#1863DC] hover:border-transparent shadow-sm hover:shadow-md cursor-pointer overflow-hidden"
+                >
+                  {/* Default Logo */}
+                  <div className="flex items-center justify-center w-full h-full transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
+                    {logoUrl ? (
+                      <img
+                        src={logoUrl}
+                        alt={`${item.name} logo`}
+                        className="max-h-full max-w-full object-contain filter opacity-90 transition-all duration-300 group-hover:brightness-200"
+                      />
+                    ) : (
+                      <span className="font-title text-base font-bold text-gray-700">{item.name}</span>
+                    )}
+                  </div>
+                  {/* Hover State: Blue background and white text */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#1863DC] p-3 text-center">
+                    <span className="font-title text-sm font-extrabold text-white tracking-wide">
+                      {item.name}
+                    </span>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        )}
 
-      {/* Dynamic Portfolios Section */}
-      <div className="section-title-wrapper" style={{ marginTop: '5rem', marginBottom: '2rem' }}>
-        <h3>Funded Grants & Projects ({filteredPortfolios.length})</h3>
-        <p className="section-subtitle">Browse through our dynamically managed portfolios in real-time.</p>
-      </div>
-
-      {/* Sector filter */}
-      <div className="portfolio-filters">
-        {sectorsList.map((sec) => (
-          <button
-            key={sec.id}
-            className={`tab-btn ${selectedSector === sec.id ? 'active' : ''}`}
-            onClick={() => setSelectedSector(sec.id)}
-          >
-            {sec.label}
+        <div className="flex justify-center mt-12">
+          <button className="btn btn-primary" data-coming-soon>
+            Explore Portfolio
           </button>
-        ))}
-      </div>
-
-      {/* Portfolios Grid */}
-      {filteredPortfolios.length === 0 ? (
-        <div className="empty-state">
-          <p>No portfolios found under this sector.</p>
         </div>
-      ) : (
-        <div className="grid">
-          {filteredPortfolios.map((item) => {
-            const sectorLabel = {
-              health: 'Health',
-              education: 'Education',
-              environment: 'Environment',
-            }[item.sectors] || item.sectors;
-
-            const formattedFunding = item.fundingAmount
-              ? new Intl.NumberFormat('en-US', {
-                  style: 'currency',
-                  currency: 'USD',
-                  maximumFractionDigits: 0,
-                }).format(item.fundingAmount)
-              : null;
-
-            const defaultImage = {
-              health: 'healthcare.png',
-              education: 'education.png',
-              environment: 'environment.png',
-            }[item.sectors] || 'logo.png';
-
-            const logoUrl = getImageUrl(item.logo, defaultImage);
-
-            // Simple preview text resolver
-            let descText = 'View details in CMS';
-            if (item.description) {
-              if (typeof item.description === 'string') {
-                descText = item.description;
-              } else if (item.description.root && item.description.root.children) {
-                descText = item.description.root.children
-                  .map((child: any) => {
-                    if (child.children) {
-                      return child.children.map((c: any) => c.text || '').join('');
-                    }
-                    return '';
-                  })
-                  .join(' ');
-              }
-            }
-
-            return (
-              <div key={item.id} className="card">
-                {logoUrl && (
-                  <div className="card-image-wrapper">
-                    <img src={logoUrl} alt={`${item.name} logo`} />
-                  </div>
-                )}
-                <div className="card-header">
-                  <span className={`tag tag-${item.sectors}`}>{sectorLabel}</span>
-                </div>
-                <div className="card-body">
-                  <h3>{item.name}</h3>
-                  {formattedFunding && (
-                    <div className="funding">
-                      Funding: {formattedFunding}
-                    </div>
-                  )}
-                  <div className="description">
-                    {descText}
-                  </div>
-                </div>
-                {item.website && (
-                  <div className="card-footer">
-                    <a href={item.website} target="_blank" rel="noopener noreferrer">
-                      Visit Website →
-                    </a>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </section>
+      </section>
+    </div>
   );
 };

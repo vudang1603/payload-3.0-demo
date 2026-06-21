@@ -7,7 +7,6 @@ import { Hero } from '@/components/Hero'
 import { Banner } from '@/components/Banner'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import '../styles.css'
 
 async function DynamicPageContent({ slug, adminRoute }: { slug: string; adminRoute: string }) {
   const payloadConfig = await config
@@ -86,10 +85,10 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
   const payloadConfig = await config
 
   return (
-    <div className="container">
+    <div className="min-h-screen flex flex-col bg-white w-full">
       <Header activeSlug={slug} />
 
-      <main className="main" style={{ padding: '2rem 0' }}>
+      <main className="main flex-grow container mx-auto px-6 py-10" style={{ padding: '2rem 0' }}>
         <Suspense fallback={
           <>
             {/* Skeleton Hero Layout */}

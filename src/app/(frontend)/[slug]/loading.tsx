@@ -1,12 +1,11 @@
 import React from 'react';
 import { Header } from '@/components/Header';
-import '../styles.css';
 
 export default function Loading() {
   return (
-    <div className="container">
+    <div className="min-h-screen flex flex-col bg-white w-full">
       <Header />
-      <main className="main" style={{ padding: '2rem 0' }}>
+      <main className="main flex-grow container mx-auto px-6 py-10" style={{ padding: '2rem 0' }}>
         {/* Skeleton Hero Layout */}
         <section
           className="hero-block skeleton-shimmer"

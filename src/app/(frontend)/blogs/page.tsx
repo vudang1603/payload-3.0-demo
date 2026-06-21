@@ -5,7 +5,6 @@ import config from '@/payload.config';
 import { getImageUrl } from '@/utils/imageUrl';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import '../styles.css';
 
 // Helper to extract plain text preview from Lexical Editor JSON state
 const getPreviewText = (richText: any) => {
@@ -81,9 +80,9 @@ async function BlogsContent() {
 
 export default async function BlogsPage() {
   return (
-    <div className="container">
+    <div className="min-h-screen flex flex-col bg-white w-full">
       <Header activeSlug="blogs" />
-      <main className="main">
+      <main className="main flex-grow container mx-auto px-6 py-10">
 
         {/* Page Hero Banner */}
         <section
