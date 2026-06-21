@@ -177,7 +177,7 @@ export default async function HomePage() {
         </section>
 
         {/* Section: What ACT does */}
-        <section className="py-12 relative overflow-hidden rounded-b-[16px]" id="about">
+        <section className="py-12 relative overflow-hidden rounded-t-[32px] bg-white z-10 -mt-8" id="about">
           <div className="relative z-10 w-full">
             <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto">
               <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -553,7 +553,7 @@ export default async function HomePage() {
         </section>
 
         {/* Section: Focus areas */}
-        <section className="pt-10 pb-2" id="focus-areas">
+        <section className="pt-10 pb-0" id="focus-areas">
           <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto">
             <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
               Focus{' '}
@@ -567,7 +567,7 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="focus-grid flex gap-1.5 h-[480px] overflow-hidden max-[1024px]:flex-col max-[1024px]:h-auto !rounded-none">
+          <div className="focus-grid flex gap-0 h-[480px] overflow-hidden max-[1024px]:flex-col max-[1024px]:h-auto !rounded-none">
             {/* Card 1: Education (expanded-default) */}
             <div className="focus-card flex-1 relative overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] expanded-default max-[1024px]:h-[200px] max-[1024px]:hover:h-[360px]">
               <div
@@ -712,7 +712,7 @@ export default async function HomePage() {
         {/* Section: How ACT works */}
         <section
           id="how-it-works"
-          className="relative pt-8 pb-4 bg-[#F8F4FF]/50 border border-gray-100/50 max-[640px]:py-10 overflow-hidden"
+          className="relative pt-12 pb-12 bg-white max-[640px]:py-10 overflow-hidden"
         >
           <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto px-4">
             <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -756,7 +756,7 @@ export default async function HomePage() {
         </Suspense>
 
         {/* Section: Impact */}
-        <section id="impact">
+        <section id="impact" className="relative z-0 -mt-8">
           <div className="w-full mx-auto bg-gradient-to-r from-[#1A237E] via-[#4A148C] to-[#B30B7E] px-16 py-20 text-white max-[1024px]:px-8 max-[1024px]:py-14 shadow-lg rounded-none">
             <div className="max-w-[1180px] mx-auto mb-12">
               <div className="grid grid-cols-1 md:grid-cols-[1.15fr_1fr] gap-16 items-center">

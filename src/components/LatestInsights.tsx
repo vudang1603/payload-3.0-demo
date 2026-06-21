@@ -25,7 +25,7 @@ export function LatestInsights() {
   ]
 
   return (
-    <section className="relative mt-16 bg-white rounded-b-[32px] overflow-hidden px-6 py-16 sm:px-8 lg:px-12">
+    <section className="relative z-10 mt-16 bg-white rounded-b-[32px] overflow-hidden px-6 py-16 sm:px-8 lg:px-12">
       {/* Soft corner background gradients from design mockup */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-32 -right-32 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,_rgba(207,56,144,0.06)_0%,_rgba(112,162,255,0.04)_50%,_transparent_70%)]" />
@@ -41,7 +41,7 @@ export function LatestInsights() {
             </span>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[#4D5874]/70 sm:text-lg">
-            As a non-profit tech-led venture philanthropy platform, ACT is built upon the premise that an entrepreneurial mindset, technology & innovation and collective action have the power to create meaningful social impact at scale.
+            As a non-profit tech-led venture philanthropy platform, ACT is built upon the premise that an entrepreneurial mindset, technology & innovation and collective action have the power to create meaningful social impact at scale." thành Explore our insights library to discover ideas, stories, and conversations shaping social innovation across India.
           </p>
         </div>
 

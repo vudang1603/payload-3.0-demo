@@ -57,7 +57,7 @@ const pathwaysList: PathwayItem[] = [
 
 export const InteractivePathways: React.FC = () => {
   return (
-    <section className="engagement-pathways-section" id="engagement-pathways">
+    <section className="engagement-pathways-section relative z-0 -mt-8" id="engagement-pathways">
       <div className="section-title-wrapper">
         <h2>
           Join our

@@ -123,10 +123,9 @@ body {
   font-size: 1rem;
 }
 
-/* Layout Main */
 .main {
   flex-grow: 1;
-  padding: 0 0 5rem 0;
+  padding: 0;
 }
 
 /* New Design Section Templates */
@@ -508,7 +507,7 @@ body {
 /* Flexbox container — the key to the accordion */
 .focus-grid {
   display: flex;
-  gap: 6px;
+  gap: 0;
   margin-top: 2rem;
   border-radius: 20px;
   overflow: hidden;

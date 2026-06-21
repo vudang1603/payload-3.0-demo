@@ -392,7 +392,7 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({
   return (
     <div className="flex flex-col w-full">
       {/* Portfolio proof Section Wrapper */}
-      <section className="bg-white rounded-[32px] px-8 pt-8 pb-12 max-[640px]:px-4" id="portfolio">
+      <section className="bg-[#F8F4FF] border border-gray-100/50 px-8 pt-12 pb-16 max-[640px]:px-4 relative z-10 rounded-b-[32px]" id="portfolio">
         <div className="section-title-wrapper mb-8">
           <h2 className="font-title text-3xl font-extrabold text-gray-900 text-center tracking-tight">
             Portfolio{' '}
