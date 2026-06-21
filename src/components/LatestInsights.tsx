@@ -25,11 +25,11 @@ export function LatestInsights() {
   ]
 
   return (
-    <section className="relative mt-16 bg-[#f8fafd] rounded-b-[32px] overflow-hidden px-6 py-16 sm:px-8 lg:px-12">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-24 left-[-8%] h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,_rgba(75,142,255,0.18)_0%,_rgba(75,142,255,0)_70%)]" />
-        <div className="absolute top-1/3 right-[-10%] h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,_rgba(207,56,144,0.16)_0%,_rgba(207,56,144,0)_72%)]" />
-        <div className="absolute -bottom-20 left-1/3 h-[260px] w-[260px] rounded-full bg-[radial-gradient(circle,_rgba(31,94,220,0.1)_0%,_rgba(31,94,220,0)_70%)]" />
+    <section className="relative mt-16 bg-white rounded-b-[32px] overflow-hidden px-6 py-16 sm:px-8 lg:px-12">
+      {/* Soft corner background gradients from design mockup */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-32 -right-32 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,_rgba(207,56,144,0.06)_0%,_rgba(112,162,255,0.04)_50%,_transparent_70%)]" />
+        <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,_rgba(207,56,144,0.06)_0%,_rgba(112,162,255,0.04)_50%,_transparent_70%)]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl">
@@ -53,7 +53,7 @@ export function LatestInsights() {
                 className={`group relative overflow-hidden rounded-[24px] border p-8 transition-all duration-300 ${
                   card.active
                     ? 'border-[#AFC4F6] bg-gradient-to-br from-[#EEF3FF] to-[#F5F8FF] shadow-[0_16px_45px_-26px_rgba(23,75,172,0.45)]'
-                    : 'border-white/80 bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(35,67,124,0.05)] hover:border-[#AFC4F6] hover:bg-gradient-to-br hover:from-[#EEF3FF] hover:to-[#F5F8FF] hover:shadow-[0_16px_45px_-26px_rgba(23,75,172,0.45)]'
+                    : 'border-[#E2E8F0] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(35,67,124,0.05)] hover:border-[#AFC4F6] hover:bg-gradient-to-br hover:from-[#EEF3FF] hover:to-[#F5F8FF] hover:shadow-[0_16px_45px_-26px_rgba(23,75,172,0.45)]'
                 }`}
               >
                 {/* Arrow button that gets active gradient background on hover */}

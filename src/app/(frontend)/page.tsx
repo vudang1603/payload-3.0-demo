@@ -147,7 +147,7 @@ export default async function HomePage() {
       <Header />
 
       <main
-        className="main flex-grow container mx-auto px-6 pt-0 pb-10 flex flex-col w-full"
+        className="main flex-grow container mx-auto px-6 pt-0 pb-0 flex flex-col w-full"
         style={{ paddingTop: '0' }}
       >
         {/* Redesigned Hero Section */}
