@@ -177,7 +177,10 @@ export default async function HomePage() {
         </section>
 
         {/* Section: What ACT does */}
-        <section className="py-12 relative overflow-hidden rounded-t-[32px] bg-white z-10 -mt-8" id="about">
+        <section
+          className="py-12 relative overflow-hidden rounded-t-[32px] bg-white z-10 -mt-8"
+          id="about"
+        >
           <div className="relative z-10 w-full">
             <div className="section-title-wrapper mb-12 text-center max-w-3xl mx-auto">
               <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -194,7 +197,7 @@ export default async function HomePage() {
             </div>
 
             <div className="grid grid-cols-3 gap-6 px-8 py-4 max-[1024px]:hidden">
-              {/* Card 1: Risk Capital */}
+              {/* Card 1: Capital */}
               <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100 cursor-pointer transition-all duration-500 hover:bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] hover:border-transparent hover:shadow-lg">
                 {/* Default State: Centered circle image and title */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
@@ -235,66 +238,14 @@ export default async function HomePage() {
                 </div>
 
                 {/* Hover State: Curved top-left image and white description text below */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-7 text-center">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-center">
                   <div
-                    className="absolute top-[-10%] left-[-10%] w-[120%] h-[75%] bg-[#FAF9FF]/10 flex items-center justify-center"
+                    className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
                     style={{
-                      clipPath: 'ellipse(85% 75% at 15% 15%)',
+                      backgroundImage: `url('/images/connection-transformed.webp')`,
+                      clipPath: 'ellipse(80% 70% at 0% 0%)',
                     }}
-                  >
-                    <div className="absolute top-[20%] left-[20%] text-white/20">
-                      <svg width="80" height="80" viewBox="0 0 90 90" fill="none">
-                        <circle cx="45" cy="18" r="7" fill="currentColor" opacity="0.3" />
-                        <circle
-                          cx="45"
-                          cy="18"
-                          r="7"
-                          fill="currentColor"
-                          opacity="0.15"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        />
-                        <circle cx="18" cy="55" r="7" fill="currentColor" opacity="0.3" />
-                        <circle
-                          cx="18"
-                          cy="55"
-                          r="7"
-                          fill="currentColor"
-                          opacity="0.15"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        />
-                        <circle cx="72" cy="55" r="7" fill="currentColor" opacity="0.3" />
-                        <circle
-                          cx="72"
-                          cy="55"
-                          r="7"
-                          fill="currentColor"
-                          opacity="0.15"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        />
-                        <line
-                          x1="45"
-                          y1="25"
-                          x2="18"
-                          y2="48"
-                          stroke="currentColor"
-                          strokeWidth="1.2"
-                          opacity="0.25"
-                        />
-                        <line
-                          x1="45"
-                          y1="25"
-                          x2="72"
-                          y2="48"
-                          stroke="currentColor"
-                          strokeWidth="1.2"
-                          opacity="0.25"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+                  />
                   <p className="text-white/95 text-xs sm:text-sm leading-relaxed font-body z-10">
                     Facilitating connections and partnerships across the ecosystem between
                     start-ups, corporate partners, non-profits, domain experts, and government.
@@ -315,47 +266,14 @@ export default async function HomePage() {
                 </div>
 
                 {/* Hover State: Curved top-left image and white description text below */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-7 text-center">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-center">
                   <div
-                    className="absolute top-[-10%] left-[-10%] w-[120%] h-[75%] bg-[#FAF9FF]/10 flex items-center justify-center"
+                    className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
                     style={{
-                      clipPath: 'ellipse(85% 75% at 15% 15%)',
+                      backgroundImage: `url('/images/collective-transformed.webp')`,
+                      clipPath: 'ellipse(80% 70% at 0% 0%)',
                     }}
-                  >
-                    <div className="absolute top-[20%] left-[20%] text-white/20">
-                      <svg width="80" height="80" viewBox="0 0 90 90" fill="none">
-                        <circle cx="45" cy="12" r="7" fill="currentColor" opacity="0.3" />
-                        <circle
-                          cx="45"
-                          cy="12"
-                          r="7"
-                          fill="currentColor"
-                          opacity="0.15"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        />
-                        <circle cx="16" cy="38" r="6" fill="currentColor" opacity="0.25" />
-                        <circle
-                          cx="16"
-                          cy="38"
-                          r="6"
-                          fill="currentColor"
-                          opacity="0.1"
-                          stroke="currentColor"
-                          strokeWidth="1.2"
-                        />
-                        <line
-                          x1="45"
-                          y1="19"
-                          x2="16"
-                          y2="32"
-                          stroke="currentColor"
-                          strokeWidth="1.2"
-                          opacity="0.25"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+                  />
                   <p className="text-white/95 text-xs sm:text-sm leading-relaxed font-body z-10">
                     Building collaborative groups focused on solving systemic social problems in
                     education, healthcare, environment, and women&apos;s empowerment.
@@ -656,7 +574,6 @@ export default async function HomePage() {
           <div className="w-full mx-auto bg-gradient-to-r from-[#1A237E] via-[#4A148C] to-[#B30B7E] px-16 py-20 text-white max-[1024px]:px-8 max-[1024px]:py-14 shadow-lg rounded-none">
             <div className="max-w-[1180px] mx-auto mb-12">
               <div className="grid grid-cols-1 md:grid-cols-[1.15fr_1fr] gap-16 items-center">
-                
                 {/* Left Column: Map + Description */}
                 <div className="relative w-full flex flex-col items-start text-left gap-6">
                   <div className="w-full max-w-[460px] mx-auto md:mx-0">
@@ -677,7 +594,6 @@ export default async function HomePage() {
 
                 {/* Right Column: Statistics Grid */}
                 <div className="flex flex-col gap-4 w-full">
-                  
                   {/* Card 1: 58 */}
                   <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center gap-6 text-left">
                     <div className="font-title text-5xl font-extrabold text-white min-w-[70px]">
@@ -734,7 +650,6 @@ export default async function HomePage() {
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>

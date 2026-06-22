@@ -162,7 +162,7 @@ const mockPortfolios: PortfolioItem[] = [
   // Education Sector (as shown in design)
   {
     id: 'edu-1',
-    name: 'adalat ai',
+    name: 'Adalat AI',
     sectors: 'education',
     logo: '/images/company-logos/Adalat_AI_logos.svg',
     website: '#',
@@ -176,14 +176,14 @@ const mockPortfolios: PortfolioItem[] = [
   },
   {
     id: 'edu-3',
-    name: 'CG',
+    name: 'ConveGenius',
     sectors: 'education',
     logo: '/images/company-logos/cg.png',
     website: '#',
   },
   {
     id: 'edu-4',
-    name: 'Curious',
+    name: 'Curious Jr',
     sectors: 'education',
     logo: '/images/company-logos/curious.png',
     website: '#',
@@ -239,14 +239,14 @@ const mockPortfolios: PortfolioItem[] = [
   },
   {
     id: 'edu-12',
-    name: 'Pocket Learning',
+    name: 'Rocket Learning',
     sectors: 'education',
     logo: '/images/company-logos/5-logo.png',
     website: '#',
   },
   {
     id: 'edu-13',
-    name: 'Supernan',
+    name: 'Super Nan',
     sectors: 'education',
     logo: '/images/company-logos/6-logo.png',
     website: '#',
@@ -267,7 +267,7 @@ const mockPortfolios: PortfolioItem[] = [
   },
   {
     id: 'edu-16',
-    name: 'VAll',
+    name: 'V-All',
     sectors: 'education',
     logo: '/images/company-logos/logoVAll.png',
     website: '#',
@@ -281,14 +281,14 @@ const mockPortfolios: PortfolioItem[] = [
   },
   {
     id: 'edu-18',
-    name: 'Vopa',
+    name: 'VOPA',
     sectors: 'education',
     logo: '/images/company-logos/9-logo.png',
     website: '#',
   },
   {
     id: 'edu-19',
-    name: 'YuWaah',
+    name: 'YuWaah NXT',
     sectors: 'education',
     logo: '/images/company-logos/Logo-scaled.png',
     website: '#',
@@ -297,7 +297,7 @@ const mockPortfolios: PortfolioItem[] = [
   // Environment Sector
   {
     id: 'env-1',
-    name: 'CG',
+    name: 'ConveGenius',
     sectors: 'environment',
     logo: '/images/company-logos/cg.png',
     website: '#',
@@ -318,7 +318,7 @@ const mockPortfolios: PortfolioItem[] = [
   },
   {
     id: 'env-4',
-    name: 'YuWaah',
+    name: 'YuWaah NXT',
     sectors: 'environment',
     logo: '/images/company-logos/Logo-scaled.png',
     website: '#',
@@ -327,7 +327,7 @@ const mockPortfolios: PortfolioItem[] = [
   // Health Sector
   {
     id: 'hea-1',
-    name: 'adalat ai',
+    name: 'Adalat AI',
     sectors: 'health',
     logo: '/images/company-logos/Adalat_AI_logos.svg',
     website: '#',
@@ -341,7 +341,7 @@ const mockPortfolios: PortfolioItem[] = [
   },
   {
     id: 'hea-3',
-    name: 'VAll',
+    name: 'V-All',
     sectors: 'health',
     logo: '/images/company-logos/logoVAll.png',
     website: '#',
@@ -357,14 +357,14 @@ const mockPortfolios: PortfolioItem[] = [
   },
   {
     id: 'wom-2',
-    name: 'Supernan',
+    name: 'Super Nan',
     sectors: 'women',
     logo: '/images/company-logos/6-logo.png',
     website: '#',
   },
   {
     id: 'wom-3',
-    name: 'Pocket Learning',
+    name: 'Rocket Learning',
     sectors: 'women',
     logo: '/images/company-logos/5-logo.png',
     website: '#',
@@ -392,7 +392,10 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({
   return (
     <div className="flex flex-col w-full">
       {/* Portfolio proof Section Wrapper */}
-      <section className="bg-[#F8F4FF] border border-gray-100/50 px-8 pt-12 pb-16 max-[640px]:px-4 relative z-10 rounded-b-[32px]" id="portfolio">
+      <section
+        className="bg-[#F8F4FF] border border-gray-100/50 px-8 pt-12 pb-16 max-[640px]:px-4 relative z-10 rounded-b-[32px]"
+        id="portfolio"
+      >
         <div className="section-title-wrapper mb-8">
           <h2 className="font-title text-3xl font-extrabold text-gray-900 text-center tracking-tight">
             Portfolio{' '}

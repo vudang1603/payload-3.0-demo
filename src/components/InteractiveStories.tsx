@@ -67,7 +67,7 @@ export const InteractiveStories: React.FC = () => {
 
       {/* Main Carousel Wrapper centered and constrained */}
       <div className="mx-auto max-w-5xl px-6 relative">
-        <div className="relative w-full h-[420px] max-[640px]:h-[340px] rounded-[28px] overflow-hidden shadow-md group">
+        <div className="relative w-full h-[520px] max-[640px]:h-[340px] rounded-[28px] overflow-hidden shadow-md group">
           {/* Slide Image Background */}
           <div className="absolute inset-0 z-0">
             <img
@@ -116,7 +116,7 @@ export const InteractiveStories: React.FC = () => {
           </button>
 
           {/* Slide Text Content overlaid on top of image with arrow clearance */}
-          <div className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 text-center px-16 sm:px-24 md:px-32">
+          <div className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-end gap-4 text-center py-8 px-16 sm:px-24 md:px-32">
             {current.author && (
               <div className="flex flex-col gap-1">
                 <h3 className="font-title text-2xl md:text-4xl font-black text-white leading-tight drop-shadow-sm">
