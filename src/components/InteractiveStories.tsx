@@ -63,9 +63,6 @@ export const InteractiveStories: React.FC = () => {
           </span>{' '}
           from the field
         </h2>
-        <p className="text-gray-500 font-body mt-2 max-[640px]:text-sm">
-          Hear directly from portfolio founders building solutions for population-scale impact.
-        </p>
       </div>
 
       {/* Main Carousel Wrapper centered and constrained */}

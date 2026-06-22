@@ -174,7 +174,7 @@ export const InteractiveHowItWorks: React.FC = () => {
               : 'text-[#7F93D6] border border-[#7F93D6]/40'
           }`}
         >
-          As A Venture Philanthropy Fund
+          As a Venture Philanthropy Fund
         </button>
         <button
           onClick={() => {
@@ -187,7 +187,7 @@ export const InteractiveHowItWorks: React.FC = () => {
               : 'text-[#7F93D6] border border-[#7F93D6]/40'
           }`}
         >
-          As A Collective Action Platform
+          As a Collective Action Platform
         </button>
       </div>
 
