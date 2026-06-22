@@ -8,7 +8,7 @@ type Principle = {
   id: string
   title: string
   desc: string
-  iconType: 'founder' | 'catalytic' | 'impact'
+  iconType: 'founder' | 'catalytic' | 'impact' | 'enhance' | 'incubating' | 'knowledge'
   color: string
   borderStyle: string
 }
@@ -57,7 +57,7 @@ const DATA: Record<
         id: 'capacity',
         title: 'Enhance Capacity',
         desc: 'The organization builds strong relationships with founders to provide strategic and operational guidance, facilitating 1:1 advisory relationships to strengthen organizational capacity.',
-        iconType: 'founder',
+        iconType: 'enhance',
         color: 'text-[#B30B7E]',
         borderStyle: 'border-[#B30B7E] text-[#B30B7E]',
       },
@@ -65,7 +65,7 @@ const DATA: Record<
         id: 'incubating',
         title: 'Incubate New Entrepreneurs',
         desc: 'ACT designs challenge grants and pilot incubation/acceleration programs to draw attention to critical social issues and inspire entrepreneurs to develop scalable solutions.',
-        iconType: 'catalytic',
+        iconType: 'incubating',
         color: 'text-[#5C1081]',
         borderStyle: 'border-[#5C1081] text-[#5C1081]',
       },
@@ -73,7 +73,7 @@ const DATA: Record<
         id: 'knowledge',
         title: 'Generate Knowledge',
         desc: 'We collaborate with ecosystem partners to run programs that can generate knowledge, resources and playbooks to help accelerate the pace of overall change for the sector at large.',
-        iconType: 'impact',
+        iconType: 'knowledge',
         color: 'text-white',
         borderStyle: 'border-[#B30B7E] text-[#B30B7E]',
       },
@@ -81,10 +81,10 @@ const DATA: Record<
   },
 }
 
-const IconRenderer: React.FC<{ type: 'founder' | 'catalytic' | 'impact'; className?: string }> = ({
-  type,
-  className = 'w-6 h-6',
-}) => {
+const IconRenderer: React.FC<{
+  type: 'founder' | 'catalytic' | 'impact' | 'enhance' | 'incubating' | 'knowledge'
+  className?: string
+}> = ({ type, className = 'w-6 h-6' }) => {
   if (type === 'founder') {
     return (
       <svg
@@ -122,6 +122,54 @@ const IconRenderer: React.FC<{ type: 'founder' | 'catalytic' | 'impact'; classNa
       </svg>
     )
   }
+  if (type === 'enhance') {
+    return (
+      <svg
+        className={className}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    )
+  }
+  if (type === 'incubating') {
+    return (
+      <svg
+        className={className}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    )
+  }
+  if (type === 'knowledge') {
+    return (
+      <svg
+        className={className}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M21 15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v7z" />
+        <line x1="9" y1="10" x2="15" y2="10" />
+        <line x1="9" y1="14" x2="15" y2="14" />
+      </svg>
+    )
+  }
+
   // impact / target
   return (
     <svg
