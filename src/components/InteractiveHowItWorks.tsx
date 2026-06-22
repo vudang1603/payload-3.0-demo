@@ -221,7 +221,7 @@ export const InteractiveHowItWorks: React.FC = () => {
             >
               {/* Circle Icon */}
               <div
-                className={`w-14 h-14 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md border-2 border-transparent bg-origin-border [background-clip:padding-box,border-box] ${
+                className={`w-14 h-14 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md border-2 bg-origin-border [background-clip:padding-box,border-box] ${
                   isHovered
                     ? 'scale-110 shadow-lg text-white bg-gradient-to-br from-[#B30B7E] to-[#5C1081]'
                     : 'bg-white text-gradient-to-br from-[#B30B7E] to-[#5C1081] ' + pr.borderStyle
