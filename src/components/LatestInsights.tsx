@@ -41,7 +41,7 @@ export function LatestInsights() {
             </span>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[#4D5874]/70 sm:text-lg">
-            As a non-profit tech-led venture philanthropy platform, ACT is built upon the premise that an entrepreneurial mindset, technology & innovation and collective action have the power to create meaningful social impact at scale." thành Explore our insights library to discover ideas, stories, and conversations shaping social innovation across India.
+            Explore our insights library to discover ideas, stories, and conversations shaping social innovation across India.
           </p>
         </div>
 
