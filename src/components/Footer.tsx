@@ -1,4 +1,6 @@
 import React from 'react'
+import Link from 'next/link'
+import { UTILITY_LINKS } from '@/components/navConfig'
 
 export const Footer: React.FC = () => {
   return (
@@ -13,30 +15,25 @@ export const Footer: React.FC = () => {
         {/* Top row: nav links + social icons */}
         <div className="px-16 max-[640px]:px-6 flex flex-col items-start gap-5 md:flex-row md:justify-between md:items-center mb-6">
           <nav className="flex flex-wrap gap-4 md:gap-7">
-            <button
-              className="bg-none border-none text-white font-title text-sm font-bold cursor-pointer p-0 no-underline transition-opacity duration-200 hover:opacity-80 text-left"
-              data-coming-soon
-            >
-              Careers
-            </button>
-            <button
-              className="bg-none border-none text-white font-title text-sm font-bold cursor-pointer p-0 no-underline transition-opacity duration-200 hover:opacity-80 text-left"
-              data-coming-soon
-            >
-              Contact Us
-            </button>
-            <button
-              className="bg-none border-none text-white font-title text-sm font-bold cursor-pointer p-0 no-underline transition-opacity duration-200 hover:opacity-80 text-left"
-              data-coming-soon
-            >
-              Privacy Policy
-            </button>
-            <button
-              className="bg-none border-none text-white font-title text-sm font-bold cursor-pointer p-0 no-underline transition-opacity duration-200 hover:opacity-80 text-left"
-              data-coming-soon
-            >
-              Disclosures &amp; CSR Policy
-            </button>
+            {UTILITY_LINKS.map((item) =>
+              item.comingSoon ? (
+                <button
+                  key={item.label}
+                  className="bg-transparent border-0 text-white font-title text-sm font-bold cursor-pointer p-0 no-underline transition-opacity duration-200 hover:opacity-80 text-left"
+                  data-coming-soon
+                >
+                  {item.label}
+                </button>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href!}
+                  className="text-white font-title text-sm font-bold no-underline transition-opacity duration-200 hover:opacity-80 text-left"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </nav>
 
           <div className="flex gap-2.5">

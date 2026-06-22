@@ -193,19 +193,17 @@ export default async function HomePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-1 px-8 py-4">
+            <div className="grid grid-cols-3 gap-6 px-8 py-4 max-[1024px]:hidden">
               {/* Card 1: Risk Capital */}
               <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100 cursor-pointer transition-all duration-500 hover:bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] hover:border-transparent hover:shadow-lg">
                 {/* Default State: Centered circle image and title */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
-                  <div className="w-[110px] h-[110px] rounded-full overflow-hidden border-2 border-[#1863DC]/10 relative flex items-center justify-center bg-gray-50">
-                    <img
-                      src="/images/wmremove-transformed.webp"
-                      alt="Risk Capital"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="font-title text-3xl font-black text-[#1863DC]">Risk Capital</h3>
+                  <img
+                    src="/images/icon-capital.webp"
+                    alt="Capital"
+                    className="w-64 h-64 object-contain"
+                  />
+                  <h3 className="font-title text-3xl font-black text-[#4F7CC9]">Capital</h3>
                 </div>
 
                 {/* Hover State: Curved top-left image and white description text below */}
@@ -228,107 +226,12 @@ export default async function HomePage() {
               <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100 cursor-pointer transition-all duration-500 hover:bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] hover:border-transparent hover:shadow-lg">
                 {/* Default State: Centered circle image and title */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
-                  <div className="w-[110px] h-[110px] rounded-full flex items-center justify-center bg-[#FAF9FF] text-[#1863DC]">
-                    <svg width="60" height="60" viewBox="0 0 90 90" fill="none">
-                      <circle cx="45" cy="18" r="7" fill="currentColor" opacity="0.3" />
-                      <circle
-                        cx="45"
-                        cy="18"
-                        r="7"
-                        fill="currentColor"
-                        opacity="0.15"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                      <circle cx="18" cy="55" r="7" fill="currentColor" opacity="0.3" />
-                      <circle
-                        cx="18"
-                        cy="55"
-                        r="7"
-                        fill="currentColor"
-                        opacity="0.15"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                      <circle cx="72" cy="55" r="7" fill="currentColor" opacity="0.3" />
-                      <circle
-                        cx="72"
-                        cy="55"
-                        r="7"
-                        fill="currentColor"
-                        opacity="0.15"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                      <circle cx="30" cy="76" r="5" fill="currentColor" opacity="0.2" />
-                      <circle
-                        cx="30"
-                        cy="76"
-                        r="5"
-                        fill="currentColor"
-                        opacity="0.1"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                      />
-                      <circle cx="60" cy="76" r="5" fill="currentColor" opacity="0.2" />
-                      <circle
-                        cx="60"
-                        cy="76"
-                        r="5"
-                        fill="currentColor"
-                        opacity="0.1"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                      />
-                      <line
-                        x1="45"
-                        y1="25"
-                        x2="18"
-                        y2="48"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        opacity="0.25"
-                      />
-                      <line
-                        x1="45"
-                        y1="25"
-                        x2="72"
-                        y2="48"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        opacity="0.25"
-                      />
-                      <line
-                        x1="18"
-                        y1="55"
-                        x2="30"
-                        y2="71"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        opacity="0.25"
-                      />
-                      <line
-                        x1="72"
-                        y1="55"
-                        x2="60"
-                        y2="71"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        opacity="0.25"
-                      />
-                      <line
-                        x1="18"
-                        y1="55"
-                        x2="72"
-                        y2="55"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                        opacity="0.15"
-                        strokeDasharray="4 4"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="font-title text-3xl font-black text-[#1863DC]">Connections</h3>
+                  <img
+                    src="/images/icon-connections.webp"
+                    alt="Connections"
+                    className="w-64 h-64 object-contain"
+                  />
+                  <h3 className="font-title text-3xl font-black text-[#4F7CC9]">Connections</h3>
                 </div>
 
                 {/* Hover State: Curved top-left image and white description text below */}
@@ -403,89 +306,12 @@ export default async function HomePage() {
               <div className="act-card group relative rounded-2xl overflow-hidden shadow-sm h-[340px] bg-white border border-gray-100 cursor-pointer transition-all duration-500 hover:bg-[linear-gradient(140deg,#3F1E8C_0%,#7A1C9E_45%,#B30B7E_100%)] hover:border-transparent hover:shadow-lg">
                 {/* Default State: Centered circle image and title */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
-                  <div className="w-[110px] h-[110px] rounded-full flex items-center justify-center bg-[#FAF9FF] text-[#1863DC]">
-                    <svg width="60" height="60" viewBox="0 0 90 90" fill="none">
-                      <circle cx="45" cy="12" r="7" fill="currentColor" opacity="0.3" />
-                      <circle
-                        cx="45"
-                        cy="12"
-                        r="7"
-                        fill="currentColor"
-                        opacity="0.15"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                      <circle cx="16" cy="38" r="6" fill="currentColor" opacity="0.25" />
-                      <circle
-                        cx="16"
-                        cy="38"
-                        r="6"
-                        fill="currentColor"
-                        opacity="0.1"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                      />
-                      <circle cx="74" cy="38" r="6" fill="currentColor" opacity="0.25" />
-                      <circle
-                        cx="74"
-                        cy="38"
-                        r="6"
-                        fill="currentColor"
-                        opacity="0.1"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                      />
-                      <circle cx="28" cy="68" r="5" fill="currentColor" opacity="0.2" />
-                      <circle
-                        cx="28"
-                        cy="68"
-                        r="5"
-                        fill="currentColor"
-                        opacity="0.1"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                      />
-                      <circle cx="62" cy="68" r="5" fill="currentColor" opacity="0.2" />
-                      <circle
-                        cx="62"
-                        cy="68"
-                        r="5"
-                        fill="currentColor"
-                        opacity="0.1"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                      />
-                      <circle cx="45" cy="80" r="5" fill="currentColor" opacity="0.2" />
-                      <circle
-                        cx="45"
-                        cy="80"
-                        r="5"
-                        fill="currentColor"
-                        opacity="0.1"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                      />
-                      <line
-                        x1="45"
-                        y1="19"
-                        x2="16"
-                        y2="32"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        opacity="0.25"
-                      />
-                      <line
-                        x1="45"
-                        y1="19"
-                        x2="74"
-                        y2="32"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        opacity="0.25"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="font-title text-3xl font-black text-[#1863DC]">Collectives</h3>
+                  <img
+                    src="/images/icon-collectives.webp"
+                    alt="Collectives"
+                    className="w-64 h-64 object-contain"
+                  />
+                  <h3 className="font-title text-3xl font-black text-[#4F7CC9]">Collectives</h3>
                 </div>
 
                 {/* Hover State: Curved top-left image and white description text below */}
@@ -538,6 +364,31 @@ export default async function HomePage() {
               </div>
             </div>
 
+            {/* Mobile/tablet: always-visible stacked cards (no hover dependency) */}
+            <div className="hidden max-[1024px]:grid grid-cols-1 gap-4 px-6 py-4">
+              <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col gap-2.5">
+                <h3 className="font-title text-2xl font-black text-[#4F7CC9]">Capital</h3>
+                <p className="text-sm text-gray-600 leading-relaxed font-body">
+                  Providing hard-to-find, early-stage risk capital to take long-term bets and
+                  additionally supporting portfolio founders in mobilising follow-on capital.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col gap-2.5">
+                <h3 className="font-title text-2xl font-black text-[#4F7CC9]">Connections</h3>
+                <p className="text-sm text-gray-600 leading-relaxed font-body">
+                  Facilitating connections and partnerships across the ecosystem between start-ups,
+                  corporate partners, non-profits, domain experts, and government.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col gap-2.5">
+                <h3 className="font-title text-2xl font-black text-[#4F7CC9]">Collectives</h3>
+                <p className="text-sm text-gray-600 leading-relaxed font-body">
+                  Building collaborative groups focused on solving systemic social problems in
+                  education, healthcare, environment, and women&apos;s empowerment.
+                </p>
+              </div>
+            </div>
+
             <div className="flex justify-center mt-10">
               <a
                 href="#portfolio"
@@ -567,7 +418,7 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="focus-grid flex gap-0 h-[480px] overflow-hidden max-[1024px]:flex-col max-[1024px]:h-auto !rounded-none">
+          <div className="focus-grid flex gap-0 h-[480px] overflow-hidden max-[1024px]:hidden !rounded-none">
             {/* Card 1: Education (expanded-default) */}
             <div className="focus-card flex-1 relative overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] expanded-default max-[1024px]:h-[200px] max-[1024px]:hover:h-[360px]">
               <div
@@ -577,7 +428,7 @@ export default async function HomePage() {
               <span className="focus-label-vertical">Education</span>
               <div className="focus-expand-content absolute bottom-0 inset-x-0 p-8 z-10 flex flex-col items-start gap-2 text-white/90 opacity-0 translate-y-3 transition-all duration-300">
                 <div className="font-title text-[0.68rem] font-bold tracking-wider uppercase text-white/60">
-                  ACT FOR Education
+                  ACT FOR
                 </div>
                 <h3 className="font-title text-2xl font-black text-white">Education</h3>
                 <p className="text-xs text-white/80 leading-relaxed max-w-sm font-body">
@@ -614,7 +465,7 @@ export default async function HomePage() {
               <span className="focus-label-vertical">Environment</span>
               <div className="focus-expand-content absolute bottom-0 inset-x-0 p-8 z-10 flex flex-col items-start gap-2 text-white/90 opacity-0 translate-y-3 transition-all duration-300">
                 <div className="font-title text-[0.68rem] font-bold tracking-wider uppercase text-white/60">
-                  ACT FOR Environment
+                  ACT FOR
                 </div>
                 <h3 className="font-title text-2xl font-black text-white">Environment</h3>
                 <p className="text-xs text-white/80 leading-relaxed max-w-sm font-body">
@@ -648,7 +499,7 @@ export default async function HomePage() {
               <span className="focus-label-vertical">Health</span>
               <div className="focus-expand-content absolute bottom-0 inset-x-0 p-8 z-10 flex flex-col items-start gap-2 text-white/90 opacity-0 translate-y-3 transition-all duration-300">
                 <div className="font-title text-[0.68rem] font-bold tracking-wider uppercase text-white/60">
-                  ACT FOR Health
+                  ACT FOR
                 </div>
                 <h3 className="font-title text-2xl font-black text-white">Health</h3>
                 <p className="text-xs text-white/80 leading-relaxed max-w-sm font-body">
@@ -682,7 +533,7 @@ export default async function HomePage() {
               <span className="focus-label-vertical">Women</span>
               <div className="focus-expand-content absolute bottom-0 inset-x-0 p-8 z-10 flex flex-col items-start gap-2 text-white/90 opacity-0 translate-y-3 transition-all duration-300">
                 <div className="font-title text-[0.68rem] font-bold tracking-wider uppercase text-white/60">
-                  ACT FOR Women
+                  ACT FOR
                 </div>
                 <h3 className="font-title text-2xl font-black text-white">Women</h3>
                 <p className="text-xs text-white/80 leading-relaxed max-w-sm font-body">
@@ -707,6 +558,51 @@ export default async function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* Mobile/tablet: always-visible focus cards (no hover dependency) */}
+          <div className="hidden max-[1024px]:grid grid-cols-1 gap-4 px-6 mt-4">
+            {[
+              {
+                label: 'Education',
+                image: '/images/report-cover-2.webp',
+                desc: "Enabling the bottom three quartiles of India's population to learn at home by harnessing the power of affordable, accessible and high-quality ed-tech interventions.",
+              },
+              {
+                label: 'Environment',
+                image:
+                  '/images/stock-photo-aerial-view-of-mountain-hills-covered-with-dense-green-lush-woods-on-bright-summer-day-2075127775.webp',
+                desc: 'Backing tech-led start-ups working to improve air quality, manage water & waste, and accelerate transition to clean energy.',
+              },
+              {
+                label: 'Health',
+                image: '/images/report-cover-3.webp',
+                desc: "Strengthening India's healthcare system by funding tech-driven solutions that improve access, quality, and affordability of primary care.",
+              },
+              {
+                label: 'Women',
+                image: '/images/report-cover-5.webp',
+                desc: 'Enabling women to participate in the workforce and access economic opportunities through tech-led livelihood and skill building.',
+              },
+            ].map((card) => (
+              <div
+                key={card.label}
+                className="relative h-[240px] rounded-2xl overflow-hidden shadow-sm"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url('${card.image}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+                <div className="absolute bottom-0 inset-x-0 p-6 flex flex-col items-start gap-1.5 text-white">
+                  <div className="font-title text-[0.68rem] font-bold tracking-wider uppercase text-white/60">
+                    ACT FOR
+                  </div>
+                  <h3 className="font-title text-2xl font-black text-white">{card.label}</h3>
+                  <p className="text-xs text-white/80 leading-relaxed font-body">{card.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Section: How ACT works */}
@@ -718,7 +614,7 @@ export default async function HomePage() {
             <h2 className="font-title text-3xl font-extrabold text-gray-900 tracking-tight">
               How we{' '}
               <span className="bg-gradient-to-r from-[#1863DC] to-[#B30B7E] bg-clip-text text-transparent inline-block font-black">
-                works
+                work
               </span>
             </h2>
             <p className="text-gray-500 font-body mt-2 max-[640px]:text-sm">
@@ -814,8 +710,8 @@ export default async function HomePage() {
                     </div>
                     <div className="w-full border-t border-white/10 pt-3 mt-1">
                       <p className="text-[0.75rem] text-white/70 leading-relaxed font-body">
-                        39 portfolio founders raised additional external funding after their solutions
-                        began showing tangible impact.
+                        39 portfolio founders raised additional external funding after their
+                        solutions began showing tangible impact.
                       </p>
                     </div>
                   </div>
