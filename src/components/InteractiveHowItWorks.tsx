@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import SVG from 'react-inlinesvg'
 
 type TabType = 'fund' | 'platform'
 
@@ -8,9 +9,30 @@ type Principle = {
   id: string
   title: string
   desc: string
-  iconType: 'founder' | 'catalytic' | 'impact' | 'enhance' | 'incubating' | 'knowledge'
+  iconType: IconType
   color: string
   borderStyle: string
+}
+
+type IconType =
+  | 'founder'
+  | 'catalytic'
+  | 'impact'
+  | 'enhance'
+  | 'incubating'
+  | 'knowledge'
+  | 'fund'
+  | 'platform'
+
+const iconMap = {
+  founder: 'founder.svg',
+  catalytic: 'catalytic.svg',
+  impact: 'impact.svg',
+  enhance: 'enhance.svg',
+  incubating: 'incubating.svg',
+  knowledge: 'knowledge.svg',
+  fund: 'fund.svg',
+  platform: 'platform.svg',
 }
 
 const DATA: Record<
@@ -82,109 +104,24 @@ const DATA: Record<
 }
 
 const IconRenderer: React.FC<{
-  type: 'founder' | 'catalytic' | 'impact' | 'enhance' | 'incubating' | 'knowledge'
+  type:
+    | 'founder'
+    | 'catalytic'
+    | 'impact'
+    | 'enhance'
+    | 'incubating'
+    | 'knowledge'
+    | 'fund'
+    | 'platform'
   className?: string
 }> = ({ type, className = 'w-6 h-6' }) => {
-  if (type === 'founder') {
-    return (
-      <svg
-        className={className}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="8.5" cy="7" r="4" />
-        <line x1="18" y1="8" x2="22" y2="12" />
-        <line x1="22" y1="8" x2="18" y2="12" />
-      </svg>
-    )
-  }
-  if (type === 'catalytic') {
-    return (
-      <svg
-        className={className}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="5" r="3" />
-        <circle cx="5" cy="19" r="3" />
-        <circle cx="19" cy="19" r="3" />
-        <line x1="12" y1="8" x2="6.5" y2="16.5" />
-        <line x1="12" y1="8" x2="17.5" y2="16.5" />
-      </svg>
-    )
-  }
-  if (type === 'enhance') {
-    return (
-      <svg
-        className={className}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    )
-  }
-  if (type === 'incubating') {
-    return (
-      <svg
-        className={className}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    )
-  }
-  if (type === 'knowledge') {
-    return (
-      <svg
-        className={className}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M21 15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v7z" />
-        <line x1="9" y1="10" x2="15" y2="10" />
-        <line x1="9" y1="14" x2="15" y2="14" />
-      </svg>
-    )
-  }
-
-  // impact / target
   return (
-    <svg
+    <SVG
+      src={`/images/${iconMap[type]}`}
       className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" />
-      <circle cx="12" cy="12" r="2" />
-    </svg>
+      aria-label={type}
+      preProcessor={(svg) => svg.replace(/fill="[^"]*"/g, 'fill="currentColor"')}
+    />
   )
 }
 
@@ -251,7 +188,7 @@ export const InteractiveHowItWorks: React.FC = () => {
 
         {/* Center Node */}
         <div className="absolute w-[190px] h-[190px] rounded-full bg-gradient-to-br from-[#1863DC] via-[#5C1081] to-[#B30B7E] p-4 text-white text-center flex flex-col justify-center items-center shadow-md z-10 select-none">
-          <IconRenderer type="impact" className="w-6 h-6 mb-1 opacity-90" />
+          <IconRenderer type={activeTab} className="w-6 h-6 mb-1 opacity-90" />
           <p className="text-[11.5px] font-medium leading-snug">{currentData.centerText}</p>
         </div>
 
@@ -284,13 +221,20 @@ export const InteractiveHowItWorks: React.FC = () => {
             >
               {/* Circle Icon */}
               <div
-                className={`w-14 h-14 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md ${
+                className={`w-14 h-14 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md border-2 border-transparent bg-origin-border [background-clip:padding-box,border-box] ${
                   isHovered
-                    ? 'bg-gradient-to-br from-[#B30B7E] to-[#5C1081] text-white border-2 border-transparent scale-110 shadow-lg'
-                    : 'bg-white border-2 ' + pr.borderStyle
+                    ? 'scale-110 shadow-lg text-white bg-gradient-to-br from-[#B30B7E] to-[#5C1081]'
+                    : 'bg-white text-gradient-to-br from-[#B30B7E] to-[#5C1081] ' + pr.borderStyle
                 }`}
               >
-                <IconRenderer type={pr.iconType} className="w-6 h-6" />
+                <IconRenderer
+                  type={pr.iconType}
+                  className={`w-6 h-6 transition-colors duration-300 ${
+                    isHovered
+                      ? 'text-white'
+                      : 'text-gradient-to-r from-[#B30B7E] to-[#5C1081] text-transparent'
+                  }`}
+                />
               </div>
 
               {/* Label (floats outward from the icon, so the icon stays centered on the ring) */}
@@ -322,7 +266,7 @@ export const InteractiveHowItWorks: React.FC = () => {
             <div
               className={`w-12 h-12 rounded-full border-2 bg-white flex items-center justify-center shrink-0 ${pr.borderStyle}`}
             >
-              <IconRenderer type={pr.iconType} className="w-5 h-5" />
+              <IconRenderer type={pr.iconType} className="w-6 h-6 text-white" />
             </div>
             <div className="flex flex-col gap-1 text-left">
               <h4 className="font-title text-base font-bold text-gray-900">{pr.title}</h4>

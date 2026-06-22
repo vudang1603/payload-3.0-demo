@@ -446,7 +446,7 @@ export default async function HomePage() {
             <div className="focus-card flex-1 relative overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] max-[1024px]:h-[200px] max-[1024px]:hover:h-[360px]">
               <div
                 className="focus-card-bg absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                style={{ backgroundImage: `url('/images/report-cover-5.webp')` }}
+                style={{ backgroundImage: `url('/images/report-cover-11.webp')` }}
               />
               <span className="focus-label-vertical">Women</span>
               <div className="focus-expand-content absolute bottom-0 inset-x-0 p-8 z-10 flex flex-col items-start gap-2 text-white/90 opacity-0 translate-y-3 transition-all duration-300">
