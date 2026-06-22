@@ -13,7 +13,7 @@ export const NAV_SECTIONS: NavSection[] = [
     label: 'About ACT',
     href: '/#about',
     items: [
-      { label: 'Mission & ACT 3.0 Strategy', comingSoon: true },
+      { label: 'Mission & Strategy', comingSoon: true },
       {
         label: 'Origin Story',
         href: '/about',

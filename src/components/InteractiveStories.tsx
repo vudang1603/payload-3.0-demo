@@ -63,20 +63,18 @@ export const InteractiveStories: React.FC = () => {
           </span>{' '}
           from the field
         </h2>
-        <p className="text-gray-500 font-body mt-2 max-[640px]:text-sm">
-          Hear directly from portfolio founders building solutions for population-scale impact.
-        </p>
       </div>
 
       {/* Main Carousel Wrapper centered and constrained */}
       <div className="mx-auto max-w-5xl px-6 relative">
-        <div className="relative w-full h-[420px] max-[640px]:h-[340px] rounded-[28px] overflow-hidden shadow-md group">
+        <div className="relative w-full h-[520px] max-[640px]:h-[440px] rounded-[28px] overflow-hidden shadow-md group">
           {/* Slide Image Background */}
           <div className="absolute inset-0 z-0">
             <img
               src={current.image}
               alt={current.tag}
               className="w-full h-full object-cover transition-all duration-700 ease-out"
+              style={{ objectPosition: 'center 20%' }}
             />
             {/* Bottom vignette overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10 z-10" />
@@ -119,7 +117,10 @@ export const InteractiveStories: React.FC = () => {
           </button>
 
           {/* Slide Text Content overlaid on top of image with arrow clearance */}
-          <div className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 text-center px-16 sm:px-24 md:px-32">
+          <div
+            className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center gap-4 text-center px-16 sm:px-24 md:px-32"
+            style={{ justifyContent: 'flex-end', paddingBottom: '3rem' }}
+          >
             {current.author && (
               <div className="flex flex-col gap-1">
                 <h3 className="font-title text-2xl md:text-4xl font-black text-white leading-tight drop-shadow-sm">

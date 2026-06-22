@@ -25,7 +25,7 @@ const pathwaysList: PathwayItem[] = [
     avatar: '/images/report-cover-4.webp',
     link: '/admin',
   },
-  {
+  { 
     key: 'partner',
     label: 'Partner',
     tag: "I'M A",
@@ -43,7 +43,7 @@ const pathwaysList: PathwayItem[] = [
     key: 'career',
     label: 'Careers',
     tag: "I'M LOOKING FOR",
-    avatar: '/images/report-cover-5.webp',
+    avatar: '/images/report-cover-11.webp',
     link: '/blogs',
   },
   {
