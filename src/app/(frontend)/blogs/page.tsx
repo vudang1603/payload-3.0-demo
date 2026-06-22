@@ -51,7 +51,7 @@ async function BlogsContent() {
           <p>No blog posts found. Add posts via the <Link href="/admin" className="btn btn-primary" style={{ display: 'inline-block', marginTop: '1rem' }}>CMS Admin Panel</Link>.</p>
         </div>
       ) : (
-        <div className="grid">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((post) => {
             const excerpt = post.excerpt || getPreviewText(post.content);
             const imageUrl = getImageUrl(post.featuredImage, 'collaboration.png');
@@ -113,7 +113,7 @@ export default async function BlogsPage() {
               <div className="skeleton-text skeleton-shimmer" style={{ width: '380px', height: '0.9rem' }} />
             </div>
 
-            <div className="grid">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="skeleton-card">
                   <div className="skeleton-card-img skeleton-shimmer" />

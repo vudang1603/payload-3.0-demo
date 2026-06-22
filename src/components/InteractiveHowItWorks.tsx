@@ -42,7 +42,7 @@ const DATA: Record<
       {
         id: 'impact',
         title: 'Impact First',
-        desc: 'Our grants are mission-led and open to both for-profit and not-for-profit innovations, because we believe each has a role to play in the larger social change we seek to create.',
+        desc: 'Our grants are mission-centric and thus available to both for-profit and not-for-profit innovations because we believe that both will have a place in the larger social change we’re attempting to create.',
         iconType: 'impact',
         color: 'text-white',
         borderStyle: 'border-[#B30B7E] text-[#B30B7E]',
@@ -51,11 +51,11 @@ const DATA: Record<
   },
   platform: {
     centerText:
-      'Fostering collaboration across the board to seed innovations for population-scale impact',
+      'We bring the ecosystem together to help solutions grow beyond individual organisations.',
     principles: [
       {
         id: 'capacity',
-        title: 'Enhancing Capacity',
+        title: 'Enhance Capacity',
         desc: 'The organization builds strong relationships with founders to provide strategic and operational guidance, facilitating 1:1 advisory relationships to strengthen organizational capacity.',
         iconType: 'founder',
         color: 'text-[#B30B7E]',
@@ -63,7 +63,7 @@ const DATA: Record<
       },
       {
         id: 'incubating',
-        title: 'Incubating Entrepreneurs',
+        title: 'Incubate New Entrepreneurs',
         desc: 'ACT designs challenge grants and pilot incubation/acceleration programs to draw attention to critical social issues and inspire entrepreneurs to develop scalable solutions.',
         iconType: 'catalytic',
         color: 'text-[#5C1081]',
@@ -71,8 +71,8 @@ const DATA: Record<
       },
       {
         id: 'knowledge',
-        title: 'Generating Knowledge',
-        desc: 'The platform leverages the collective expertise of its members—venture capitalists, tech entrepreneurs, and social impact leaders—to address complex social problems.',
+        title: 'Generate Knowledge',
+        desc: 'We collaborate with ecosystem partners to run programs that can generate knowledge, resources and playbooks to help accelerate the pace of overall change for the sector at large.',
         iconType: 'impact',
         color: 'text-white',
         borderStyle: 'border-[#B30B7E] text-[#B30B7E]',
@@ -174,7 +174,7 @@ export const InteractiveHowItWorks: React.FC = () => {
               : 'text-[#7F93D6] border border-[#7F93D6]/40'
           }`}
         >
-          As a Venture Philanthropy Fund
+          As A Venture Philanthropy Fund
         </button>
         <button
           onClick={() => {
@@ -187,7 +187,7 @@ export const InteractiveHowItWorks: React.FC = () => {
               : 'text-[#7F93D6] border border-[#7F93D6]/40'
           }`}
         >
-          As a Collective Action Platform
+          As A Collective Action Platform
         </button>
       </div>
 

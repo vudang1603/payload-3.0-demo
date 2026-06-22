@@ -23,7 +23,7 @@ export default function Loading() {
             <div className="skeleton-text skeleton-shimmer" style={{ width: '380px', height: '0.9rem' }} />
           </div>
 
-          <div className="grid">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
               <div key={i} className="skeleton-card">
                 <div className="skeleton-card-img skeleton-shimmer" />

@@ -5,22 +5,22 @@ export function LatestInsights() {
     {
       title: 'Reports',
       active: false,
-      image: '/images/insight-reports.png',
+      image: '/images/icon-reports.webp',
     },
     {
       title: 'Blog',
       active: false,
-      image: '/images/insight-blog.png',
+      image: '/images/icon-blog.webp',
     },
     {
       title: 'Media',
       active: false,
-      image: '/images/insight-media.png',
+      image: '/images/icon-media.webp',
     },
     {
       title: 'Podcast',
       active: false,
-      image: '/images/insight-podcast.png',
+      image: '/images/icon-podcast.webp',
     },
   ]
 
@@ -50,7 +50,7 @@ export function LatestInsights() {
             return (
               <article
                 key={card.title}
-                className={`group relative overflow-hidden rounded-[24px] border p-8 transition-all duration-300 ${
+                className={`group relative overflow-hidden rounded-[24px] border p-7 transition-all duration-300 ${
                   card.active
                     ? 'border-[#AFC4F6] bg-gradient-to-br from-[#EEF3FF] to-[#F5F8FF] shadow-[0_16px_45px_-26px_rgba(23,75,172,0.45)]'
                     : 'border-[#E2E8F0] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(35,67,124,0.05)] hover:border-[#AFC4F6] hover:bg-gradient-to-br hover:from-[#EEF3FF] hover:to-[#F5F8FF] hover:shadow-[0_16px_45px_-26px_rgba(23,75,172,0.45)]'
@@ -69,7 +69,7 @@ export function LatestInsights() {
                   ↗
                 </button>
 
-                <div className="relative z-10 flex min-h-[168px] items-center justify-between gap-4">
+                <div className="relative z-10 flex min-h-[120px] items-center justify-between gap-4">
                   <h3 className="font-title text-3xl font-bold tracking-tight text-[#1863DC]">
                     {card.title}
                   </h3>
@@ -78,7 +78,9 @@ export function LatestInsights() {
                     <img
                       src={card.image}
                       alt={card.title}
-                      className="h-28 w-28 object-contain transition-all duration-500 opacity-65 group-hover:opacity-100 group-hover:scale-105"
+                      className={`h-64 w-64 object-contain transition-all duration-500 group-hover:opacity-100 group-hover:scale-105 ${
+                        card.active ? 'opacity-100' : 'opacity-90'
+                      }`}
                     />
                   </div>
                 </div>

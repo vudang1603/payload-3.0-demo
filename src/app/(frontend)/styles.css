@@ -12,8 +12,8 @@
   --text: #09090b;
   --text-muted: #52525b;
   
-  --primary: #B30B7E;
-  --primary-hover: #8C0962;
+  --primary: #C3099F;
+  --primary-hover: #9C077F;
   --primary-light: #fbebf7;
   
   --secondary: #5C1081;
@@ -1053,12 +1053,6 @@ body {
 /* Latest Insights / Blog Cards */
 .blog-section {
   padding: 4rem 0;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 2rem;
 }
 
 .card {

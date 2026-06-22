@@ -14,23 +14,30 @@ type Story = {
 const MOCK_STORIES: Story[] = [
   {
     id: 1,
-    image: '/images/report-cover-4.webp',
+    image: '/images/founder-mahi.webp',
     tag: "FOUNDER'S STORY",
-    quote: "ACT has been a true partner in every sense. From our very first interaction early on in our journey, their support has been consistent, thoughtful, and impactful. They've helped us across the board—from refining our pricing strategy and providing financial support, to opening doors through their network and simply being there whenever we faced a challenge.",
-    author: "Mahi Singh",
-    role: "Co-Founder - Cancrie (ACT For Environment)"
+    quote:
+      'ACT has been a true partner in every sense. From our very first interaction early on in our journey, their support has been consistent, thoughtful, and impactful.',
+    author: 'Mahi Singh',
+    role: 'Co-Founder - Cancrie',
   },
   {
     id: 2,
-    image: '/images/report-cover-4.webp',
-    tag: 'IMPACT STORY',
-    quote: 'We deploy strategic advisory and ecosystem networks to scale primary healthcare access, telemedicine, and rural health infrastructure to serve millions in remote districts.',
+    image: '/images/founder-manu.webp',
+    tag: "FOUNDER'S STORY",
+    quote:
+      'The ACT team has been among the most incredible supporters of Karya in our journey. From constantly connecting us to the most special mentors to giving us guidance on how we can do better, ACT has pushed to be a more impactful organisation.',
+    author: 'Manu Chopra',
+    role: 'Co-Founder - Karya',
   },
   {
     id: 3,
-    image: '/images/report-cover-4.webp',
-    tag: "PARTNER'S STORY",
-    quote: "Building collaborative groups focused on solving systemic social problems in education, healthcare, environment, and women's empowerment for lasting social equity.",
+    image: '/images/founder-ruchit.webp',
+    tag: "FOUNDER'S STORY",
+    quote:
+      'ACT For Health was one of our earliest champions from India. Their catalytic funding enabled us to rapidly scale our digital health platform to two additional states within a year.',
+    author: 'Ruchit Nagar',
+    role: 'Co-Founder - Khushi Baby',
   },
 ]
 
@@ -78,7 +85,8 @@ export const InteractiveStories: React.FC = () => {
           {/* Left Navigation Arrow */}
           <button
             onClick={prevStory}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-[#1863DC] hover:text-[#B30B7E] flex items-center justify-center cursor-pointer transition-all duration-200 z-20 shadow-lg hover:scale-105 active:scale-95"
+            type="button"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-[#5C1081] hover:text-[#B30B7E] flex items-center justify-center cursor-pointer transition-all duration-200 z-30 shadow-lg hover:scale-105 active:scale-95"
             aria-label="Previous story"
           >
             <svg
@@ -95,7 +103,8 @@ export const InteractiveStories: React.FC = () => {
           {/* Right Navigation Arrow */}
           <button
             onClick={nextStory}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-[#1863DC] hover:text-[#B30B7E] flex items-center justify-center cursor-pointer transition-all duration-200 z-20 shadow-lg hover:scale-105 active:scale-95"
+            type="button"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-[#5C1081] hover:text-[#B30B7E] flex items-center justify-center cursor-pointer transition-all duration-200 z-30 shadow-lg hover:scale-105 active:scale-95"
             aria-label="Next story"
           >
             <svg
@@ -110,15 +119,27 @@ export const InteractiveStories: React.FC = () => {
           </button>
 
           {/* Slide Text Content overlaid on top of image with arrow clearance */}
-          <div className="absolute bottom-0 inset-x-0 p-10 max-[640px]:p-6 z-20 flex flex-col items-start gap-3 text-left px-20 md:px-24 max-w-[90%]">
-            <span className="px-3 py-1 bg-white/15 border border-white/20 rounded-full text-[0.68rem] text-white font-bold tracking-widest uppercase backdrop-blur-sm">
-              {current.tag}
-            </span>
-            <p className="font-title text-lg md:text-xl font-semibold text-white leading-relaxed drop-shadow-sm select-none">
+          <div className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 text-center px-16 sm:px-24 md:px-32">
+            {current.author && (
+              <div className="flex flex-col gap-1">
+                <h3 className="font-title text-2xl md:text-4xl font-black text-white leading-tight drop-shadow-sm">
+                  {current.author}
+                </h3>
+                {current.role && (
+                  <p className="font-title text-base md:text-xl font-semibold text-white/90 drop-shadow-sm">
+                    {current.role}
+                  </p>
+                )}
+              </div>
+            )}
+            <p className="text-sm md:text-base font-medium text-white/85 leading-relaxed drop-shadow-sm select-none max-w-2xl font-body">
               &ldquo;{current.quote}&rdquo;
             </p>
-            <button className="btn btn-primary bg-gradient-to-r from-[#1863DC] to-[#B30B7E] hover:opacity-90 border-none text-white font-bold px-6 py-2.5 rounded-full text-sm transition-all mt-1" data-coming-soon>
-              Read More
+            <button
+              className="pointer-events-auto btn btn-primary bg-gradient-to-r from-[#1863DC] to-[#B30B7E] hover:opacity-90 border-none text-white font-bold px-6 py-2.5 rounded-full text-sm transition-all mt-1"
+              data-coming-soon
+            >
+              Read more
             </button>
           </div>
         </div>

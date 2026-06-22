@@ -409,8 +409,8 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({
               key={sec.id}
               className={`px-5 py-1.5 rounded-full text-sm font-semibold border transition-all duration-200 cursor-pointer ${
                 selectedSector === sec.id
-                  ? 'bg-[#3B82F6] border-[#3B82F6] text-white shadow-sm'
-                  : 'bg-white border-gray-300 text-gray-500 hover:border-[#3B82F6] hover:text-[#3B82F6]'
+                  ? 'bg-[#1863DC] border-[#1863DC] text-white shadow-sm'
+                  : 'bg-white border-gray-300 text-gray-500 hover:border-[#1863DC] hover:text-[#1863DC]'
               }`}
               onClick={() => setSelectedSector(sec.id)}
             >
@@ -443,7 +443,7 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({
                   href={item.website || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex items-center justify-center bg-white border border-gray-200 rounded-[16px] w-full p-3 transition-all duration-200 cursor-pointer overflow-hidden hover:border-[#3B82F6]"
+                  className="group relative flex items-center justify-center bg-white border border-gray-200 rounded-[16px] w-full p-3 transition-all duration-200 cursor-pointer overflow-hidden hover:border-[#1863DC]"
                   style={{ height: '80px' }}
                 >
                   {/* Default: logo */}
@@ -461,7 +461,7 @@ export const InteractivePortfolio: React.FC<InteractivePortfolioProps> = ({
                     )}
                   </div>
                   {/* Hover: blue bg + name */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-[#3B82F6] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <div className="absolute inset-0 flex items-center justify-center bg-[#1863DC] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                     <span className="font-title text-sm font-extrabold text-white tracking-wide text-center px-2">
                       {item.name}
                     </span>
