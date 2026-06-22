@@ -206,7 +206,7 @@ const mockPortfolios: PortfolioItem[] = [
     id: 'edu-7',
     name: 'Frontier Markets',
     sectors: 'education',
-    logo: '/images/company-logos/frontier-markets.png',
+    logo: '/images/company-logos/frontier-markets.jpg',
     website: '#',
   },
   {
